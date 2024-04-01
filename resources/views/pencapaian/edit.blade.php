@@ -9,7 +9,6 @@
             <div class="card-body">
                 <form class="form form-horizontal" method="POST" action="{{ route('pencapaian.update', $pencapaian->id) }}">
                     @csrf
-                    @method('PUT')
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
