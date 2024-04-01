@@ -68,8 +68,43 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-md-12">
-                                <div class="row">
+                            <div class="col-md-4">
+                                <label>Tahun</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="tahun" name="tahun"
+                                    class="form-control @error('tahun') is invalid @enderror" value="{{ old('tahun') }}"
+                                    placeholder="Tahun">
+                                @error('tahun')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                             <div class="col-md-4">
+                                <label>Kegiatan</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <select id="keg" name="keg" class="form-control @error('keg') is invalid @enderror">
+                                    <option value="" disabled selected>-- Pilih Kegiatan --</option>
+                                    <option value="Program" {{ old('keg') == 'program' ? 'selected' : '' }}>Program</option>
+                                    <option value="Sub Program" {{ old('keg') == 'subprogram' ? 'selected' : '' }}>Sub Program</option>
+                                </select>
+                                @error('keg')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div> 
+                            <div class="col-md-4">
+                                <label>Tahapan APBD</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <select id="apbd" name="apbd" class="form-control @error('apbd') is invalid @enderror">
+                                    <option value="" disabled selected>-- Tahapan APBD --</option>
+                                    <option value="Murni" {{ old('apbd') == 'murni' ? 'selected' : '' }}>Murni</option>
+                                    <option value="Pergeseran" {{ old('apbd') == 'pergeseran' ? 'selected' : '' }}>Pergeseran</option>
+                                </select>
+                                @error('apbd')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div> 
                                     <!-- Realisasi -->
                                     <!-- <div class="col-md-4">
                                         <label>Realisasi</label>

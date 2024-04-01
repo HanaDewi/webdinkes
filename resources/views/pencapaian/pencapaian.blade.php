@@ -152,6 +152,7 @@
                                         </td>
                                         <td>
                                         @if(auth()->user()->role == 'admin')
+                                        <a href="{{ route('pencapaian.edit', $pencapaian->id) }}" class="btn btn-primary">Edit</a>
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{$pencapaian->id}}">✔</button>
                                         @else
                                         <button type="submit" class="btn btn-success">✔</button>

@@ -28,10 +28,7 @@ class PencapaianController extends Controller
         $pencapaian->realisasi_akhir_2 = $total_realisasi;
     }
     // dd($pencapaians);
-    return view('pencapaian.pencapaian', compact('pencapaians','program','tahun', 'keg'));
-}
-
-
+    return view('pencapaian.pencapaian', compact('pencapaians','program','tahun','keg' ));}
 
     public function create()
     {
@@ -45,6 +42,9 @@ class PencapaianController extends Controller
             'program' => 'required|string',
             'indikator_kinerja' => 'required|string',
             'target' => 'required|numeric|max:100',
+            'tahun' => 'required|numeric', 
+            'keg' => 'required|string', 
+            'apbd' => 'required|string',
         ]);
     
         $validateData['realisasi_akhir'] = 0;
@@ -87,6 +87,9 @@ class PencapaianController extends Controller
             'indikator_kinerja' => 'required|string',
             'target' => 'required|numeric|max:100',
             'definisi_operasional' => 'required|string|max:1000',
+            'tahun' => 'required|numeric', 
+            'keg' => 'required|string', 
+            'apbd' => 'required|string',
             'realisasi_akhir'=>'required'
         ]);
     } else {
