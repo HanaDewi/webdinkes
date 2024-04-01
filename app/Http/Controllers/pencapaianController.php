@@ -12,6 +12,7 @@ class PencapaianController extends Controller
     $pencapaians = Pencapaian::all();
     $program = Pencapaian::select('program')->distinct()->get();
     $tahun = Pencapaian::selectRaw('tahun')->distinct()->get();
+    $keg = Pencapaian::select('keg')->distinct()->get();
     $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     $data_pencapaian = [];
@@ -27,7 +28,7 @@ class PencapaianController extends Controller
         $pencapaian->realisasi_akhir_2 = $total_realisasi;
     }
     // dd($pencapaians);
-    return view('pencapaian.pencapaian', compact('pencapaians','program','tahun'));
+    return view('pencapaian.pencapaian', compact('pencapaians','program','tahun', 'keg'));
 }
 
 
@@ -142,12 +143,12 @@ class PencapaianController extends Controller
 
     public function subprogram(Request $request)
     {
-        $pencapaians = Pencapaian::where('tahun','=', $request->tahun)->where('program','=',$request->program)->where('apbd','=',$request->apbd)->get();
-        $program = Pencapaian::select('program')->distinct()->get();
+        $pencapaians = Pencapaian::where('tahun','=', $request->tahun)->where('keg','=',$request->keg)->where('apbd','=',$request->apbd)->get();
+        $keg = Pencapaian::select('keg')->distinct()->get();
         $tahun = Pencapaian::select('tahun')->distinct()->get();
         $req_tahun = $request->tahun;
-        $req_program = $request->program;
-        return view('pencapaian.subprogram', compact('pencapaians','program','tahun','req_program','req_tahun'));
+        $req_keg = $request->keg;
+        return view('pencapaian.subprogram', compact('pencapaians','keg','tahun','req_keg','req_tahun'));
     }
     public function submit_user(Request $request, Pencapaian $pencapaian){
         $validateData = $request->validate([

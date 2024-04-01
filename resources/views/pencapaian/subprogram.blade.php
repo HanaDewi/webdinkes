@@ -26,14 +26,14 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     
-                    <select id="program" name="program" class="form-control ms-2" style="width: 150px;">
+                    <select id="keg" name="keg" class="form-control ms-2" style="width: 150px;">
                         <option value="" disabled selected>-- Program --</option>
-                        @foreach($program as $prog)
-                        <option value="{{$prog->program}}">{{$prog->program}}</option>
+                        @foreach($keg as $kegi)
+                        <option value="{{$kegi->keg}}">{{$kegi->keg}}</option>
                         @endforeach
                     </select>
                     
-                    @error('program')
+                    @error('keg')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     
