@@ -85,27 +85,27 @@ class PencapaianController extends Controller
             'program' => 'required|string',
             'indikator_kinerja' => 'required|string',
             'target' => 'required|numeric|max:100',
-            'definisi_operasional' => 'required|string|max:1000',
+            'definisi_operasional' => 'nullable|string|max:1000',
             'tahun' => 'required|numeric', 
             'keg' => 'required|string', 
             'apbd' => 'required|string',
-            'realisasi_akhir'=>'required'
+            'realisasi_akhir'=>'nullable'
         ]);
     } else {
         $validateData = $request->validate([
             'tipe' => 'required|string',
-            'realisasi_januari' => 'required|numeric',
-            'realisasi_februari' => 'required|numeric',
-            'realisasi_maret' => 'required|numeric',
-            'realisasi_april' => 'required|numeric',
-            'realisasi_mei' => 'required|numeric',
-            'realisasi_juni' => 'required|numeric',
-            'realisasi_juli' => 'required|numeric',
-            'realisasi_agustus' => 'required|numeric',
-            'realisasi_september' => 'required|numeric',
-            'realisasi_oktober' => 'required|numeric',
-            'realisasi_november' => 'required|numeric',
-            'realisasi_desember' => 'required|numeric',
+            'realisasi_januari' => 'nullable|numeric',
+            'realisasi_februari' => 'nullable|numeric',
+            'realisasi_maret' => 'nullable|numeric',
+            'realisasi_april' => 'nullable|numeric',
+            'realisasi_mei' => 'nullable|numeric',
+            'realisasi_juni' => 'nullable|numeric',
+            'realisasi_juli' => 'nullable|numeric',
+            'realisasi_agustus' => 'nullable|numeric',
+            'realisasi_september' => 'nullable|numeric',
+            'realisasi_oktober' => 'nullable|numeric',
+            'realisasi_november' => 'nullable|numeric',
+            'realisasi_desember' => 'nullable|numeric',
         ]);
         $realisasi_akhir = array_sum([
             $validateData['realisasi_januari'],
@@ -173,7 +173,25 @@ class PencapaianController extends Controller
             'realisasi_desember' => 'required|numeric',
             'definisi_operasional' => 'required|string'
         ]);
-        $pencapaian->update($validateData);
+        $realisasi_akhir = array_sum([
+            $validateData['realisasi_januari'],
+            $validateData['realisasi_februari'],
+            $validateData['realisasi_maret'],
+            $validateData['realisasi_april'],
+            $validateData['realisasi_mei'],
+            $validateData['realisasi_juni'],
+            $validateData['realisasi_juli'],
+            $validateData['realisasi_agustus'],
+            $validateData['realisasi_september'],
+            $validateData['realisasi_oktober'],
+            $validateData['realisasi_november'],
+            $validateData['realisasi_desember'],
+        ]);
+        if($realisasi_akhir>100){
+            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
+        }else{
+            $pencapaian->update($validateData);
+        }
         if ($pencapaian) {
             return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
         } else {
@@ -182,11 +200,14 @@ class PencapaianController extends Controller
     }
     public function submit_admin(Request $request, Pencapaian $pencapaian){
         $validateData = $request->validate([
-            'realisasi_akhir' => 'required|numeric',
+            'realisasi_akhir' => 'required',
             'komentar' => 'required|string',
         ]);
-        
-        $pencapaian->update($validateData);
+        if($request['realisasi_akhir']>100){
+            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
+        }else{
+            $pencapaian->update($validateData);
+        }
         if ($pencapaian) {
             return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
         } else {
@@ -194,3 +215,4 @@ class PencapaianController extends Controller
         }
     }
 }
+
