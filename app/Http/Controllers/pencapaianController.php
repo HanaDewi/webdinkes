@@ -10,7 +10,6 @@ class PencapaianController extends Controller
     public function pencapaian()
 {
     $pencapaians = Pencapaian::all();
-    $program = Pencapaian::select('program')->distinct()->get();
     $tahun = Pencapaian::selectRaw('tahun')->distinct()->get();
     $keg = Pencapaian::select('keg')->distinct()->get();
     $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -28,7 +27,7 @@ class PencapaianController extends Controller
         $pencapaian->realisasi_akhir_2 = $total_realisasi;
     }
     // dd($pencapaians);
-    return view('pencapaian.pencapaian', compact('pencapaians','program','tahun','keg' ));}
+    return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg' ));}
 
     public function create()
     {
@@ -134,8 +133,11 @@ class PencapaianController extends Controller
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
         }
     }
-    public function delete(Pencapaian $pencapaian)
+   
+    public function delete($id)
     {
+        $pencapaian = Pencapaian::find($id);
+        // dd($pencapaian);
         $pencapaian->delete();
         if ($pencapaian) {
             return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Menghapus Data');
@@ -143,6 +145,7 @@ class PencapaianController extends Controller
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Menghapus Data');
         }
     }
+
 
     public function subprogram(Request $request)
     {

@@ -7,8 +7,9 @@
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form class="form form-horizontal" method="POST" action="{{ route('pencapaian.update', $pencapaian->id) }}">
-                    @csrf
+            @foreach($pencapaian as $pen)
+                <form class="form form-horizontal" method="POST" action="{{ route('pencapaian.update', $id) }}">
+                @csrf
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -113,6 +114,7 @@
                         </div>
                     </div>
                 </form>
+                @endforeach
             </div>
         </div>
     </div>
