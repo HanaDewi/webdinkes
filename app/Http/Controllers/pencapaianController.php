@@ -171,7 +171,8 @@ class PencapaianController extends Controller
             'realisasi_oktober' => 'required|numeric',
             'realisasi_november' => 'required|numeric',
             'realisasi_desember' => 'required|numeric',
-            'definisi_operasional' => 'required|string'
+            'definisi_operasional' => 'required|string',
+            
         ]);
         $realisasi_akhir = array_sum([
             $validateData['realisasi_januari'],
@@ -214,5 +215,6 @@ class PencapaianController extends Controller
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
         }
     }
+    
 }
 

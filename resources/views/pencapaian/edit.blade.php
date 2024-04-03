@@ -18,7 +18,7 @@
                             <div class="col-md-8 form-group">
                                 <input type="text" id="kode" name="kode"
                                     class="form-control @error('kode') is invalid @enderror"
-                                    value="{{ old('kode') }}" placeholder="Kode">
+                                    value="{{ old('kode') ?? $pen ->kode }}" placeholder="Kode">
                                 @error('kode')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="program" name="program"
-                                    class="form-control @error('program') is invalid @enderror" value="{{ old('program') }}"
+                                    class="form-control @error('program') is invalid @enderror" value="{{ old('program') ?? $pen ->program }}"
                                     placeholder="Program">
                                 @error('program')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -40,7 +40,7 @@
                             <div class="col-md-8 form-group">
                                 <input type="text" id="indikator_kinerja" name="indikator_kinerja"
                                     class="form-control @error('indikator_kinerja') is invalid @enderror"
-                                    value="{{ old('indikator_kinerja') }}" placeholder="Indikator Kinerja">
+                                    value="{{ old('indikator_kinerja') ?? $pen ->indikator_kinerja }}" placeholder="Indikator Kinerja">
                                 @error('indikator_kinerja')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="target" name="target"
-                                    class="form-control @error('target') is invalid @enderror" value="{{ old('target') }}"
+                                    class="form-control @error('target') is invalid @enderror" value="{{ old('target') ?? $pen ->target }}"target
                                     placeholder="Target">
                                 @error('target')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -73,13 +73,15 @@
                                 <label>Tahun</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="tahun" name="tahun"
-                                    class="form-control @error('tahun') is invalid @enderror" value="{{ old('tahun') }}"
-                                    placeholder="Tahun">
+                                <select id="tahun" name="tahun" class="form-control @error('tahun') is invalid @enderror">
+                                    <option value="" disabled selected>-- Pilih Tahun --</option>
+                                    <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023</option>
+                                    <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024</option>
+                                </select>
                                 @error('tahun')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
+                            </div> 
                              <div class="col-md-4">
                                 <label>Kegiatan</label>
                             </div>

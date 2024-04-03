@@ -135,12 +135,12 @@
                                         <td><input type="type" name="realisasi_desember" class="w-50" value="{{$pencapaian->realisasi_desember}}">%</td>
                                         
                                         @if(auth()->user()->role == 'user')
-                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}">% 
+                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>% 
                                         @else
-                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}">% 
+                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}"readonly>% 
                                         @endif
                                         @if($pencapaian->realisasi_akhir != 0)
-                                            <button type="button" class="btn btn-success">✔</button>
+                                        <div class="text-success">verified</div>
                                         @endif
                                     </td>
                                         <td>
