@@ -27,7 +27,7 @@
                     @enderror
                     
                     <select id="keg" name="keg" class="form-control ms-2" style="width: 150px;">
-                        <option value="" disabled selected>-- Program --</option>
+                        <option value="" disabled selected>-- Capaian --</option>
                         @foreach($keg as $kegi)
                         <option value="{{$kegi->keg}}">{{$kegi->keg}}</option>
                         @endforeach

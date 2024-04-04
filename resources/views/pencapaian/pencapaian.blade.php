@@ -1,7 +1,6 @@
+
 @extends('kerangka.master')
-
 @section('content')
-
 <!-- Basic Tables start -->
 <section class="section">
     <div class="row" id="basic-table">
@@ -27,7 +26,7 @@
                     @enderror
                     
                     <select id="keg" name="keg" class="form-control ms-2" style="width: 150px;">
-                        <option value="" disabled selected>-- Program --</option>
+                        <option value="" disabled selected>-- Capaian --</option>
                         @foreach($keg as $kegi)
                         <option value="{{$kegi->keg}}">{{$kegi->keg}}</option>
                         @endforeach
@@ -49,7 +48,6 @@
                 </div>
                 </form>
                 
-
                 @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
@@ -192,4 +190,3 @@
     </section>
     <!-- Basic Tables end -->
     @endsection
-    
