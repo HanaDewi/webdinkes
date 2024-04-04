@@ -4,6 +4,7 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\pencapaianController;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\SinikimasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +44,6 @@ Route::get('pencapaians/{pencapaian}/delete', [pencapaianController::class, 'del
 
 Route::post('/submit/{pencapaian}/user',[pencapaianController::class,'submit_user'])->name('pencapaian.submit.user');
 Route::post('/submit/{pencapaian}/admin',[pencapaianController::class,'submit_admin'])->name('pencapaian.submit.admin');
+
+//sinikimas
+Route::get('/data-sinikimas', [SinikimasController::class, 'sinikimas'])->name('sinikimas.sinikimas');

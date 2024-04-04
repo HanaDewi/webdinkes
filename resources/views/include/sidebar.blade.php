@@ -41,19 +41,7 @@
                 <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
             </li>
             <li class="submenu-item ">
-                <a href="extra-component-sweetalert.html">Evaluasi Renja</a>
-            </li>
-            <li class="submenu-item ">
-                <a href="extra-component-toastify.html">Evaluasi Renstra</a>
-            </li>
-            <li class="submenu-item ">
-                <a href="extra-component-rating.html">Monitoring Kegiatan </a>
-            </li>
-            <li class="submenu-item ">
-                <a href="extra-component-divider.html">Capaian Kinerja dan Keuangan </a>
-            </li>
-            <li class="submenu-item ">
-                <a href="extra-component-divider.html">Kesesuaian Program</a>
+                <a href="extra-component-sweetalert.html">Sinikimas</a>
             </li>
         </ul>
     </li>
