@@ -41,7 +41,7 @@
                 <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
             </li>
             <li class="submenu-item ">
-                <a href="extra-component-sweetalert.html">Sinikimas</a>
+                <a href="{{ route('sinikimas.sinikimas') }}">Sinikimas</a>
             </li>
         </ul>
     </li>

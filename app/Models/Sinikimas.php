@@ -9,7 +9,7 @@ class Sinikimas extends Model
 {
     use HasFactory;
 
-    protected $table = "pencapaians";
+    protected $table = "sinikimas";
 
     protected $fillable = [
         'kode',
