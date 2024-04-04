@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class RealisasiProgramSeeder extends Seeder
+class ProgramSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $csvFile = fopen(base_path("database/data/realisasi_program.csv"), "r");
+        $csvFile = fopen(base_path("database/data/data_program.csv"), "r");
   
         $firstline = true;
         while (($data = fgetcsv($csvFile, 2000, ";")) !== FALSE) {

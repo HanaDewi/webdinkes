@@ -39,7 +39,7 @@ class PencapaianController extends Controller
         $validateData = $request->validate([
             'kode' => 'required|string',
             'program' => 'required|string',
-            'indikator_kinerja' => 'required|string',
+            'indikator_kinerja' => 'nullable|string',
             'target' => 'required|numeric|max:100',
             'tahun' => 'required|numeric', 
             'keg' => 'required|string', 
@@ -83,7 +83,7 @@ class PencapaianController extends Controller
         $validateData = $request->validate([
             'kode' => 'required|string',
             'program' => 'required|string',
-            'indikator_kinerja' => 'required|string',
+            'indikator_kinerja' => 'nullable|string',
             'target' => 'required|numeric|max:100',
             'definisi_operasional' => 'nullable|string|max:1000',
             'tahun' => 'required|numeric', 
