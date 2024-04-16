@@ -6,20 +6,27 @@
 <script src="{{ asset('template/assets/extensions/apexcharts/apexcharts.min.js')}}"></script>
 <script src="{{ asset('template/assets/js/pages/dashboard.js')}}"></script>
 <script>
-    function readMore(element) {
-        var dots = element.previousElementSibling.previousElementSibling;
-        var moreText = element.previousElementSibling;
-    
-        if (dots.style.display === 'none') {
-            dots.style.display = 'inline';
-            element.textContent = 'read more';
-            moreText.style.display = 'none';
-        } else {
-            dots.style.display = 'none';
-            element.textContent = 'read less';
-            moreText.style.display = 'inline';
-        }
+// JavaScript
+function readMore(button) {
+    var parentDiv = button.parentElement;
+    var shortText = parentDiv.querySelector('.short-text');
+    var dots = parentDiv.querySelector('.dots');
+    var longText = parentDiv.querySelector('.long-text');
+
+    // Toggle tampilan antara short-text dan long-text
+    if (shortText.style.display === "none") {
+        shortText.style.display = "inline";
+        dots.style.display = "inline";
+        longText.style.display = "none";
+        button.innerText = "read more";
+    } else {
+        shortText.style.display = "none";
+        dots.style.display = "none";
+        longText.style.display = "inline";
+        button.innerText = "read less";
     }
+}
+
     </script>
    <script>
     // Mendapatkan elemen-elemen yang diperlukan

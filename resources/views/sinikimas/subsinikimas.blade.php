@@ -1,6 +1,6 @@
+
 @extends('kerangka.master')
 @section('content')
-
 <!-- Basic Tables start -->
 <section class="section">
     <div class="row" id="basic-table">
@@ -13,8 +13,8 @@
                 @if(auth()->user()->role == 'admin')
                     <a class="btn btn-primary me-2" href="{{ route('sinikimas.create') }}" style="width: 170px;">Tambah</a>
                 @endif    
-                <form action="{{route('sinikimas.subsinikimas')}}" method="GET" class="d-flex">
-                    <select id="tahun" name="tahun" class="form-control  @error('tahun') is-invalid @enderror" style="width: 150px;">
+                <form action="{{route('sinikimas.subprogram')}}" method="GET" class="d-flex">
+                    <select id="tahun" name="tahun" class="form-control @error('tahun') is-invalid @enderror" style="width: 150px;">
                         <option value="" disabled selected>Tahun</option>
                         @foreach($tahun as $tah)    
                         <option value="{{$tah->tahun}}">{{$tah->tahun}}</option>
@@ -25,8 +25,8 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                         
-                    <select id="jenis_cakupan" name="jenis_cakupan" class="form-control ms-2 @error('jenis_cakupan') is-invalid @enderror" style="width: 150px;">
-                    <option value="" disabled selected>Jenis Cakupan</option>
+                    <select id="jenis_cakupan" name="jenis_cakupan" class="form-control @error('jenis_cakupan') is-invalid @enderror" style="width: 150px;">
+                    <option value="" disabled selected>-- Jenis Cakupan --</option>
                     @foreach($jenis_cakupan as $jcakupan)    
                     <option value="{{$jcakupan->jenis_cakupan}}">{{$jcakupan->jenis_cakupan}}</option>
                     @endforeach
@@ -37,7 +37,7 @@
                     @enderror
                     
                     <select id="jenis_indikator" name="jenis_indikator" class="form-control ms-2" style="width: 150px;">
-                        <option value="" disabled selected>Indikator</option>
+                        <option value="" disabled selected>-- Jenis Indikator --</option>
                         @foreach($jenis_indikator as $jindikator)
                         <option value="{{$jindikator->jenis_indikator}}">{{$jindikator->jenis_indikator}}</option>
                         @endforeach
@@ -48,7 +48,7 @@
                     @enderror
                     
                     <select id="jenis_subindikator" name="jenis_subindikator" class="form-control ms-2" style="width: 150px;">
-                        <option value="" disabled selected>Sub Indikator</option>
+                        <option value="" disabled selected>-- Jenis Indikator --</option>
                         @foreach($jenis_subindikator as $jsubindikator)
                         <option value="{{$jsubindikator->jenis_subindikator}}">{{$jsubindikator->jenis_subindikator}}</option>
                         @endforeach
@@ -59,6 +59,7 @@
                     @enderror
 
                     <button type="submit" class="btn btn-primary ms-2" style="width: 120px;">OKE PILIH</button>
+                </div>
                 </form>
                 
                 @if (session()->has('success'))
@@ -72,10 +73,3 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif 
-                </div>
-                </div> <!-- Penutup div.card -->
-            </div>
-        </div>
-    </section>
-    <!-- Basic Tables end -->
-@endsection

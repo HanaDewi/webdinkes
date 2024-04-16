@@ -105,13 +105,17 @@
                                         <td>
                                             <div class="indikator-kinerja">
                                                 @if (strlen($pencapaian->indikator_kinerja) > 50)
-                                                    {{ substr($pencapaian->indikator_kinerja, 0, 50) }}<span class="dots">...</span><span class="more" style="display: none;">{{ substr($pencapaian->definisi_operasional, 100) }}</span>
+                                                    <span class="short-text">{{ substr($pencapaian->indikator_kinerja, 0, 50) }}</span>
+                                                    <span class="dots">...</span>
+                                                    <span class="long-text" style="display: none;">{{ substr($pencapaian->indikator_kinerja, 50) }}</span>
                                                     <button onclick="readMore(this)" class="btn btn-link p-0 m-0 align-baseline">read more</button>
                                                 @else
-                                                    {{ $pencapaian->indikator_kinerja }}
+                                                    <span>{{ $pencapaian->indikator_kinerja }}</span>
                                                 @endif
                                             </div>
+                                            
                                         </td>
+                                        
                                         <td>
                                             <select name="tipe">
                                                 <option value="(+)Semakin Baik-(UMUM)">(+)Semakin Baik-(UMUM)</option>
@@ -133,7 +137,7 @@
                                         <td><input type="type" name="realisasi_desember" class="w-50" value="{{$pencapaian->realisasi_desember}}">%</td>
                                         <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}">% 
                                         @if($pencapaian->realisasi_akhir != 0)
-                                            <button type="button" class="btn btn-success">✔</button>
+                                            <div class="text-success">verified</div>
                                         @endif
                                     </td>
                                         <td>

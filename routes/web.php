@@ -47,3 +47,5 @@ Route::post('/submit/{pencapaian}/admin',[pencapaianController::class,'submit_ad
 
 //sinikimas
 Route::get('/data-sinikimas', [SinikimasController::class, 'sinikimas'])->name('sinikimas.sinikimas');
+Route::get('/create-sinikimas', [SinikimasController::class, 'create'])->name('sinikimas.create');
+Route::get('/subsinikimas', [SinikimasController::class, 'subsinikimas'])->name('sinikimas.subsinikimas');
