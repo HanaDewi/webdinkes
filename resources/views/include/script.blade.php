@@ -25,6 +25,7 @@ function readMore(button) {
         longText.style.display = "inline";
         button.innerText = "read less";
     }
+    event.preventDefault(); // Menahan perilaku default tautan
 }
 
     </script>
@@ -51,6 +52,7 @@ function readMore(button) {
         // Contoh:
         window.location.href = '/hasil-pilihan?tahun=' + tahunValue + '&program=' + programValue + '&apbd=' + apbdValue;
     });
+    
 </script>
         </script>
         

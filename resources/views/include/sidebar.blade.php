@@ -37,19 +37,18 @@
             <span>MONEV</span>
         </a>
         <ul class="submenu ">
+            @if(auth()->user()->role == 'admin' || auth()->user()->role == 'user')
             <li class="submenu-item ">
                 <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
             </li>
+            @endif
+            @if(auth()->user()->role == 'puskesmas')
             <li class="submenu-item ">
                 <a href="{{ route('sinikimas.sinikimas') }}">Sinikimas</a>
             </li>
+            @endif
         </ul>
     </li>
-    
-
-    
-    <li class="sidebar-title">Forms &amp; Tables</li>
-
     <li class="sidebar-item  ">
         @auth  
             <form action="{{ route('logout') }}" method="post">

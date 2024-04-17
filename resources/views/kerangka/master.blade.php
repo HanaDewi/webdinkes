@@ -19,8 +19,8 @@
             
 <div class="page-heading">
     @auth
-        @if(Auth::user()->role == 'admin')
-            <h3>Admin</h3>
+        @if(Auth::check())
+            <h3>{{ Auth::user()->name }}</h3>
         @endif
     @endauth
 </div>

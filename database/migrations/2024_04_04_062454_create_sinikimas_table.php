@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('upaya_kesehatan')->nullable();
             $table->string('kegiatan')->nullable();
             $table->string('satuan')->nullable();
-            $table->string('target_sasaran')->nullable();
+            $table->float('target_1')->nullable();
+            $table->float('target_2')->nullable();
+            $table->float('target_persen')->nullable();
+            $table->float('target_des')->nullable();
             $table->float('pencapaian')->nullable();
             $table->string('cakupan')->nullable();
             $table->float('nilai')->nullable();
-            $table->string('validasi')->nullable();
             $table->string('jenis_cakupan')->nullable();
             $table->string('jenis_indikator')->nullable();
             $table->string('jenis_subindikator')->nullable();

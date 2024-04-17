@@ -59,7 +59,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif  
-                <div class="card-content">
+                {{-- <div class="card-content">
                     <div class="card-body">
                         <!-- Table with no outer spacing -->
                         <div class="table-responsive">
@@ -191,6 +191,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Basic Tables end -->
     @endsection

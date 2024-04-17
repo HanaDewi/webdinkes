@@ -1,3 +1,42 @@
 ﻿nama;email;role;password
-mas admin;admin@admin.com;admin;123456
-mas user;user@user.com;user;123456
+Admin ;admin@admin.com;admin;123456
+Pencapaian;user@user.com;user;123456
+Admin Puskesmas;puskesmas@admin.com;admin puskesmas;puskesmas789
+Poncol;poncol@user.com;puskesmas;poncol789
+Miroto;miroto@user.com;puskesmas;miroto789
+Bandarharjo;bandarharjo@user.com;puskesmas;bandarharjo789
+Bulu Lor;bululor@user.com;puskesmas;bululor789
+Halmahera;halmahera@user.com;puskesmas;halmahera789
+Bugangan;bugangan@user.com;puskesmas;bugangan789
+Karangdoro;karangdoro@user.com;puskesmas;karangdoro789
+Pandanaran;pandanaran@user.com;puskesmas;pandanaran789
+Lamper Tengah;lampertengah@user.com;puskesmas;lampertengah789
+Karangayu;karangayu@user.com;puskesmas;karangayu789
+Lebdosari;lebdosari@user.com;puskesmas;lebdosari789
+Manyaran;manyaran@user.com;puskesmas;manyaran789
+Krobokan;krobokan@user.com;puskesmas;krobokan789
+Ngemplak Simongan;ngemplaksimongan@user.com;puskesmas;ngemplaksimongan789
+Gayamsari;gayamsari@user.com;puskesmas;gayamsari789
+Candilama;candilama@user.com;puskesmas;candilama789
+Kagok;kagok@user.com;puskesmas;kagok789
+Pegandan;pegandan@user.com;puskesmas;pegandan789
+Genuk;genuk@user.com;puskesmas;genuk789
+Bangetayu;bangetayu@user.com;puskesmas;bangetayu789
+Tlogosari Wetan;tlogosariwetan@user.com;puskesmas;tlogosariwetan789
+Tlogosari Kulon;tlogosarikulon@user.com;puskesmas;tlogosarikulon789
+Kedungmundu;kedungmundu@user.com;puskesmas;kedungmundu789
+Rowosari;rowosari@user.com;puskesmas;rowosari789
+Ngesrep;ngesrep@user.com;puskesmas;ngesrep789
+Padangsari;padangsari@user.com;puskesmas;padangsari789
+Srondol;srondol@user.com;puskesmas;srondol789
+Pudakpayung;pudakpayung@user.com;puskesmas;pudakpayung789
+Gunungpati;gunungpati@user.com;puskesmas;gunungpati789
+Mijen;mijen@user.com;puskesmas;mijen789
+Karangmalang;karangmalang@user.com;puskesmas;karangmalang789
+Tambakaji;tambakaji@user.com;puskesmas;tambakaji789
+Purwoyoso;purwoyoso@user.com;puskesmas;purwoyoso789
+Ngaliyan;ngaliyan@user.com;puskesmas;ngaliyan789
+Mangkang;mangkang@user.com;puskesmas;mangkang789
+Karanganyar;karanganyar@user.com;puskesmas;karanganyar789
+Sekaran;sekaran@user.com;puskesmas;sekaran789
+Plamongansari;plamongansari@user.com;puskesmas;plamongansari789
