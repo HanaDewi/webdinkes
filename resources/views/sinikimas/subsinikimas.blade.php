@@ -10,7 +10,7 @@
                     <h4 class="card-title">INPUT</h4>
                 </div>
                 <div class="d-flex justify-content-start align-items-center p-2">
-                @if(auth()->user()->role == 'admin')
+                @if(auth()->user()->role == 'admin puskesmas')
                     <a class="btn btn-primary me-2" href="{{ route('sinikimas.create') }}" style="width: 170px;">Tambah</a>
                 @endif    
                 <form action="{{route('sinikimas.subprogram')}}" method="GET" class="d-flex">

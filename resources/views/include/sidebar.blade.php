@@ -42,7 +42,7 @@
                 <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
             </li>
             @endif
-            @if(auth()->user()->role == 'puskesmas')
+            @if(auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas') 
             <li class="submenu-item ">
                 <a href="{{ route('sinikimas.sinikimas') }}">Sinikimas</a>
             </li>
