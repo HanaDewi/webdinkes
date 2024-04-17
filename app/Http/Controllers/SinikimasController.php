@@ -36,11 +36,11 @@ class SinikimasController extends Controller
             'pencapaian' => 'required|numeric', 
             'cakupan' => 'required|string',
             'nilai' => 'required|numeric',
-            'jenis_cakupan' => 'required|string',
-            'jenis_indikator' => 'required|string',
-            'jenis_subindikator' => 'required|string',
-            'tahun' => 'required|string',
-            'akun_puskesmas' => 'required|string',
+            'jenis_cakupan' => 'nullable|string',
+            'jenis_indikator' => 'nullable|string',
+            'jenis_subindikator' => 'nullable|string',
+            'tahun' => 'nullable|string',
+            'akun_puskesmas' => 'nullable|string',
         ]);
 
         $sinikimas = Sinikimas::create($validateData);
