@@ -12,7 +12,7 @@ class Sinikimas extends Model
     protected $table = "sinikimas";
 
     protected $fillable = [
-        'no',
+
         'upaya_kesehatan',
         'kegiatan',
         'satuan',

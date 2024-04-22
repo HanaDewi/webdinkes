@@ -47,7 +47,9 @@
                     <button type="submit" class="btn btn-primary ms-2" style="width: 120px;">OKE PILIH</button>
                 </div>
                 </form>
-                
+                <a href="#" id="download-pdf-btn" class="btn btn-primary ms-2 "style="width: 150px;">
+                    <i class="bi bi-download"></i> Unduh PDF
+                </a>
                 @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}

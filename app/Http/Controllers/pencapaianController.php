@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pencapaian;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class PencapaianController extends Controller
 {
@@ -26,6 +28,7 @@ class PencapaianController extends Controller
         $total_realisasi = array_sum($realisasi_bulanan);
         $pencapaian->realisasi_akhir_2 = $total_realisasi;
     }
+    
     // dd($pencapaians);
     return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg' ));}
 

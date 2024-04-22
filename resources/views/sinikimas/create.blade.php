@@ -11,7 +11,7 @@
                     @csrf
                     <div class="form-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <label>No</label>
                             </div>
                             <div class="col-md-8 form-group">
@@ -21,7 +21,7 @@
                                 @error('no')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
+                            </div> --}}
                             <div class="col-md-4">
                                 <label>Upaya Kesehatan</label>
                             </div>
@@ -77,17 +77,17 @@
                                      </thead>
                                      <tbody>
                                          <tr>
-                                             <td><input type="text" id="realisasi_januari" name="realisasi_januari"
-                                                     class="form-control @error('realisasi_januari') is-invalid @enderror"
-                                                     value="{{ old('realisasi_januari') }}" placeholder="" style="width:100%;">
+                                             <td><input type="text" id="target_1" name="target_1"
+                                                     class="form-control @error('target_1') is-invalid @enderror"
+                                                     value="{{ old('target_1') }}" placeholder="" style="width:100%;">
                                              </td>
-                                             <td><input type="text" id="realisasi_februari" name="realisasi_februari"
-                                                     class="form-control @error('realisasi_februari') is-invalid @enderror"
-                                                     value="{{ old('realisasi_februari') }}" placeholder="" style="width:100%;">
+                                             <td><input type="text" id="target_2" name="target_2"
+                                                     class="form-control @error('target_2') is-invalid @enderror"
+                                                     value="{{ old('target_2') }}" placeholder="" style="width:100%;">
                                              </td>
-                                             <td><input type="text" id="realisasi_maret" name="realisasi_maret"
-                                                     class="form-control @error('realisasi_maret') is-invalid @enderror"
-                                                     value="{{ old('realisasi_maret') }}" placeholder="" style="width:100%;">
+                                             <td><input type="text" id="target_persen" name="target_persen"
+                                                     class="form-control @error('target_persen') is-invalid @enderror"
+                                                     value="{{ old('target_persen') }}" placeholder="" style="width:100%;">
                                              </td>
                                          </tr>
                                          <tr>
@@ -97,9 +97,9 @@
                                             <th>Deskripsi</th>
                                         </tr>
                                         <tr>
-                                            <td><input type="text" id="realisasi_juli" name="realisasi_juli"
-                                                class="form-control @error('realisasi_juli') is invalid @enderror"
-                                                value="{{ old('realisasi_juli') }}" placeholder="" style="width:100%;">
+                                            <td><input type="text" id="target_des" name="target_des"
+                                                class="form-control @error('target_des') is invalid @enderror"
+                                                value="{{ old('target_des') }}" placeholder="Deskripsi" style="width:100%; ">
                                             </td>
                                         </tr>
                                      </tbody>
@@ -146,6 +146,39 @@
                                     class="form-control @error('jenis_cakupan') is-invalid @enderror"
                                     value="{{ old('jenis_cakupan') }}" placeholder="Jenis Cakupan">
                                 @error('jenis_cakupan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label>Jenis Indikator</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="jenis_indikator" name="jenis_indikator"
+                                    class="form-control @error('jenis_indikator') is-invalid @enderror"
+                                    value="{{ old('jenis_indikator') }}" placeholder="Jenis Indikator">
+                                @error('jenis_indikator')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label>Jenis Sub Indikator</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="jenis_subindikator" name="jenis_subindikator"
+                                    class="form-control @error('jenis_subindikator') is-invalid @enderror"
+                                    value="{{ old('jenis_subindikator') }}" placeholder="Jenis Sub Indikator">
+                                @error('jenis_subindikator')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
+                                <label>Tahun</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="tahun" name="tahun"
+                                    class="form-control @error('tahun') is-invalid @enderror"
+                                    value="{{ old('tahun') }}" placeholder="Tahun">
+                                @error('tahun')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
