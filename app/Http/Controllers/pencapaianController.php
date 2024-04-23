@@ -29,13 +29,15 @@ class PencapaianController extends Controller
         $pencapaian->realisasi_akhir_2 = $total_realisasi;
     }
 
-        if($request->get('export') == 'pdf' ){
-            $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians]);
-            return $pdf->download('data.pdf');
+    if($request->get('export') == 'pdf' ){
+        $filename = $request->tahun . '_' . $request->keg . '_' . $request->apbd . '.pdf';
+        $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
+        return $pdf->download($filename);
 
     }
     // dd($pencapaians);
-    return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg' ));}
+    return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg' ));
+}
 
     
     public function create()
@@ -157,7 +159,6 @@ class PencapaianController extends Controller
         }
     }
 
-
     public function subprogram(Request $request)
     {
         $pencapaians = Pencapaian::where('tahun','=', $request->tahun)->where('keg','=',$request->keg)->where('apbd','=',$request->apbd)->get();
@@ -169,11 +170,11 @@ class PencapaianController extends Controller
         
         if($request->get('export') == 'pdf' ){
             $filename = $request->tahun . '_' . $request->keg . '_' . $request->apbd . '.pdf';
-            $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians]);
+            $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
             return $pdf->download($filename);
     
         }
-        return view('pencapaian.subprogram', compact('pencapaians','keg','tahun','req_keg','req_tahun'));
+        return view('pencapaian.subprogram', compact('pencapaians','keg','tahun','req_keg','req_tahun' ,'req_apbd'));
     }
     public function submit_user(Request $request, Pencapaian $pencapaian){
         $validateData = $request->validate([
