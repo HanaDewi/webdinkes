@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pencapaian;
-use Dompdf\Dompdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class PencapaianController extends Controller
 {
-    public function pencapaian()
+    public function pencapaian(Request $request)
 {
     $pencapaians = Pencapaian::all();
     $tahun = Pencapaian::selectRaw('tahun')->distinct()->get();
@@ -28,49 +28,16 @@ class PencapaianController extends Controller
         $total_realisasi = array_sum($realisasi_bulanan);
         $pencapaian->realisasi_akhir_2 = $total_realisasi;
     }
-    dd($pencapaians);
+
+        if($request->get('export') == 'pdf' ){
+            $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians]);
+            return $pdf->download('data.pdf');
+
+    }
+    // dd($pencapaians);
     return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg' ));}
 
-    public function generatePDF()
-{
-    $pencapaians = Pencapaian::all();
-    $tahun = Pencapaian::selectRaw('tahun')->distinct()->get();
-    $keg = Pencapaian::select('keg')->distinct()->get();
-    $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    $data_pencapaian = [];
-    foreach ($pencapaians as $pencapaian) {
-        $realisasi_januari_desember = $pencapaian->toArray();
-        $realisasi_bulanan = [];
-        foreach (range(0, 11) as $bulan_index) {
-            $nama_bulan = $bulan_indonesia[$bulan_index];
-            $field = "realisasi_" . strtolower($nama_bulan);
-            $realisasi_bulanan[$nama_bulan] = $realisasi_bulanan[$nama_bulan] ?? 0 + $realisasi_januari_desember[$field];
-        }
-        $total_realisasi = array_sum($realisasi_bulanan);
-        $pencapaian->realisasi_akhir_2 = $total_realisasi;
-    }
-
-    // Render view to HTML
-    return view('pdf/export-pencapaian', compact('pencapaians', 'tahun', 'keg'))->render();
-
-    // Create new Dompdf instance
-    $dompdf = new Dompdf();
-
-    // Load HTML content
-    $dompdf->loadHtml($html);
-
-    // Set paper size and orientation
-    $dompdf->setPaper('A4', 'portrait');
-
-    // Render PDF (optional: you can also save to a file)
-    $dompdf->render();
-
-    // Output PDF to browser
-    return $dompdf->stream('pencapaian.pdf');
-}
-
-
+    
     public function create()
     {
         return view('pencapaian.create');
@@ -198,6 +165,14 @@ class PencapaianController extends Controller
         $tahun = Pencapaian::select('tahun')->distinct()->get();
         $req_tahun = $request->tahun;
         $req_keg = $request->keg;
+        $req_apbd = $request->apbd;
+        
+        if($request->get('export') == 'pdf' ){
+            $filename = $request->tahun . '_' . $request->keg . '_' . $request->apbd . '.pdf';
+            $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians]);
+            return $pdf->download($filename);
+    
+        }
         return view('pencapaian.subprogram', compact('pencapaians','keg','tahun','req_keg','req_tahun'));
     }
     public function submit_user(Request $request, Pencapaian $pencapaian){

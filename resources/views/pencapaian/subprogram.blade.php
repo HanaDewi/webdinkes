@@ -48,7 +48,7 @@
                     <button type="submit" class="btn btn-primary ms-2" style="width: 120px;">OKE PILIH</button>
                 </div>
                 </form>
-                <a href="{{ route('pencapaian.pdf') }}" class="btn btn-primary ms-2 "style="width: 150px;">
+                <a href="{{ route('pencapaian.subprogram') }}?export=pdf" class="btn btn-primary ms-2 "style="width: 150px;">
                     <i class="bi bi-download"></i> Unduh PDF
                 </a>   
 
