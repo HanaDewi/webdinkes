@@ -63,7 +63,7 @@
         <h2 style="text-align: center;">Realisasi Porgram</h2>
         <p>Tahun: {{ $tahun }}</p> 
         <p>Capaian: {{ $keg }}</p> 
-        <p>Tahapan APBD: {{ $apbd }}</p> 
+        {{-- <p>Tahapan APBD: {{ $apbd }}</p>  --}}
         <table>
             <tr>
                 <th width="5%" rowspan="2" class="center">No</th>
@@ -90,8 +90,9 @@
                 <th>November</th>
                 <th>Desember</th>
             </tr>
+            @foreach($pencapaians as $pencapaian => $data)
             <tr>
-                <td>{{ $index + 1 }}</td>
+                <td>{{ $pencapaian + 1 }}</td>
                 <td>{{ $data->kode }}</td>
                 <td>{{ $data->program }}</td>
                 <td>{{ $data->indikator }}</td>
@@ -99,7 +100,18 @@
                 <td>{{ $data->target }}</td>
                 <!-- Loop through realisasi data for each month -->
                 @foreach($data->realisasi as $realisasi)
-                    <td>{{ $realisasi }}</td>
+                <td>{{ $data->realisasi_maret }}</td>
+                <td>{{ $data->realisasi_april }}</td>
+                <td>{{ $data->realisasi_mei }}</td>
+                <td>{{ $data->realisasi_juni }}</td>
+                <td>{{ $data->realisasi_juli }}</td>
+                <td>{{ $data->realisasi_agustus }}</td>
+                <td>{{ $data->realisasi_september }}</td>
+                <td>{{ $data->realisasi_oktober }}</td>
+                <td>{{ $data->realisasi_november }}</td>
+                <td>{{ $data->realisasi_desember }}</td>
+                <td>{{ $data->realisasi_akhir }}</td>
+                <td>{{ $data->definisi_operasional }}</td>
                 @endforeach
                 <td>{{ $data->realisasi_akhir }}</td>
                 <td>{{ $data->definisi_operasional }}</td>

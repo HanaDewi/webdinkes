@@ -40,7 +40,8 @@ Route::post('/pencapaians', [pencapaianController::class, 'store'])->name('penca
 Route::get('/pencapaians/{pencapaian}/edit', [pencapaianController::class, 'edit'])->name('pencapaian.edit');
 Route::post('/pencapaians/{pencapaian}/update',[pencapaianController::class,'update'])->name('pencapaian.update');
 Route::get('pencapaians/{pencapaian}/delete', [pencapaianController::class, 'delete'])->name('pencapaian.delete');
-
+Route::get('export-pdf/{id}', [pencapaianController::class, 'exportPdf'])->name('export-pdf');
+Route::get('/pencapaian/pdf', [pencapaianController::class, 'generatePDF'])->name('pencapaian.pdf');
 
 Route::post('/submit/{pencapaian}/user',[pencapaianController::class,'submit_user'])->name('pencapaian.submit.user');
 Route::post('/submit/{pencapaian}/admin',[pencapaianController::class,'submit_admin'])->name('pencapaian.submit.admin');
