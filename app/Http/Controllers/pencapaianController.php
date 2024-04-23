@@ -31,7 +31,7 @@ class PencapaianController extends Controller
 
     if($request->get('export') == 'pdf' ){
         $filename = $request->tahun . '_' . $request->keg . '_' . $request->apbd . '.pdf';
-        $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
+        $pdf = Pdf::loadView('pdf.export-pencapaian', ['pencapaians' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
         return $pdf->download($filename);
 
     }
@@ -170,7 +170,7 @@ class PencapaianController extends Controller
         
         if($request->get('export') == 'pdf' ){
             $filename = $request->tahun . '_' . $request->keg . '_' . $request->apbd . '.pdf';
-            $pdf = Pdf::loadView('pdf.export-pencapaian', ['data' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
+            $pdf = Pdf::loadView('pdf.export-pencapaian', ['pencapaians' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
             return $pdf->download($filename);
     
         }
