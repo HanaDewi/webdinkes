@@ -1,3 +1,4 @@
+{{-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,7 @@
     </style>
 </head>
 <body>
+    <?php dd($pencapaians); ?>
     <h1>Data Pencapaian</h1>
     <table>
         <thead>
@@ -77,4 +79,4 @@
         </tbody>
     </table>
 </body>
-</html>
+</html> --}}

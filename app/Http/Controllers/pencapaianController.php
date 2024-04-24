@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pencapaian;
-use Barryvdh\DomPDF\Facade\Pdf;
+
 
 
 class PencapaianController extends Controller
@@ -14,6 +14,7 @@ class PencapaianController extends Controller
     $pencapaians = Pencapaian::all();
     $tahun = Pencapaian::selectRaw('tahun')->distinct()->get();
     $keg = Pencapaian::select('keg')->distinct()->get();
+    $apbd = Pencapaian::select('apbd')->distinct()->get();
     $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     $data_pencapaian = [];
@@ -29,24 +30,23 @@ class PencapaianController extends Controller
         $pencapaian->realisasi_akhir_2 = $total_realisasi;
     }
 
-    if($request->get('export') == 'pdf' ){
-        $filename = $request->tahun . '_' . $request->keg . '_' . $request->apbd . '.pdf';
-        $pdf = Pdf::loadView('pdf.export-pencapaian', ['pencapaians' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
-        return $pdf->download($filename);
-
-    }
     // dd($pencapaians);
-    return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg' ));
+    return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg','apbd' ));
 }
 
-    
+    public function exportPencapaian(){
+        return view('pdf.export-pencapaian');
+    }
+
+    public function exportPencapaianfilter($tahun, $keg, $apbd){
+        dd(["Tahun: ".$tahun, "Capaian: ".$keg, "Apbd: ".$apbd]);
+    }
+
     public function create()
     {
         return view('pencapaian.create');
     }
-
    
-
     public function store(Request $request)
     {
         $validateData = $request->validate([
@@ -164,16 +164,11 @@ class PencapaianController extends Controller
         $pencapaians = Pencapaian::where('tahun','=', $request->tahun)->where('keg','=',$request->keg)->where('apbd','=',$request->apbd)->get();
         $keg = Pencapaian::select('keg')->distinct()->get();
         $tahun = Pencapaian::select('tahun')->distinct()->get();
+        $apbd = Pencapaian::select('apbd')->distinct()->get();
         $req_tahun = $request->tahun;
         $req_keg = $request->keg;
         $req_apbd = $request->apbd;
         
-        if($request->get('export') == 'pdf' ){
-            $filename = $request->tahun . '_' . $request->keg . '_' . $request->apbd . '.pdf';
-            $pdf = Pdf::loadView('pdf.export-pencapaian', ['pencapaians' => $pencapaians, 'tahun' => $tahun, 'keg' => $keg]);
-            return $pdf->download($filename);
-    
-        }
         return view('pencapaian.subprogram', compact('pencapaians','keg','tahun','req_keg','req_tahun' ,'req_apbd'));
     }
     public function submit_user(Request $request, Pencapaian $pencapaian){
