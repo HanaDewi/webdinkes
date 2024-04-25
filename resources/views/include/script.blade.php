@@ -52,6 +52,8 @@ function readMore(button) {
         // Contoh:
         window.location.href = '/hasil-pilihan?tahun=' + tahunValue + '&program=' + programValue + '&apbd=' + apbdValue;
     });
+        
+    
     
 </script>
         </script>

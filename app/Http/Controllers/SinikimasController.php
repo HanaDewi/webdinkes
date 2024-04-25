@@ -58,37 +58,41 @@ class SinikimasController extends Controller
         if (!$sinikimas) {
             return redirect()->route('sinikimas.sinikimas')->with('failed', 'Data tidak ditemukan');
         }
-        return view('sinikimas.edit', compact('sinikimas'));
+        return view('sinikimas.edit', compact('sinikimas', 'id'));
     }
 
-    public function update(Request $request, Sinikimas $sinikimas)
+    public function update(Request $request, $id)
     {
-        if(auth()->user()->role == 'admin puskesmas') {
-        $validateData = $request->validate([
-            'upaya_kesehatan' => 'required|string',
-            'kegiatan' => 'required|string',
-            'satuan' => 'required|string',
-            'target_1' => 'required|numeric', 
-            'target_2' => 'required|numeric', 
-            'target_persen' => 'required|numeric', 
-            'target_des' => 'required|string', 
-            'pencapaian' => 'required|numeric', 
-            'cakupan' => 'required|string',
-            'nilai' => 'required|numeric',
-            'jenis_cakupan' => 'nullable|string',
-            'jenis_indikator' => 'nullable|string',
-            'jenis_subindikator' => 'nullable|string',
-            'tahun' => 'nullable|string',
-            'akun_puskesmas' => 'nullable|string',
-        ]);
-    }
-        if ($sinikimas) {
-            return redirect()->route('sinikimas.sinikimas')->with('success', 'Berhasil Update Data');
-        } else {
-            return redirect()->route('sinikimas.sinikimas')->with('failed', 'Gagal Update Data');
+        if (auth()->user()->role == 'admin puskesmas') {
+            $validateData = $request->validate([
+                'upaya_kesehatan' => 'required|string',
+                'kegiatan' => 'required|string',
+                'satuan' => 'required|string',
+                'target_1' => 'required|numeric', 
+                'target_2' => 'required|numeric', 
+                'target_persen' => 'required|numeric', 
+                'target_des' => 'required|string', 
+                'pencapaian' => 'required|numeric', 
+                'cakupan' => 'required|string',
+                'nilai' => 'required|numeric',
+                'jenis_cakupan' => 'nullable|string',
+                'jenis_indikator' => 'nullable|string',
+                'jenis_subindikator' => 'nullable|string',
+                'tahun' => 'nullable|string',
+                'akun_puskesmas' => 'nullable|string',
+            ]);
         }
+        
+        // Cari data yang akan diperbarui
+        $sinikimas = Sinikimas::find($id);
+        if (!$sinikimas) {
+            return redirect()->route('sinikimas.sinikimas')->with('failed', 'Data tidak ditemukan');
+        }
+        // Update data
+        $sinikimas->update($validateData);
+        return redirect()->route('sinikimas.sinikimas')->with('success', 'Berhasil Update Data');
     }
-
+    
     public function delete($id)
     {
         $sinikimas = Sinikimas::find($id);

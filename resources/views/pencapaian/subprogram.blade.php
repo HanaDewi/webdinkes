@@ -48,10 +48,9 @@
                     <button type="submit" class="btn btn-primary ms-2" style="width: 120px;">OKE PILIH</button>
                 </div>
                 </form>
-                <a href="" onclick="this.href='/export-data-filter/' + document.getElementById('tahun').value + '/' + document.getElementById('keg').value + '/' + document.getElementById('apbd').value" class="btn btn-primary ms-2" style="width: 150px;">
-                    <i class="fas fa-print"></i> Unduh PDF
-                </a>
-                                  
+                <a href="{{ route('pencapaian.export-data-pencapaian') }}" class="btn btn-primary ms-2 "style="width: 150px;">
+                    <i class="bi bi-download"></i> Unduh PDF
+                </a>           
 
                 @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -192,4 +191,5 @@
     </section>
     <!-- Basic Tables end -->
     @endsection
+   
     
