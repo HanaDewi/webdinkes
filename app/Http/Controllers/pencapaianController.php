@@ -71,23 +71,24 @@ class PencapaianController extends Controller
 
     public function edit($id)
     {
-        $pencapaian = Pencapaian::where('id','=',$id)->firstOrFail();
+        $pencapaian = Pencapaian::where('id','=',$id)->get();
         $total_akhir = array_sum([
-            $pencapaian->realisasi_januari ?? 0,
-            $pencapaian->realisasi_februari ?? 0,
-            $pencapaian->realisasi_maret ?? 0,
-            $pencapaian->realisasi_april ?? 0,
-            $pencapaian->realisasi_mei ?? 0,
-            $pencapaian->realisasi_juni ?? 0,
-            $pencapaian->realisasi_juli ?? 0,
-            $pencapaian->realisasi_agustus ?? 0,
-            $pencapaian->realisasi_september ?? 0,
-            $pencapaian->realisasi_oktober ?? 0,
-            $pencapaian->realisasi_november ?? 0,
-            $pencapaian->realisasi_desember ?? 0,
+            $pencapaian[0]['realisasi_januari'],
+            $pencapaian[0]['realisasi_februari'],
+            $pencapaian[0]['realisasi_maret'],
+            $pencapaian[0]['realisasi_april'],
+            $pencapaian[0]['realisasi_mei'],
+            $pencapaian[0]['realisasi_juni'],
+            $pencapaian[0]['realisasi_juli'],
+            $pencapaian[0]['realisasi_agustus'],
+            $pencapaian[0]['realisasi_september'],
+            $pencapaian[0]['realisasi_oktober'],
+            $pencapaian[0]['realisasi_november'],
+            $pencapaian[0]['realisasi_desember'],
         ]);
         return view('pencapaian.edit', compact('pencapaian','id','total_akhir'));
     }
+
     
     public function update(Request $request, Pencapaian $pencapaian)
     {

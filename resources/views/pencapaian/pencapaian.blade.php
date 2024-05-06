@@ -126,24 +126,27 @@
                                         <td>
                                             @if($pencapaian->realisasi_januari)
                                                 {{ $pencapaian->realisasi_januari }}%
+                                                <input type="hidden" name="realisasi_januari" value="{{ $pencapaian->realisasi_januari }}">
                                             @else
                                                 <input type="text" name="realisasi_januari" class="w-50" value="" placeholder="">
-                                            @endif
+                                            @endif
                                         </td>
                                         <td>
                                             @if($pencapaian->realisasi_februari)
                                                 {{ $pencapaian->realisasi_februari }}%
+                                                <input type="hidden" name="realisasi_februari" value="{{ $pencapaian->realisasi_februari }}">
                                             @else
                                                 <input type="text" name="realisasi_februari" class="w-50" value="" placeholder="">
-                                            @endif
-                                        </td>                                        
+                                            @endif
+                                        </td>                                       
                                         <td>
                                             @if($pencapaian->realisasi_maret)
                                                 {{ $pencapaian->realisasi_maret }}%
+                                                <input type="hidden" name="realisasi_maret" value="{{ $pencapaian->realisasi_maret }}">
                                             @else
                                                 <input type="text" name="realisasi_maret" class="w-50" value="" placeholder="">
-                                            @endif
-                                        </td>                                           
+                                            @endif
+                                        </td>                                       
                                         <td>
                                             @if($pencapaian->realisasi_april)
                                                 {{ $pencapaian->realisasi_april }}%
