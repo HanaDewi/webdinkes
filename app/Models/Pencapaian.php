@@ -30,11 +30,12 @@ class Pencapaian extends Model
         'realisasi_november',
         'realisasi_desember',
         'realisasi_akhir',
-        'definisi_operasional',
+        'catatan',
         'tahun',
         'keg',
         'apbd',
         'komentar',
+        'bidang',
     ];
 
 }

@@ -110,14 +110,21 @@
                                         <td>{{ $sinikimas->target_des }}</td>
                                         <td>{{ $sinikimas->pencapaian }}</td>
                                         <td>{{ $sinikimas->cakupan }}</td>
-                                        <td>{{ $sinikimas->nilai }}</td>
+                                        <td>
+                                            <div class="nilai">
+                                                <input type="text" name="nilai" value="{{$sinikimas->nilai}}">
+                                                <label>Catatan :</label>
+                                                <label>{{$sinikimas->komentar}}</label>
+                                            </div>
+                                        </td>
+                                        
                                         <td>
                                             @if(auth()->user()->role == 'admin puskesmas')
-                                            <div class="con d-flex">
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{$sinikimas->id}}">✔</button>
-                                            <a class="btn btn-warning mx-1" href="{{ route('sinikimas.edit', $sinikimas->id) }}">Update</a>
-                                            <a class="btn btn-danger" href="{{ route('sinikimas.delete', $sinikimas->id) }}">Delete</a>
-                                            </div>
+                                                <div class="con d-flex">
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{$sinikimas->id}}">✔</button>
+                                                    <a class="btn btn-warning mx-1" href="{{ route('sinikimas.edit', $sinikimas->id) }}">Update</a>
+                                                    <a class="btn btn-danger" href="{{ route('sinikimas.delete', $sinikimas->id) }}">Delete</a>
+                                                </div>
                                             @else
                                             <button type="submit" class="btn btn-success">✔</button>
                                             @endif
@@ -138,10 +145,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>    
+                                        </form>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

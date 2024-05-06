@@ -1,7 +1,5 @@
 @extends('kerangka.master')
-
 @section('content')
-
 <!-- Basic Tables start -->
 <section class="section">
     <div class="row" id="basic-table">
@@ -50,8 +48,7 @@
                 </form>
                 <a href="{{ route('pencapaian.export-data-pencapaian') }}" class="btn btn-primary ms-2 "style="width: 150px;">
                     <i class="bi bi-download"></i> Unduh PDF
-                </a>           
-
+                </a>
                 @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
@@ -88,20 +85,21 @@
                                         <th>Realisasi November</th>
                                         <th>Realisasi Desember</th>
                                         <th>Realisasi Akhir</th>
-                                        <th>Definisi Operasional</th>
-                                        <th>Action</th>
+                                        <th>Catatan</th>
+                                        <th>Submit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($pencapaians as $pencapaian)
                                     @if(auth()->user()->role == 'user')
                                     <form action="{{route('pencapaian.submit.user',$pencapaian->id)}}" method="POST">
+                                    @csrf
                                     @else
                                     <form action="{{route('pencapaian.submit.admin',$pencapaian->id)}}" method="POST">
-                                    @endif
                                     @csrf
+                                    @endif
+                                    
                                     <tr>
-                                        
                                         <td>{{ $pencapaian->kode }}</td>
                                         <td>{{ $pencapaian->program }}</td>
                                         <td>
@@ -137,18 +135,25 @@
                                         <td><input type="type" name="realisasi_oktober" class="w-50" value="{{$pencapaian->realisasi_oktober}}">%</td>
                                         <td><input type="type" name="realisasi_november" class="w-50" value="{{$pencapaian->realisasi_november}}">%</td>
                                         <td><input type="type" name="realisasi_desember" class="w-50" value="{{$pencapaian->realisasi_desember}}">%</td>
-                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}">% 
+
+                                        
+                                        
+                                        @if(auth()->user()->role == 'user')
+                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>% 
+                                        @else
+                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}"readonly>% 
+                                        @endif
                                         @if($pencapaian->realisasi_akhir != 0)
-                                            <div class="text-success">verified</div>
+                                            <div class="text-success"></div>
                                         @endif
                                     </td>
-                                        <td>
-                                            <div class="definisi-operasional">
-                                                <input type="text" name="definisi_operasional" value="{{$pencapaian->definisi_operasional}}">
-                                                <label>Catatan :</label>
-                                                <label>{{$pencapaian->komentar}}</label>
-                                            </div>
-                                        </td>
+                                    <td>
+                                        <div class="catatan">
+                                            <label></label>
+                                            <label>{{ $pencapaian->komentar }}</label>
+                                        </div>
+                                    </td>
+                                    
                                         <td>
                                             @if(auth()->user()->role == 'admin')
                                             <div class="con d-flex">
@@ -180,6 +185,7 @@
                                         </td>
                                         </tr>
                                         @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -191,5 +197,3 @@
     </section>
     <!-- Basic Tables end -->
     @endsection
-   
-    

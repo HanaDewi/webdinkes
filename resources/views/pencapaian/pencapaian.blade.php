@@ -1,4 +1,3 @@
-
 @extends('kerangka.master')
 @section('content')
 <!-- Basic Tables start -->
@@ -86,8 +85,8 @@
                                         <th>Realisasi November</th>
                                         <th>Realisasi Desember</th>
                                         <th>Realisasi Akhir</th>
-                                        <th>Definisi Operasional</th>
-                                        <th>Action</th>
+                                        <th>Catatan</th>
+                                        <th>Submit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -101,7 +100,6 @@
                                     @endif
                                     
                                     <tr>
-                                        
                                         <td>{{ $pencapaian->kode }}</td>
                                         <td>{{ $pencapaian->program }}</td>
                                         <td>
@@ -125,18 +123,97 @@
                                             </select>
                                         </td>
                                         <td>{{ $pencapaian->target }}%</td>
-                                        <td><input type="type" name="realisasi_januari" class="w-50" value="{{$pencapaian->realisasi_januari}}">%</td>
-                                        <td><input type="type" name="realisasi_februari" class="w-50" value="{{$pencapaian->realisasi_februari}}">%</td>
-                                        <td><input type="type" name="realisasi_maret" class="w-50" value="{{$pencapaian->realisasi_maret}}">%</td>
-                                        <td><input type="type" name="realisasi_april" class="w-50" value="{{$pencapaian->realisasi_april}}">%</td>
-                                        <td><input type="type" name="realisasi_mei" class="w-50" value="{{$pencapaian->realisasi_mei}}">%</td>
-                                        <td><input type="type" name="realisasi_juni" class="w-50" value="{{$pencapaian->realisasi_juni}}">%</td>
-                                        <td><input type="type" name="realisasi_juli" class="w-50" value="{{$pencapaian->realisasi_juli}}">%</td>
-                                        <td><input type="type" name="realisasi_agustus" class="w-50" value="{{$pencapaian->realisasi_agustus}}">%</td>
-                                        <td><input type="type" name="realisasi_september" class="w-50" value="{{$pencapaian->realisasi_september}}">%</td>
-                                        <td><input type="type" name="realisasi_oktober" class="w-50" value="{{$pencapaian->realisasi_oktober}}">%</td>
-                                        <td><input type="type" name="realisasi_november" class="w-50" value="{{$pencapaian->realisasi_november}}">%</td>
-                                        <td><input type="type" name="realisasi_desember" class="w-50" value="{{$pencapaian->realisasi_desember}}">%</td>
+                                        <td>
+                                            @if($pencapaian->realisasi_januari)
+                                                {{ $pencapaian->realisasi_januari }}%
+                                            @else
+                                                <input type="text" name="realisasi_januari" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($pencapaian->realisasi_februari)
+                                                {{ $pencapaian->realisasi_februari }}%
+                                            @else
+                                                <input type="text" name="realisasi_februari" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>                                        
+                                        <td>
+                                            @if($pencapaian->realisasi_maret)
+                                                {{ $pencapaian->realisasi_maret }}%
+                                            @else
+                                                <input type="text" name="realisasi_maret" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>                                           
+                                        <td>
+                                            @if($pencapaian->realisasi_april)
+                                                {{ $pencapaian->realisasi_april }}%
+                                            @else
+                                                <input type="text" name="realisasi_april" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>                                           
+                                        <td>
+                                            @if($pencapaian->realisasi_mei)
+                                                {{ $pencapaian->realisasi_mei }}%
+                                            @else
+                                                <input type="text" name="realisasi_mei" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>                                           
+                                        <td>
+                                            @if($pencapaian->realisasi_juni)
+                                                {{ $pencapaian->realisasi_juni }}%
+                                            @else
+                                                <input type="text" name="realisasi_juni" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        
+                                        <td>
+                                            @if($pencapaian->realisasi_juli)
+                                                {{ $pencapaian->realisasi_juli }}%
+                                            @else
+                                                <input type="text" name="realisasi_juli" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        
+                                        <td>
+                                            @if($pencapaian->realisasi_agustus)
+                                                {{ $pencapaian->realisasi_agustus }}%
+                                            @else
+                                                <input type="text" name="realisasi_agustus" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        
+                                        <td>
+                                            @if($pencapaian->realisasi_september)
+                                                {{ $pencapaian->realisasi_september }}%
+                                            @else
+                                                <input type="text" name="realisasi_september" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        
+                                        <td>
+                                            @if($pencapaian->realisasi_oktober)
+                                                {{ $pencapaian->realisasi_oktober }}%
+                                            @else
+                                                <input type="text" name="realisasi_oktober" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        
+                                        <td>
+                                            @if($pencapaian->realisasi_november)
+                                                {{ $pencapaian->realisasi_november }}%
+                                            @else
+                                                <input type="text" name="realisasi_november" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        
+                                        <td>
+                                            @if($pencapaian->realisasi_desember)
+                                                {{ $pencapaian->realisasi_desember }}%
+                                            @else
+                                                <input type="text" name="realisasi_desember" class="w-50" value="" placeholder="">
+                                            @endif
+                                        </td>
+                                        
                                         
                                         @if(auth()->user()->role == 'user')
                                         <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>% 
@@ -144,16 +221,16 @@
                                         <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}"readonly>% 
                                         @endif
                                         @if($pencapaian->realisasi_akhir != 0)
-                                            <div class="text-success">verified</div>
+                                            <div class="text-success"></div>
                                         @endif
                                     </td>
-                                        <td>
-                                            <div class="definisi-operasional">
-                                                <input type="text" name="definisi_operasional" value="{{$pencapaian->definisi_operasional}}">
-                                                <label>Catatan :</label>
-                                                <label>{{$pencapaian->komentar}}</label>
-                                            </div>
-                                        </td>
+                                    <td>
+                                        <div class="catatan">
+                                            <label></label>
+                                            <label>{{ $pencapaian->komentar }}</label>
+                                        </div>
+                                    </td>
+                                    
                                         <td>
                                             @if(auth()->user()->role == 'admin')
                                             <div class="con d-flex">
@@ -185,6 +262,7 @@
                                         </td>
                                         </tr>
                                         @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>
