@@ -105,6 +105,7 @@ class PencapaianController extends Controller
             'apbd' => 'required|string',
             'realisasi_akhir'=>'nullable'
         ]);
+        $pencapaian->update($validateData);
     } else {
         $validateData = $request->validate([
             'tipe' => 'required|string',
