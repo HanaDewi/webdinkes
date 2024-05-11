@@ -46,7 +46,7 @@ class PencapaianController extends Controller
     {
         return view('pencapaian.create');
     }
-   
+
     public function store(Request $request)
     {
         $validateData = $request->validate([
@@ -54,11 +54,11 @@ class PencapaianController extends Controller
             'program' => 'required|string',
             'indikator_kinerja' => 'nullable|string',
             'target' => 'required|numeric|max:100',
-            'tahun' => 'required|numeric', 
-            'keg' => 'required|string', 
+            'tahun' => 'required|numeric',
+            'keg' => 'required|string',
             'apbd' => 'required|string',
         ]);
-    
+
         $validateData['realisasi_akhir'] = 0;
 
         $pencapaian = Pencapaian::create($validateData);
@@ -89,66 +89,83 @@ class PencapaianController extends Controller
         return view('pencapaian.edit', compact('pencapaian','id','total_akhir'));
     }
 
-    
+
     public function update(Request $request, Pencapaian $pencapaian)
     {
-        $realisasi_akhir = "";
-        if(auth()->user()->role == 'admin') {
-        $validateData = $request->validate([
-            'kode' => 'required|string',
-            'program' => 'required|string',
-            'indikator_kinerja' => 'nullable|string',
-            'target' => 'required|numeric|max:100',
-            'catatan' => 'nullable|string|max:1000',
-            'tahun' => 'required|numeric', 
-            'keg' => 'required|string', 
-            'apbd' => 'required|string',
-            'realisasi_akhir'=>'nullable'
-        ]);
-        $pencapaian->update($validateData);
-    } else {
-        $validateData = $request->validate([
-            'tipe' => 'required|string',
-            'realisasi_januari' => 'nullable|numeric',
-            'realisasi_februari' => 'nullable|numeric',
-            'realisasi_maret' => 'nullable|numeric',
-            'realisasi_april' => 'nullable|numeric',
-            'realisasi_mei' => 'nullable|numeric',
-            'realisasi_juni' => 'nullable|numeric',
-            'realisasi_juli' => 'nullable|numeric',
-            'realisasi_agustus' => 'nullable|numeric',
-            'realisasi_september' => 'nullable|numeric',
-            'realisasi_oktober' => 'nullable|numeric',
-            'realisasi_november' => 'nullable|numeric',
-            'realisasi_desember' => 'nullable|numeric',
-        ]);
-        $realisasi_akhir = array_sum([
-            $validateData['realisasi_januari'],
-            $validateData['realisasi_februari'],
-            $validateData['realisasi_maret'],
-            $validateData['realisasi_april'],
-            $validateData['realisasi_mei'],
-            $validateData['realisasi_juni'],
-            $validateData['realisasi_juli'],
-            $validateData['realisasi_agustus'],
-            $validateData['realisasi_september'],
-            $validateData['realisasi_oktober'],
-            $validateData['realisasi_november'],
-            $validateData['realisasi_desember'],
-        ]);
-    }
-        if($realisasi_akhir>100){
-            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Target melebihi 100');
-        }else{
-            $pencapaian->update($validateData);
+        $realisasi_akhir = 0; // Inisialisasi variabel realisasi_akhir
+
+        if (auth()->user()->role == 'admin') {
+            $validateData = $request->validate([
+                'kode' => 'required|string',
+                'tipe' => 'required|string',
+                'program' => 'required|string',
+                'indikator_kinerja' => 'nullable|string',
+                'target' => 'required|numeric|max:100',
+                'catatan' => 'nullable|string|max:1000',
+                'tahun' => 'required|numeric',
+                'keg' => 'required|string',
+                'apbd' => 'required|string',
+                'realisasi_akhir'=>'nullable',
+                'realisasi_januari' => 'nullable|numeric',
+                'realisasi_februari' => 'nullable|numeric',
+                'realisasi_maret' => 'nullable|numeric',
+                'realisasi_april' => 'nullable|numeric',
+                'realisasi_mei' => 'nullable|numeric',
+                'realisasi_juni' => 'nullable|numeric',
+                'realisasi_juli' => 'nullable|numeric',
+                'realisasi_agustus' => 'nullable|numeric',
+                'realisasi_september' => 'nullable|numeric',
+                'realisasi_oktober' => 'nullable|numeric',
+                'realisasi_november' => 'nullable|numeric',
+                'realisasi_desember' => 'nullable|numeric',
+            ]);
+        } else {
+            $validateData = $request->validate([
+                'tipe' => 'required|string',
+                'realisasi_januari' => 'nullable|numeric',
+                'realisasi_februari' => 'nullable|numeric',
+                'realisasi_maret' => 'nullable|numeric',
+                'realisasi_april' => 'nullable|numeric',
+                'realisasi_mei' => 'nullable|numeric',
+                'realisasi_juni' => 'nullable|numeric',
+                'realisasi_juli' => 'nullable|numeric',
+                'realisasi_agustus' => 'nullable|numeric',
+                'realisasi_september' => 'nullable|numeric',
+                'realisasi_oktober' => 'nullable|numeric',
+                'realisasi_november' => 'nullable|numeric',
+                'realisasi_desember' => 'nullable|numeric',
+            ]);
+            $realisasi_akhir = array_sum([
+                $validateData['realisasi_januari'],
+                $validateData['realisasi_februari'],
+                $validateData['realisasi_maret'],
+                $validateData['realisasi_april'],
+                $validateData['realisasi_mei'],
+                $validateData['realisasi_juni'],
+                $validateData['realisasi_juli'],
+                $validateData['realisasi_agustus'],
+                $validateData['realisasi_september'],
+                $validateData['realisasi_oktober'],
+                $validateData['realisasi_november'],
+                $validateData['realisasi_desember'],
+            ]);
         }
+
+        // Melakukan validasi jika realisasi_akhir melebihi 100
+        if ($realisasi_akhir > 100) {
+            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Target melebihi 100');
+        }
+
+        $pencapaian->update($validateData); // Melakukan pembaruan pencapaian setelah semua validasi selesai dilakukan
+
         if ($pencapaian) {
             return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
         } else {
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
         }
+
     }
-   
+
     public function delete($id)
     {
         $pencapaian = Pencapaian::find($id);
@@ -170,7 +187,7 @@ class PencapaianController extends Controller
         $req_tahun = $request->tahun;
         $req_keg = $request->keg;
         $req_apbd = $request->apbd;
-        
+
         return view('pencapaian.subprogram', compact('pencapaians','keg','tahun','req_keg','req_tahun' ,'req_apbd'));
     }
     public function submit_user(Request $request, Pencapaian $pencapaian){
@@ -189,8 +206,8 @@ class PencapaianController extends Controller
             'realisasi_november' => 'nullable|numeric',
             'realisasi_desember' => 'nullable|numeric',
         ]);
-        
-        
+
+
         $realisasi_akhir = array_sum([
             $validateData['realisasi_januari'],
             $validateData['realisasi_februari'],
@@ -205,7 +222,7 @@ class PencapaianController extends Controller
             $validateData['realisasi_november'],
             $validateData['realisasi_desember'],
         ]);
-        
+
         if($realisasi_akhir>100){
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
         }else{
@@ -233,6 +250,6 @@ class PencapaianController extends Controller
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
         }
     }
-    
+
 }
 

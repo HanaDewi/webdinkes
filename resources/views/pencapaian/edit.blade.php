@@ -93,10 +93,11 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><input type="text" id="realisasi_januari" name="realisasi_januari"
-                                                            class="form-control @error('realisasi_januari') is-invalid @enderror"
-                                                            value="{{ old('realisasi_januari') ?? $pen->realisasi_januari }}" placeholder="Januari" style="width:100%;">
-                                                    </td>
+                                                    <td><input type="text" id="realisasi[januari]" name="realisasi[januari]"
+                                                        class="form-control @error('realisasi_januari') is-invalid @enderror"
+                                                        value="{{ old('realisasi[januari]') ?? $pen->realisasi_januari }}" placeholder="Januari"
+                                                        style="width:100%;">
+                                                </td>
                                                     <td><input type="text" id="realisasi_februari" name="realisasi_februari"
                                                             class="form-control @error('realisasi_februari') is-invalid @enderror"
                                                             value="{{ old('realisasi_februari') ?? $pen->realisasi_februari }}" placeholder="Februari" style="width:100%;">
