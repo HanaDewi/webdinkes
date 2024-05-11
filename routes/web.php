@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\loginController;
-use App\Http\Controllers\pencapaianController;
-use App\Http\Controllers\registerController;
-use App\Http\Controllers\SinikimasController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\ExportController;
+use App\Http\Controllers\registerController;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\SinikimasController;
+use App\Http\Controllers\pencapaianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,9 @@ Route::get('/sinikimas/{sinikimas}/delete', [SinikimasController::class, 'delete
 
 Route::get('/subsinikimas', [SinikimasController::class, 'subsinikimas'])->name('sinikimas.subsinikimas');
 Route::post('/sinikimas', [SinikimasController::class, 'store'])->name('sinikimas.store');
+
+Route::get('/export', [ExportController::class, 'index'])->name('export.index');
+Route::get('/export/data', [ExportController::class, 'export'])->name('export.export');
 
 
 Route::post('/submit/{sinikimas}/user',[SinikimasController::class,'submit_user'])->name('sinikimas.submit.user');

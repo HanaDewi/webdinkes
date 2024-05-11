@@ -1,13 +1,13 @@
 {{-- sidebar --}}
 <div id="sidebar" class="active">
-    
+
     <div class="sidebar-wrapper active">
 <div class="sidebar-header position-relative">
 <div class="d-flex justify-content-between align-items-center">
     <style>
         .logo img {
-            width: 20; 
-            height: 20; 
+            width: 20;
+            height: 20;
         }
     </style>
     <div class="logo">
@@ -41,8 +41,11 @@
             <li class="submenu-item ">
                 <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
             </li>
+            <li class="submenu-item ">
+                <a href="{{route('export.index')}}">Export</a>
+            </li>
             @endif
-            @if(auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas') 
+            @if(auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas')
             <li class="submenu-item ">
                 <a href="{{ route('sinikimas.sinikimas') }}">Sinikimas</a>
             </li>
@@ -50,14 +53,14 @@
         </ul>
     </li>
     <li class="sidebar-item  ">
-        @auth  
+        @auth
             <form action="{{ route('logout') }}" method="post">
             @csrf
                 <button class="btn btn-danger">Logout</button>
         </form>
         @endauth
     </li>
-    
+
 </ul>
 </div>
 </div>
