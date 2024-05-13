@@ -1,6 +1,5 @@
-﻿nama;email;role;password
+﻿name;email;role;password
 Admin ;admin@admin.com;admin;123456
-Pencapaian;user@user.com;user;123456
 Admin Puskesmas;puskesmas@admin.com;admin puskesmas;puskesmas789
 Poncol;poncol@user.com;puskesmas;poncol789
 Miroto;miroto@user.com;puskesmas;miroto789
@@ -40,3 +39,6 @@ Mangkang;mangkang@user.com;puskesmas;mangkang789
 Karanganyar;karanganyar@user.com;puskesmas;karanganyar789
 Sekaran;sekaran@user.com;puskesmas;sekaran789
 Plamongansari;plamongansari@user.com;puskesmas;plamongansari789
+Keuangan;keuangan@user.com;sub bidang;keuangan567
+Perencanaan;perencanaan@user.com;sub bidang;perencanaan567
+Umum;umum@user.com;sub bidang;umum567

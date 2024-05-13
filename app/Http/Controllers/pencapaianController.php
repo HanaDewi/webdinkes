@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pencapaian;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 
 
 
 class PencapaianController extends Controller
 {
-    public function pencapaian(Request $request)
+    public function pencapaian(Request $request): Response
 {
+    if (Auth::id()) {
+        $usertype = Auth()->user()->usertype;
+        if ($usertype == 'sub bidang') {
+            $bidangId = Auth::user()->nama;
+            $query = Pencapaian::where('bidang', $bidangId);
+        } else if ($usertype == 'admin') {
+            $query = Pencapaian::query();
+        }
+    }
     $pencapaians = Pencapaian::all();
     $tahun = Pencapaian::selectRaw('tahun')->distinct()->get();
     $keg = Pencapaian::select('keg')->distinct()->get();
@@ -31,7 +42,7 @@ class PencapaianController extends Controller
     }
 
     // dd($pencapaians);
-    return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg','apbd' ));
+    return response()->view('pencapaian.pencapaian', compact('pencapaians','tahun','keg','apbd' ));
 }
 
     public function exportPencapaian(){

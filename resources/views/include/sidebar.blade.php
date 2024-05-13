@@ -37,7 +37,7 @@
             <span>MONEV</span>
         </a>
         <ul class="submenu ">
-            @if(auth()->user()->role == 'admin' || auth()->user()->role == 'user')
+            @if(auth()->user()->role == 'admin' || auth()->user()->role == 'user'|| auth()->user()->role == 'sub bidang')
             <li class="submenu-item ">
                 <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
             </li>
