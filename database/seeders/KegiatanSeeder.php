@@ -25,6 +25,7 @@ class KegiatanSeeder extends Seeder
                     "tahun" => $data['19'],
                     "keg" => $data['20'],
                     "apbd" => $data['21'],
+                    "bidang" => $data['23'],
                 ]);    
             }
             $firstline = false;

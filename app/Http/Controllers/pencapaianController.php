@@ -14,11 +14,11 @@ class PencapaianController extends Controller
     public function pencapaian(Request $request): Response
 {
     if (Auth::id()) {
-        $usertype = Auth()->user()->usertype;
-        if ($usertype == 'sub bidang') {
-            $bidangId = Auth::user()->nama;
+        $role = Auth()->user()->role;
+        if ($role == 'sub bidang') {
+            $bidangId = Auth::user()->name;
             $query = Pencapaian::where('bidang', $bidangId);
-        } else if ($usertype == 'admin') {
+        } else if ($role == 'admin') {
             $query = Pencapaian::query();
         }
     }
