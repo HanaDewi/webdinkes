@@ -82,24 +82,34 @@ class PencapaianController extends Controller
     }
 
     public function edit($id)
-    {
-        $pencapaian = Pencapaian::where('id','=',$id)->get();
-        $total_akhir = array_sum([
-            $pencapaian[0]['realisasi_januari'],
-            $pencapaian[0]['realisasi_februari'],
-            $pencapaian[0]['realisasi_maret'],
-            $pencapaian[0]['realisasi_april'],
-            $pencapaian[0]['realisasi_mei'],
-            $pencapaian[0]['realisasi_juni'],
-            $pencapaian[0]['realisasi_juli'],
-            $pencapaian[0]['realisasi_agustus'],
-            $pencapaian[0]['realisasi_september'],
-            $pencapaian[0]['realisasi_oktober'],
-            $pencapaian[0]['realisasi_november'],
-            $pencapaian[0]['realisasi_desember'],
-        ]);
-        return view('pencapaian.edit', compact('pencapaian','id','total_akhir'));
-    }
+{
+    $pencapaian = Pencapaian::findOrFail($id); // Menggunakan findOrFail untuk mendapatkan data atau menampilkan 404 jika tidak ditemukan
+    $total_akhir = array_sum([
+        $pencapaian->realisasi_januari,
+        $pencapaian->realisasi_februari,
+        $pencapaian->realisasi_maret,
+        $pencapaian->realisasi_april,
+        $pencapaian->realisasi_mei,
+        $pencapaian->realisasi_juni,
+        $pencapaian->realisasi_juli,
+        $pencapaian->realisasi_agustus,
+        $pencapaian->realisasi_september,
+        $pencapaian->realisasi_oktober,
+        $pencapaian->realisasi_november,
+        $pencapaian->realisasi_desember,
+    ]);
+
+    // Mendapatkan tahun dari tabel Pencapaian atau dari sumber lain jika diperlukan
+    $tahun = Pencapaian::select('tahun')->distinct()->orderBy('tahun', 'asc')->get();
+
+    // Mendapatkan keg dari tabel Pencapaian atau dari sumber lain jika diperlukan
+    $keg = Pencapaian::select('keg')->distinct()->orderBy('keg', 'asc')->get();
+
+    // Mendapatkan apbd dari tabel Pencapaian atau dari sumber lain jika diperlukan
+    $apbd = Pencapaian::select('apbd')->distinct()->orderBy('apbd', 'asc')->get();
+
+    return view('pencapaian.edit', compact('pencapaian', 'id', 'total_akhir', 'tahun', 'keg', 'apbd'));
+}
 
 
     public function update(Request $request, Pencapaian $pencapaian)
@@ -192,6 +202,7 @@ class PencapaianController extends Controller
 
     public function subprogram(Request $request)
 {
+    
     $query = Pencapaian::query();
 
     // Filter data berdasarkan peran pengguna yang sedang login
@@ -217,6 +228,7 @@ class PencapaianController extends Controller
     $keg = Pencapaian::select('keg')->distinct()->get();
     $tahun = Pencapaian::select('tahun')->distinct()->get();
     $apbd = Pencapaian::select('apbd')->distinct()->get();
+    
     $req_tahun = $request->tahun;
     $req_keg = $request->keg;
     $req_apbd = $request->apbd;
@@ -286,4 +298,3 @@ class PencapaianController extends Controller
     }
 
 }
-

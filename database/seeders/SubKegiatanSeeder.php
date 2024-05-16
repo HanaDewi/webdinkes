@@ -21,11 +21,12 @@ class SubKegiatanSeeder extends Seeder
             DB::table('pencapaians')->insert([
                 "kode" => $data['0'],
                 "program" => $data['1'],
-                "indikator_kinerja" => $data['2'],
-                "target" => $data['4'],
-                "tahun" => $data['19'],
-                "keg" => $data['20'],
-                "apbd" => $data['21'],
+                "target" => $data['2'],
+                "tahun" => $data['3'],
+                "keg" => $data['4'],
+                "apbd" => $data['5'],
+                "bidang" => $data['6'],
+
             ]);    
         }
         $firstline = false;

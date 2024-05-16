@@ -32,7 +32,7 @@
                 <th rowspan="2">Tipe</th>
                 <th rowspan="2">Target</th>
                 <th colspan="13">Realisasi</th>
-                <th rowspan="2">Catatan</th>
+             
 
               </tr>
               <tr>
@@ -48,7 +48,7 @@
                 <th>Oktober</th>
                 <th>November</th>
                 <th>Desember</th>
-                <th>AKhir</th>
+                <th>Realisasi Akhir</th>
               </tr>
 		</thead>
 		<tbody>
@@ -73,8 +73,8 @@
 				<td>{{$p->realisasi_oktober}}</td>
 				<td>{{$p->realisasi_november}}</td>
 				<td>{{$p->realisasi_desember}}</td>
-				<td>{{$p->realisasi_akhir}}</td>
-				<td>{{$p->catatan}}</td>
+				<td>{{$p->realisasi_akhir}}%</td>
+				
 
 			</tr>
 			@endforeach

@@ -40,7 +40,7 @@ Route::get('/create-pencapaians', [pencapaianController::class, 'create'])->name
 Route::get('/subprogram', [pencapaianController::class, 'subprogram'])->name('pencapaian.subprogram');
 Route::post('/pencapaians', [pencapaianController::class, 'store'])->name('pencapaian.store');
 Route::get('/pencapaians/{pencapaian}/edit', [pencapaianController::class, 'edit'])->name('pencapaian.edit');
-Route::post('/pencapaians/{pencapaian}/update',[pencapaianController::class,'update'])->name('pencapaian.update');
+Route::put('/pencapaians/{pencapaian}', [PencapaianController::class, 'update'])->name('pencapaian.update');
 Route::get('pencapaians/{pencapaian}/delete', [pencapaianController::class, 'delete'])->name('pencapaian.delete');
 Route::get('export-data-pencapaian', [pencapaianController::class, 'exportPencapaian'])->name('pencapaian.export-data-pencapaian');
 Route::get('export-data-filter/{tahun}/{keg}/{apbd}', [pencapaianController::class, 'exportPencapaianfilter'])->name('pencapaian.export-data-filter');

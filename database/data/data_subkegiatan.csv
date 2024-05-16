@@ -1,0 +1,464 @@
+﻿kode;program;target;tahun;keg;apbd;bidang
+1.02.01.2.01.0001;Penyusunan Dokumen Perencanaan Perangkat Daerah ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0002;Koordinasi dan Penyusunan Dokumen RKA-SKPD ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0003;Koordinasi dan Penyusunan Dokumen Perubahan RKA-SKPD ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0004;Koordinasi dan Penyusunan DPA-SKPD ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0005;Koordinasi dan Penyusunan Perubahan DPA- SKPD ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0007;Evaluasi Kinerja Perangkat Daerah ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.02.0001;Penyediaan Gaji dan Tunjangan ASN;100;2023;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0002;Penyediaan Administrasi Pelaksanaan Tugas ASN;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.02.0005;Koordinasi dan Penyusunan Laporan Keuangan Akhir Tahun SKPD ;100;2023;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0007;Koordinasi dan Penyusunan Laporan Keuangan Bulanan/ Triwulanan/ Semesteran SKPD ;100;2023;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0008;Penyusunan Pelaporan dan Analisis Prognosis Realisasi Anggaran ;100;2023;Sub Kegiatan;murni;Keuangan
+1.02.01.2.06.0001;Penyediaan Komponen Instalasi Listrik/Penerangan Bangunan Kantor ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0003;Penyediaan Peralatan Rumah Tangga ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0005;Penyediaan Barang Cetakan dan Penggandaan ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0006;Penyediaan Bahan Bacaan dan Peraturan Perundang-undangan ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0009;Penyelenggaraan Rapat Koordinasi dan Konsultasi SKPD ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.06.0011;Dukungan Pelaksanaan Sistem Pemerintahan Berbasis Elektronik pada SKPD ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.07.0010;Pengadaan Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.08.0001;Penyediaan Jasa Surat Menyurat ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.08.0002;Penyediaan Jasa Komunikasi, Sumber Daya Air dan Listrik ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.08.0004;Penyediaan Jasa Pelayanan Umum Kantor ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0001;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, dan Pajak Kendaraan Perorangan Dinas atau Kendaraan Dinas Jabatan ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0002;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, Pajak dan Perizinan Kendaraan Dinas Operasional atau Lapangan ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0006;Pemeliharaan Peralatan dan Mesin Lainnya ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0009;Pemeliharaan/Rehabilitasi Gedung Kantor dan Bangunan Lainnya ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0010;Pemeliharaan/Rehabilitasi Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2023;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.10.0001;Pelayanan dan Penunjang Pelayanan BLUD (UPTD LABORATORIUM KESEHATAN) ;100;2023;Sub Kegiatan;murni;Laboratorium Kesehatan
+1.02.02.2.01.0002;Pembangunan Puskesmas ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0006;Pengembangan Puskesmas ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0009;Rehabilitasi dan Pemeliharaan Puskesmas ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0014;Pengadaan Alat Kesehatan/Alat Penunjang Medik Fasilitas Pelayanan Kesehatan ;100;2023;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.02.2.01.0022;Pengembangan Rumah Sakit ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0023;Pengadaan Obat, Bahan Habis Pakai, Bahan Medis Habis Pakai,, Vaksin, Makanan dan Minuman di Fasilitas Kesehatan;100;2023;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.02.2.02.0001;Pengelolaan Pelayanan Kesehatan Ibu Hamil ;100;2023;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0002;Pengelolaan Pelayanan Kesehatan Ibu Bersalin ;100;2023;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0003;Pengelolaan Pelayanan Kesehatan Bayi Baru Lahir ;100;2023;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0004;Pengelolaan Pelayanan Kesehatan Balita ;100;2023;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0005;Pengelolaan Pelayanan Kesehatan pada Usia Pendidikan Dasar ;100;2023;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0006;Pengelolaan Pelayanan Kesehatan pada Usia Produktif ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0007;Pengelolaan Pelayanan Kesehatan pada Usia Lanjut ;100;2023;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0008;Pengelolaan Pelayanan Kesehatan Penderita Hipertensi ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0009;Pengelolaan Pelayanan Kesehatan Penderita Diabetes Melitus ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0010;Pengelolaan Pelayanan Kesehatan Orang dengan Gangguan Jiwa Berat ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0011;Pengelolaan Pelayanan Kesehatan Orang Terduga Tuberkulosis ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0012;Pengelolaan Pelayanan Kesehatan Orang dengan Risiko Terinfeksi HIV ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0013;Pengelolaan Pelayanan Kesehatan bagi Penduduk pada Kondisi Kejadian Luar Biasa (KLB) ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0015;Pengelolaan Pelayanan Kesehatan Gizi Masyarakat ;100;2023;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0016;Pengelolaan Pelayanan Kesehatan Kerja dan Olahraga ;100;2023;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.02.2.02.0017;Pengelolaan Pelayanan Kesehatan Lingkungan ;100;2023;Sub Kegiatan;murni;Kesehatan Lingkungan
+1.02.02.2.02.0018;Pengelolaan Pelayanan Promosi Kesehatan ;100;2023;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.02.2.02.0019;Pengelolaan Pelayanan Kesehatan Tradisional, Akupuntur, Asuhan Mandiri, dan Tradisional Lainnya ;100;2023;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0020;Pengelolaan Surveilans Kesehatan ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0022;Pengelolaan Pelayanan Kesehatan Jiwa dan NAPZA ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0025;Pelayanan Kesehatan Penyakit Menular dan Tidak Menular ;100;2023;Sub Kegiatan;murni;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0026;Pengelolaan Jaminan Kesehatan Masyarakat ;100;2023;Sub Kegiatan;murni;Jaminan Kesehatan & Kemitraan
+1.02.02.2.02.0029;Penyelenggaraan Kabupaten/Kota Sehat ;100;2023;Sub Kegiatan;murni;Kesehatan Lingkungan
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya  ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD LABORATORIUM KESEHATAN  ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD INSTALASI FARMASI  ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya PUSKESMAS PLAMONGANSARI  ;100;2023;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0035;Pelaksanaan Akreditasi Fasilitas Kesehatan di Kabupaten/Kota ;100;2023;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0036;Investigasi Awal Kejadian Tidak Diharapkan (Kejadian Ikutan Pasca Imunisasi dan Pemberian Obat Massal) ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0037;Pelaksanaan Kewaspadaan Dini dan Respon Wabah ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0038;Penyediaan dan Pengelolaan Sistem Penanganan Gawat Darurat Terpadu (SPGDT) ;100;2023;Sub Kegiatan;murni;Pelayanan Kesehatan Rujukan
+1.02.02.2.02.0040;Pengelolaan pelayanan kesehatan orang dengan Tuberkulosis ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0041;Pengelolaan pelayanan kesehatan orang dengan HIV (ODHIV) ;100;2023;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0042;Pengelolaan pelayanan kesehatan Malaria ;100;2023;Sub Kegiatan;murni;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.03.0002;Pengelolaan Sistem Informasi Kesehatan ;100;2023;Sub Kegiatan;murni;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Rumah Sakit Kelas C, D dan Fasilitas Pelayanan Kesehatan Lainnya ;100;2023;Sub Kegiatan;murni;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0003;Peningkatan Mutu Pelayanan Fasilitas Kesehatan ;100;2023;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.04.0004;Penyiapan Perumusan dan Pelaksanaan Pelayanan Kesehatan Rujukan ;100;2023;Sub Kegiatan;murni;Pelayanan Kesehatan Rujukan
+1.02.03.2.02.0001;Perencanaan dan Distribusi serta Pemerataan Sumber Daya Manusia Kesehatan ;100;2023;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0002;Pemenuhan Kebutuhan Sumber Daya Manusia Kesehatan Sesuai Standar ;100;2023;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0003;Pembinaan dan Pengawasan Sumber Daya Manusia Kesehatan ;100;2023;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.03.0001;Pengembangan Mutu dan Peningkatan Kompetensi Teknis Sumber Daya Manusia Kesehatan Tingkat Daerah Kabupaten/Kota ;100;2023;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.04.2.01.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Apotek, Toko Obat, Toko Alat Kesehatan, dan Optikal, Usaha Mikro Obat Tradisional (UMOT) ;100;2023;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.04.2.03.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Sertifikat Produksi Pangan Industri Rumah Tangga dan Nomor P-IRT sebagai Izin Produksi, untuk Produk Makanan Minuman Tertentu yang Dapat Diproduksi oleh Industri Rumah Tangga ;100;2023;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.04.2.06.0001;Pemeriksaan Post Market pada Produk Makanan-Minuman Industri Rumah Tangga yang Beredar dan Pengawasan serta Tindak Lanjut Pengawasan ;100;2023;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.05.2.01.0001;Peningkatan Upaya Promosi Kesehatan, Advokasi, Kemitraan dan Pemberdayaan Masyarakat ;100;2023;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.05.2.03.0001;Bimbingan Teknis dan Supervisi Pengembangan dan Pelaksanaan Upaya Kesehatan Bersumber Daya Masyarakat (UKBM) ;100;2023;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.01.2.01.0001;Penyusunan Dokumen Perencanaan Perangkat Daerah ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0002;Koordinasi dan Penyusunan Dokumen RKA-SKPD ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0003;Koordinasi dan Penyusunan Dokumen Perubahan RKA-SKPD ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0004;Koordinasi dan Penyusunan DPA-SKPD ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0005;Koordinasi dan Penyusunan Perubahan DPA- SKPD ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0007;Evaluasi Kinerja Perangkat Daerah ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.02.0001;Penyediaan Gaji dan Tunjangan ASN;100;2023;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0002;Penyediaan Administrasi Pelaksanaan Tugas ASN;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.02.0005;Koordinasi dan Penyusunan Laporan Keuangan Akhir Tahun SKPD ;100;2023;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0007;Koordinasi dan Penyusunan Laporan Keuangan Bulanan/ Triwulanan/ Semesteran SKPD ;100;2023;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0008;Penyusunan Pelaporan dan Analisis Prognosis Realisasi Anggaran ;100;2023;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.06.0001;Penyediaan Komponen Instalasi Listrik/Penerangan Bangunan Kantor ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0003;Penyediaan Peralatan Rumah Tangga ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0005;Penyediaan Barang Cetakan dan Penggandaan ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0006;Penyediaan Bahan Bacaan dan Peraturan Perundang-undangan ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0009;Penyelenggaraan Rapat Koordinasi dan Konsultasi SKPD ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.06.0011;Dukungan Pelaksanaan Sistem Pemerintahan Berbasis Elektronik pada SKPD ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.07.0010;Pengadaan Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.08.0001;Penyediaan Jasa Surat Menyurat ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.08.0002;Penyediaan Jasa Komunikasi, Sumber Daya Air dan Listrik ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.08.0004;Penyediaan Jasa Pelayanan Umum Kantor ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0001;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, dan Pajak Kendaraan Perorangan Dinas atau Kendaraan Dinas Jabatan ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0002;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, Pajak dan Perizinan Kendaraan Dinas Operasional atau Lapangan ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0006;Pemeliharaan Peralatan dan Mesin Lainnya ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0009;Pemeliharaan/Rehabilitasi Gedung Kantor dan Bangunan Lainnya ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0010;Pemeliharaan/Rehabilitasi Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2023;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.02.2.01.0002;Pembangunan Puskesmas ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0006;Pengembangan Puskesmas ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0009;Rehabilitasi dan Pemeliharaan Puskesmas ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0014;Pengadaan Alat Kesehatan/Alat Penunjang Medik Fasilitas Pelayanan Kesehatan ;100;2023;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.02.2.01.0022;Pengembangan Rumah Sakit ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0023;Pengadaan Obat, Bahan Habis Pakai, Bahan Medis Habis Pakai,, Vaksin, Makanan dan Minuman di Fasilitas Kesehatan;100;2023;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.02.2.02.0001;Pengelolaan Pelayanan Kesehatan Ibu Hamil ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0002;Pengelolaan Pelayanan Kesehatan Ibu Bersalin ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0003;Pengelolaan Pelayanan Kesehatan Bayi Baru Lahir ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0004;Pengelolaan Pelayanan Kesehatan Balita ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0005;Pengelolaan Pelayanan Kesehatan pada Usia Pendidikan Dasar ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0006;Pengelolaan Pelayanan Kesehatan pada Usia Produktif ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0007;Pengelolaan Pelayanan Kesehatan pada Usia Lanjut ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0008;Pengelolaan Pelayanan Kesehatan Penderita Hipertensi ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0009;Pengelolaan Pelayanan Kesehatan Penderita Diabetes Melitus ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0010;Pengelolaan Pelayanan Kesehatan Orang dengan Gangguan Jiwa Berat ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0011;Pengelolaan Pelayanan Kesehatan Orang Terduga Tuberkulosis ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0012;Pengelolaan Pelayanan Kesehatan Orang dengan Risiko Terinfeksi HIV ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0013;Pengelolaan Pelayanan Kesehatan bagi Penduduk pada Kondisi Kejadian Luar Biasa (KLB) ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0015;Pengelolaan Pelayanan Kesehatan Gizi Masyarakat ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0016;Pengelolaan Pelayanan Kesehatan Kerja dan Olahraga ;100;2023;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.02.2.02.0017;Pengelolaan Pelayanan Kesehatan Lingkungan ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Lingkungan
+1.02.02.2.02.0018;Pengelolaan Pelayanan Promosi Kesehatan ;100;2023;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.02.2.02.0019;Pengelolaan Pelayanan Kesehatan Tradisional, Akupuntur, Asuhan Mandiri, dan Tradisional Lainnya ;100;2023;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0020;Pengelolaan Surveilans Kesehatan ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0022;Pengelolaan Pelayanan Kesehatan Jiwa dan NAPZA ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0025;Pelayanan Kesehatan Penyakit Menular dan Tidak Menular ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0026;Pengelolaan Jaminan Kesehatan Masyarakat ;100;2023;Sub Kegiatan;pergeseran;Jaminan Kesehatan & Kemitraan
+1.02.02.2.02.0029;Penyelenggaraan Kabupaten/Kota Sehat ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Lingkungan
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya  ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD LABORATORIUM KESEHATAN  ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD INSTALASI FARMASI  ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya PUSKESMAS PLAMONGANSARI  ;100;2023;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0035;Pelaksanaan Akreditasi Fasilitas Kesehatan di Kabupaten/Kota ;100;2023;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0036;Investigasi Awal Kejadian Tidak Diharapkan (Kejadian Ikutan Pasca Imunisasi dan Pemberian Obat Massal) ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0037;Pelaksanaan Kewaspadaan Dini dan Respon Wabah ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0038;Penyediaan dan Pengelolaan Sistem Penanganan Gawat Darurat Terpadu (SPGDT) ;100;2023;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Rujukan
+1.02.02.2.02.0040;Pengelolaan pelayanan kesehatan orang dengan Tuberkulosis ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0041;Pengelolaan pelayanan kesehatan orang dengan HIV (ODHIV) ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0042;Pengelolaan pelayanan kesehatan Malaria ;100;2023;Sub Kegiatan;pergeseran;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.03.0002;Pengelolaan Sistem Informasi Kesehatan ;100;2023;Sub Kegiatan;pergeseran;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Rumah Sakit Kelas C, D dan Fasilitas Pelayanan Kesehatan Lainnya ;100;2023;Sub Kegiatan;pergeseran;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0003;Peningkatan Mutu Pelayanan Fasilitas Kesehatan ;100;2023;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.04.0004;Penyiapan Perumusan dan Pelaksanaan Pelayanan Kesehatan Rujukan ;100;2023;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Rujukan
+1.02.03.2.02.0001;Perencanaan dan Distribusi serta Pemerataan Sumber Daya Manusia Kesehatan ;100;2023;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0002;Pemenuhan Kebutuhan Sumber Daya Manusia Kesehatan Sesuai Standar ;100;2023;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0003;Pembinaan dan Pengawasan Sumber Daya Manusia Kesehatan ;100;2023;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.03.0001;Pengembangan Mutu dan Peningkatan Kompetensi Teknis Sumber Daya Manusia Kesehatan Tingkat Daerah Kabupaten/Kota ;100;2023;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.04.2.01.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Apotek, Toko Obat, Toko Alat Kesehatan, dan Optikal, Usaha Mikro Obat Tradisional (UMOT) ;100;2023;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.04.2.03.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Sertifikat Produksi Pangan Industri Rumah Tangga dan Nomor P-IRT sebagai Izin Produksi, untuk Produk Makanan Minuman Tertentu yang Dapat Diproduksi oleh Industri Rumah Tangga ;100;2023;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.04.2.06.0001;Pemeriksaan Post Market pada Produk Makanan-Minuman Industri Rumah Tangga yang Beredar dan Pengawasan serta Tindak Lanjut Pengawasan ;100;2023;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.05.2.01.0001;Peningkatan Upaya Promosi Kesehatan, Advokasi, Kemitraan dan Pemberdayaan Masyarakat ;100;2023;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.05.2.03.0001;Bimbingan Teknis dan Supervisi Pengembangan dan Pelaksanaan Upaya Kesehatan Bersumber Daya Masyarakat (UKBM) ;100;2023;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.01.2.01.0001;Penyusunan Dokumen Perencanaan Perangkat Daerah ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0002;Koordinasi dan Penyusunan Dokumen RKA-SKPD ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0003;Koordinasi dan Penyusunan Dokumen Perubahan RKA-SKPD ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0004;Koordinasi dan Penyusunan DPA-SKPD ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0005;Koordinasi dan Penyusunan Perubahan DPA- SKPD ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0007;Evaluasi Kinerja Perangkat Daerah ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.02.0001;Penyediaan Gaji dan Tunjangan ASN;100;2024;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0002;Penyediaan Administrasi Pelaksanaan Tugas ASN;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.02.0005;Koordinasi dan Penyusunan Laporan Keuangan Akhir Tahun SKPD ;100;2024;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0007;Koordinasi dan Penyusunan Laporan Keuangan Bulanan/ Triwulanan/ Semesteran SKPD ;100;2024;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0008;Penyusunan Pelaporan dan Analisis Prognosis Realisasi Anggaran ;100;2024;Sub Kegiatan;murni;Keuangan
+1.02.01.2.06.0001;Penyediaan Komponen Instalasi Listrik/Penerangan Bangunan Kantor ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0003;Penyediaan Peralatan Rumah Tangga ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0005;Penyediaan Barang Cetakan dan Penggandaan ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0006;Penyediaan Bahan Bacaan dan Peraturan Perundang-undangan ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0009;Penyelenggaraan Rapat Koordinasi dan Konsultasi SKPD ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.06.0011;Dukungan Pelaksanaan Sistem Pemerintahan Berbasis Elektronik pada SKPD ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.07.0010;Pengadaan Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.08.0001;Penyediaan Jasa Surat Menyurat ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.08.0002;Penyediaan Jasa Komunikasi, Sumber Daya Air dan Listrik ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.08.0004;Penyediaan Jasa Pelayanan Umum Kantor ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0001;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, dan Pajak Kendaraan Perorangan Dinas atau Kendaraan Dinas Jabatan ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0002;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, Pajak dan Perizinan Kendaraan Dinas Operasional atau Lapangan ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0006;Pemeliharaan Peralatan dan Mesin Lainnya ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0009;Pemeliharaan/Rehabilitasi Gedung Kantor dan Bangunan Lainnya ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0010;Pemeliharaan/Rehabilitasi Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2024;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.02.2.01.0002;Pembangunan Puskesmas ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0006;Pengembangan Puskesmas ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0009;Rehabilitasi dan Pemeliharaan Puskesmas ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0014;Pengadaan Alat Kesehatan/Alat Penunjang Medik Fasilitas Pelayanan Kesehatan ;100;2024;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.02.2.01.0022;Pengembangan Rumah Sakit ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.01.0023;Pengadaan Obat, Bahan Habis Pakai, Bahan Medis Habis Pakai,, Vaksin, Makanan dan Minuman di Fasilitas Kesehatan;100;2024;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.02.2.02.0001;Pengelolaan Pelayanan Kesehatan Ibu Hamil ;100;2024;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0002;Pengelolaan Pelayanan Kesehatan Ibu Bersalin ;100;2024;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0003;Pengelolaan Pelayanan Kesehatan Bayi Baru Lahir ;100;2024;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0004;Pengelolaan Pelayanan Kesehatan Balita ;100;2024;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0005;Pengelolaan Pelayanan Kesehatan pada Usia Pendidikan Dasar ;100;2024;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0006;Pengelolaan Pelayanan Kesehatan pada Usia Produktif ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0007;Pengelolaan Pelayanan Kesehatan pada Usia Lanjut ;100;2024;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0008;Pengelolaan Pelayanan Kesehatan Penderita Hipertensi ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0009;Pengelolaan Pelayanan Kesehatan Penderita Diabetes Melitus ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0010;Pengelolaan Pelayanan Kesehatan Orang dengan Gangguan Jiwa Berat ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0011;Pengelolaan Pelayanan Kesehatan Orang Terduga Tuberkulosis ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0012;Pengelolaan Pelayanan Kesehatan Orang dengan Risiko Terinfeksi HIV ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0013;Pengelolaan Pelayanan Kesehatan bagi Penduduk pada Kondisi Kejadian Luar Biasa (KLB) ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0015;Pengelolaan Pelayanan Kesehatan Gizi Masyarakat ;100;2024;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0016;Pengelolaan Pelayanan Kesehatan Kerja dan Olahraga ;100;2024;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.02.2.02.0017;Pengelolaan Pelayanan Kesehatan Lingkungan ;100;2024;Sub Kegiatan;murni;Kesehatan Lingkungan
+1.02.02.2.02.0018;Pengelolaan Pelayanan Promosi Kesehatan ;100;2024;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.02.2.02.0019;Pengelolaan Pelayanan Kesehatan Tradisional, Akupuntur, Asuhan Mandiri, dan Tradisional Lainnya ;100;2024;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0020;Pengelolaan Surveilans Kesehatan ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0022;Pengelolaan Pelayanan Kesehatan Jiwa dan NAPZA ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0025;Pelayanan Kesehatan Penyakit Menular dan Tidak Menular ;100;2024;Sub Kegiatan;murni;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0026;Pengelolaan Jaminan Kesehatan Masyarakat ;100;2024;Sub Kegiatan;murni;Jaminan Kesehatan & Kemitraan
+1.02.02.2.02.0029;Penyelenggaraan Kabupaten/Kota Sehat ;100;2024;Sub Kegiatan;murni;Kesehatan Lingkungan
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya  ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD LABORATORIUM KESEHATAN  ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD INSTALASI FARMASI  ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya PUSKESMAS PLAMONGANSARI  ;100;2024;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0035;Pelaksanaan Akreditasi Fasilitas Kesehatan di Kabupaten/Kota ;100;2024;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0036;Investigasi Awal Kejadian Tidak Diharapkan (Kejadian Ikutan Pasca Imunisasi dan Pemberian Obat Massal) ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0037;Pelaksanaan Kewaspadaan Dini dan Respon Wabah ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0038;Penyediaan dan Pengelolaan Sistem Penanganan Gawat Darurat Terpadu (SPGDT) ;100;2024;Sub Kegiatan;murni;Pelayanan Kesehatan Rujukan
+1.02.02.2.02.0040;Pengelolaan pelayanan kesehatan orang dengan Tuberkulosis ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0041;Pengelolaan pelayanan kesehatan orang dengan HIV (ODHIV) ;100;2024;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0042;Pengelolaan pelayanan kesehatan Malaria ;100;2024;Sub Kegiatan;murni;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.03.0002;Pengelolaan Sistem Informasi Kesehatan ;100;2024;Sub Kegiatan;murni;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Rumah Sakit Kelas C, D dan Fasilitas Pelayanan Kesehatan Lainnya ;100;2024;Sub Kegiatan;murni;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0003;Peningkatan Mutu Pelayanan Fasilitas Kesehatan ;100;2024;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.04.0004;Penyiapan Perumusan dan Pelaksanaan Pelayanan Kesehatan Rujukan ;100;2024;Sub Kegiatan;murni;Pelayanan Kesehatan Rujukan
+1.02.03.2.02.0001;Perencanaan dan Distribusi serta Pemerataan Sumber Daya Manusia Kesehatan ;100;2024;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0002;Pemenuhan Kebutuhan Sumber Daya Manusia Kesehatan Sesuai Standar ;100;2024;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0003;Pembinaan dan Pengawasan Sumber Daya Manusia Kesehatan ;100;2024;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.03.0001;Pengembangan Mutu dan Peningkatan Kompetensi Teknis Sumber Daya Manusia Kesehatan Tingkat Daerah Kabupaten/Kota ;100;2024;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.04.2.01.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Apotek, Toko Obat, Toko Alat Kesehatan, dan Optikal, Usaha Mikro Obat Tradisional (UMOT) ;100;2024;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.04.2.03.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Sertifikat Produksi Pangan Industri Rumah Tangga dan Nomor P-IRT sebagai Izin Produksi, untuk Produk Makanan Minuman Tertentu yang Dapat Diproduksi oleh Industri Rumah Tangga ;100;2024;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.04.2.06.0001;Pemeriksaan Post Market pada Produk Makanan-Minuman Industri Rumah Tangga yang Beredar dan Pengawasan serta Tindak Lanjut Pengawasan ;100;2024;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.05.2.01.0001;Peningkatan Upaya Promosi Kesehatan, Advokasi, Kemitraan dan Pemberdayaan Masyarakat ;100;2024;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.05.2.03.0001;Bimbingan Teknis dan Supervisi Pengembangan dan Pelaksanaan Upaya Kesehatan Bersumber Daya Masyarakat (UKBM) ;100;2024;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.01.2.01.0001;Penyusunan Dokumen Perencanaan Perangkat Daerah ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0002;Koordinasi dan Penyusunan Dokumen RKA-SKPD ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0003;Koordinasi dan Penyusunan Dokumen Perubahan RKA-SKPD ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0004;Koordinasi dan Penyusunan DPA-SKPD ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0005;Koordinasi dan Penyusunan Perubahan DPA- SKPD ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0007;Evaluasi Kinerja Perangkat Daerah ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.02.0001;Penyediaan Gaji dan Tunjangan ASN;100;2024;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0002;Penyediaan Administrasi Pelaksanaan Tugas ASN;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.02.0005;Koordinasi dan Penyusunan Laporan Keuangan Akhir Tahun SKPD ;100;2024;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0007;Koordinasi dan Penyusunan Laporan Keuangan Bulanan/ Triwulanan/ Semesteran SKPD ;100;2024;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0008;Penyusunan Pelaporan dan Analisis Prognosis Realisasi Anggaran ;100;2024;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.06.0001;Penyediaan Komponen Instalasi Listrik/Penerangan Bangunan Kantor ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0003;Penyediaan Peralatan Rumah Tangga ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0005;Penyediaan Barang Cetakan dan Penggandaan ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0006;Penyediaan Bahan Bacaan dan Peraturan Perundang-undangan ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0009;Penyelenggaraan Rapat Koordinasi dan Konsultasi SKPD ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.06.0011;Dukungan Pelaksanaan Sistem Pemerintahan Berbasis Elektronik pada SKPD ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.07.0010;Pengadaan Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.08.0001;Penyediaan Jasa Surat Menyurat ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.08.0002;Penyediaan Jasa Komunikasi, Sumber Daya Air dan Listrik ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.08.0004;Penyediaan Jasa Pelayanan Umum Kantor ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0001;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, dan Pajak Kendaraan Perorangan Dinas atau Kendaraan Dinas Jabatan ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0002;Penyediaan Jasa Pemeliharaan, Biaya Pemeliharaan, Pajak dan Perizinan Kendaraan Dinas Operasional atau Lapangan ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0006;Pemeliharaan Peralatan dan Mesin Lainnya ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0009;Pemeliharaan/Rehabilitasi Gedung Kantor dan Bangunan Lainnya ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0010;Pemeliharaan/Rehabilitasi Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya ;100;2024;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.02.2.01.0002;Pembangunan Puskesmas ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0006;Pengembangan Puskesmas ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0009;Rehabilitasi dan Pemeliharaan Puskesmas ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0014;Pengadaan Alat Kesehatan/Alat Penunjang Medik Fasilitas Pelayanan Kesehatan ;100;2024;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.02.2.01.0022;Pengembangan Rumah Sakit ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.01.0023;Pengadaan Obat, Bahan Habis Pakai, Bahan Medis Habis Pakai,, Vaksin, Makanan dan Minuman di Fasilitas Kesehatan;100;2024;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.02.2.02.0001;Pengelolaan Pelayanan Kesehatan Ibu Hamil ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0002;Pengelolaan Pelayanan Kesehatan Ibu Bersalin ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0003;Pengelolaan Pelayanan Kesehatan Bayi Baru Lahir ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0004;Pengelolaan Pelayanan Kesehatan Balita ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0005;Pengelolaan Pelayanan Kesehatan pada Usia Pendidikan Dasar ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0006;Pengelolaan Pelayanan Kesehatan pada Usia Produktif ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0007;Pengelolaan Pelayanan Kesehatan pada Usia Lanjut ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0008;Pengelolaan Pelayanan Kesehatan Penderita Hipertensi ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0009;Pengelolaan Pelayanan Kesehatan Penderita Diabetes Melitus ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0010;Pengelolaan Pelayanan Kesehatan Orang dengan Gangguan Jiwa Berat ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0011;Pengelolaan Pelayanan Kesehatan Orang Terduga Tuberkulosis ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0012;Pengelolaan Pelayanan Kesehatan Orang dengan Risiko Terinfeksi HIV ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0013;Pengelolaan Pelayanan Kesehatan bagi Penduduk pada Kondisi Kejadian Luar Biasa (KLB) ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0015;Pengelolaan Pelayanan Kesehatan Gizi Masyarakat ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0016;Pengelolaan Pelayanan Kesehatan Kerja dan Olahraga ;100;2024;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.02.2.02.0017;Pengelolaan Pelayanan Kesehatan Lingkungan ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Lingkungan
+1.02.02.2.02.0018;Pengelolaan Pelayanan Promosi Kesehatan ;100;2024;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.02.2.02.0019;Pengelolaan Pelayanan Kesehatan Tradisional, Akupuntur, Asuhan Mandiri, dan Tradisional Lainnya ;100;2024;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0020;Pengelolaan Surveilans Kesehatan ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0022;Pengelolaan Pelayanan Kesehatan Jiwa dan NAPZA ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0025;Pelayanan Kesehatan Penyakit Menular dan Tidak Menular ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0026;Pengelolaan Jaminan Kesehatan Masyarakat ;100;2024;Sub Kegiatan;pergeseran;Jaminan Kesehatan & Kemitraan
+1.02.02.2.02.0029;Penyelenggaraan Kabupaten/Kota Sehat ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Lingkungan
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya  ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD LABORATORIUM KESEHATAN  ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya UPTD INSTALASI FARMASI  ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya PUSKESMAS PLAMONGANSARI  ;100;2024;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0035;Pelaksanaan Akreditasi Fasilitas Kesehatan di Kabupaten/Kota ;100;2024;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0036;Investigasi Awal Kejadian Tidak Diharapkan (Kejadian Ikutan Pasca Imunisasi dan Pemberian Obat Massal) ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0037;Pelaksanaan Kewaspadaan Dini dan Respon Wabah ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0038;Penyediaan dan Pengelolaan Sistem Penanganan Gawat Darurat Terpadu (SPGDT) ;100;2024;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Rujukan
+1.02.02.2.02.0040;Pengelolaan pelayanan kesehatan orang dengan Tuberkulosis ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0041;Pengelolaan pelayanan kesehatan orang dengan HIV (ODHIV) ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0042;Pengelolaan pelayanan kesehatan Malaria ;100;2024;Sub Kegiatan;pergeseran;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.03.0002;Pengelolaan Sistem Informasi Kesehatan ;100;2024;Sub Kegiatan;pergeseran;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Rumah Sakit Kelas C, D dan Fasilitas Pelayanan Kesehatan Lainnya ;100;2024;Sub Kegiatan;pergeseran;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0003;Peningkatan Mutu Pelayanan Fasilitas Kesehatan ;100;2024;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.04.0004;Penyiapan Perumusan dan Pelaksanaan Pelayanan Kesehatan Rujukan ;100;2024;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Rujukan
+1.02.03.2.02.0001;Perencanaan dan Distribusi serta Pemerataan Sumber Daya Manusia Kesehatan ;100;2024;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0002;Pemenuhan Kebutuhan Sumber Daya Manusia Kesehatan Sesuai Standar ;100;2024;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0003;Pembinaan dan Pengawasan Sumber Daya Manusia Kesehatan ;100;2024;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.03.0001;Pengembangan Mutu dan Peningkatan Kompetensi Teknis Sumber Daya Manusia Kesehatan Tingkat Daerah Kabupaten/Kota ;100;2024;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.04.2.01.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Apotek, Toko Obat, Toko Alat Kesehatan, dan Optikal, Usaha Mikro Obat Tradisional (UMOT) ;100;2024;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.04.2.03.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Sertifikat Produksi Pangan Industri Rumah Tangga dan Nomor P-IRT sebagai Izin Produksi, untuk Produk Makanan Minuman Tertentu yang Dapat Diproduksi oleh Industri Rumah Tangga ;100;2024;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.04.2.06.0001;Pemeriksaan Post Market pada Produk Makanan-Minuman Industri Rumah Tangga yang Beredar dan Pengawasan serta Tindak Lanjut Pengawasan ;100;2024;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.05.2.01.0001;Peningkatan Upaya Promosi Kesehatan, Advokasi, Kemitraan dan Pemberdayaan Masyarakat ;100;2024;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.05.2.03.0001;Bimbingan Teknis dan Supervisi Pengembangan dan Pelaksanaan Upaya Kesehatan Bersumber Daya Masyarakat (UKBM) ;100;2024;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.01.2.02.0001;Penyediaan Gaji dan Tunjangan ASN;100;2025;Sub Kegiatan;murni;Keuangan
+1.02.01.2.06.0011;Dukungan Pelaksanaan Sistem Pemerintahan Berbasis Elektronik pada SKPD;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.07.0010;Pengadaan Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.06.0001;Penyediaan komponen instalasi listrik/Penerangan Bangunan Kantor;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0003;Penyediaan Peralatan Rumah Tangga;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0005;Penyediaan Barang Cetakan dan Penggandaan;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0006;Penyediaan Bahan Bacaan dan Peraturan Perundang-Undangan;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.06.0009;Penyelenggaraan Rapat Koordinasi dan Konsultasi SKPD;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.08.0001;Penyediaan Jasa Surat Menyurat;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.08.0002;Penyediaan Jasa Komunikasi,Sumber daya air dan Listrik;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.08.0004;Penyediaan Jasa Pelayanan Umum Kantor;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.02.0002;Penyediaan adm. pelaksanaan tugas ASN;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.02.0005;Koordinasi dan penyusunan keuangan akhir tahun SKPD;100;2025;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0007;Koordinasi dan penyusunan laporan keuangan bulanan/ triwulanan/ semesteran SKPD;100;2025;Sub Kegiatan;murni;Keuangan
+1.02.01.2.02.0008;Penyusunan Pelaporan dan Analisis Prognosis Realisasi Anggaran;100;2025;Sub Kegiatan;murni;Keuangan
+1.02.01.2.09.0001;Penyediaan Jasa Pemeliharaan,Biaya Pemeliharaan,dan Pajak Kendaraan Perorangan Dinas atau Kendaraan Dinas Jabatan;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0002;Penyediaan Jasa Pemeliharaan,Biaya Pemeliharaan,Pajak dan Perizinan Kendaraan Dinas Operasional atau Lapangan;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0006;Pemeliharaan Peralatan dan Mesin Lainnya;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0009;Pemeliharaan/Rehabilitasi Gedung Kantor dan Bangunan Lainnya;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.01.2.09.0010;Pemeliharaan/Rehabilitasi Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya;100;2025;Sub Kegiatan;murni;Umum Kepegawaian
+1.02.02.2.01.0002;Pembangunan Puskesmas;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0001;Penyusunan Dokumen Perencanaan Perangkat Daerah;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0002;Koordinasi dan Penyusunan Dokumen RKA;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0003;Koordinasi dan Penyusunan Dokumen Perubahan RKA;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0004;Koordinasi dan Penyusunan DPA;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0005;Koordinasi dan Penyusunan Perubahan DPA-SKPD;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.01.2.01.0007;Evaluasi Kinerja Perangkat Daerah;100;2025;Sub Kegiatan;murni;Perencanaan dan Evaluasi
+1.02.02.2.02.0001;Pengelolaan Pelayanan Kesehatan Ibu Hamil;100;2025;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0002;Pengelolaan Pelayanan Kesehatan Ibu Bersalin;100;2025;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0003;Pengelolaan Pelayanan Kesehatan Bayi Baru Lahir;100;2025;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0004;Pengelolaan Pelayanan Kesehatan Balita;100;2025;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.02.2.02.0005;Pengelolaan Pelayanan Kesehatan pada Usia Pendidikan Dasar;100;2025;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0007;Pengelolaan Pelayanan Kesehatan pada Usia Lanjut;100;2025;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0015;Pengelolaan Pelayanan Kesehatan Gizi Masyarakat;100;2025;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0016;Pengelolaan Pelayanan Kesehatan Kerja dan Olahraga;100;2025;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.02.2.02.0017;Pengelolaan Pelayanan Kesehatan Lingkungan;100;2025;Sub Kegiatan;murni;Kesehatan Lingkungan
+1.02.02.2.02.0018;Pengelolaan Pelayanan Promosi Kesehatan;100;2025;Sub Kegiatan;murni;Promosi Kesehatan
+1.02.02.2.02.0029;Penyelenggaraan Kabupaten/Kota Sehat;100;2025;Sub Kegiatan;murni;Kesehatan Lingkungan
+1.02.02.2.02.0046;Pengelolaan upaya kesehatan Ibu dan Anak;100;2025;Sub Kegiatan;murni;Kesehatan Ibu dan Anak
+1.02.05.2.03.0001;Bimbingan Teknis dan Supervisi Pengembangan dan Pelaksanaan Upaya Kesehatan Bersumber Daya Masyarakat (UKBM);100;2025;Sub Kegiatan;murni;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0006;Pengelolaan Pelayanan Kesehatan pada Usia Produktif;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0008;Pengelolaan Pelayanan Kesehatan pada Penderita Hipertensi;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0009;Pengelolaan Pelayanan Kesehatan pada Penderita DM;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0010;Pengelolaan Pelayanan Kesehatan Orang pada Gangguan Jiwa;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0020;Pengelolaan Surveilans Kesehatan;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0022;Pengelolaan Pelayanan Kesehatan Jiwa dan NAPZA;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0036;Investigasi Awal Kejadian Tidak Diharapkan (Kejadian Ikutan Pasca Imunisasi dan Pemberian Obat Massal);100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0037;Pelaksanaan Kewaspadaan Dini dan Respon Wabah;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0012;Pengelolaan Pelayanan Kesehatan Orang dengan Risiko Terinfeksi HIV;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0041 ;"Pengelolaan pelayanan kesehatan orang dengan HIV (ODHIV)	";100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0011 ;Pengelolaan Pelayanan Kesehatan Orang Terduga Tuberkulosis;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0040 ;Pengelolaan pelayanan kesehatan orang dengan Tuberkulosis;100;2025;Sub Kegiatan;murni;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0025;Pelayanan Kesehatan Penyakit Menular dan Tidak Menular;100;2025;Sub Kegiatan;murni;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0042;Pengelolaan pelayanan kesehatan Malaria;100;2025;Sub Kegiatan;murni;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0019;Pengelolaan Pelayanan Kesehatan Tradisional, Akupuntur, Asuhan Mandiri, dan Tradisional Lainnya;100;2025;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0035;Pelaksanaan Akreditasi Fasilitas Kesehatan di Kabupaten/Kota;100;2025;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.04.0003;Peningkatan Mutu Pelayanan Fasilitas Kesehatan;100;2025;Sub Kegiatan;murni;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0038;Penyediaan dan Pengelolaan Sistem Penanganan Gawat Darurat Terpadu (SPGDT);100;2025;Sub Kegiatan;murni;Pelayanan Kesehatan Rujukan
+1.02.02.2.04.0004;Penyiapan Perumusan dan Pelaksanaan Pelayanan Kesehatan Rujukan;100;2025;Sub Kegiatan;murni;Pelayanan Kesehatan Rujukan
+1.02.02.2.02.0026;Pengelolaan Jaminan Kesehatan Masyarakat;100;2025;Sub Kegiatan;murni;Jaminan Kesehatan & Kemitraan
+1.02.02.2.01.0001;Peningkatan Upaya Promosi Kesehatan, Advokasi, Kemitraan dan Pemberdayaan Masyarakat;100;2025;Sub Kegiatan;murni;Jaminan Kesehatan & Kemitraan
+1.02.03.2.02.0001;Perencanaan dan Distribusi serta Pemerataan Sumber Daya Manusia Kesehatan;100;2025;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0002;Pemenuhan Kebutuhan Sumber Daya Manusia Kesehatan Sesuai Standar;100;2025;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0001;Pembinaan dan Pengawasan Sumber Daya Manusia Kesehatan;100;2025;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0001;Pengembangan Mutu dan Peningkatan Kompetensi Teknis Sumber Daya Manusia Kesehatan Tingkat Daerah Kabupaten / Kota;100;2025;Sub Kegiatan;murni;Sumber Daya Manusia Kesehatan 
+1.02.02.2.03.0002;Pengelolaan Sistem Informasi Kesehatan;100;2025;Sub Kegiatan;murni;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Rumah Sakit Kelas C, D dan Fasilitas;100;2025;Sub Kegiatan;murni;Informasi & Pengendalian Sarkes
+1.02.04.2.06.0001 ;Pemeriksaan Post Market pada produk Makanan Minuman IRTP yang Beredar dan Pengawasan serta Tindak Lanjut Pengawasan;100;2025;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.04.2.01.0001;Pengendalian dan Pengawasan serta TL Pengawasan Perijinan Apotek, TO, Toko Alkes dan UMOT;100;2025;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.04.2.03.0001;Pengendalian dan Pengawasan serta TL Pengawasan sertifikat PIRT dan No. PIRT sebagi izin produksi, untuk produk makanan minuman tertentu yang dapat diproduksi oleh IRT;100;2025;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.02.2.01.0023;Pengadaan Obat, Bahan Habis Pakai, Bahan Medis Habis Pakai,, Vaksin, Makanan dan Minuman di Fasilitas Kesehatan;100;2025;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.02.2.01.0014 ;PENGADAAN ALKES/ALAT PENUNJANG MEDIK FASILITAS PELAYANAN KESEHATAN;100;2025;Sub Kegiatan;murni;Kefarmasian & Perbelkesh
+1.02.01.2.02.0001;Penyediaan Gaji dan Tunjangan ASN;100;2025;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.06.0011;Dukungan Pelaksanaan Sistem Pemerintahan Berbasis Elektronik pada SKPD;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.07.0010;Pengadaan Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.06.0001;Penyediaan komponen instalasi listrik/Penerangan Bangunan Kantor;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0003;Penyediaan Peralatan Rumah Tangga;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0005;Penyediaan Barang Cetakan dan Penggandaan;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0006;Penyediaan Bahan Bacaan dan Peraturan Perundang-Undangan;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.06.0009;Penyelenggaraan Rapat Koordinasi dan Konsultasi SKPD;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.08.0001;Penyediaan Jasa Surat Menyurat;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.08.0002;Penyediaan Jasa Komunikasi,Sumber daya air dan Listrik;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.08.0004;Penyediaan Jasa Pelayanan Umum Kantor;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.02.0002;Penyediaan adm. pelaksanaan tugas ASN;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.02.0005;Koordinasi dan penyusunan keuangan akhir tahun SKPD;100;2025;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0007;Koordinasi dan penyusunan laporan keuangan bulanan/ triwulanan/ semesteran SKPD;100;2025;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.02.0008;Penyusunan Pelaporan dan Analisis Prognosis Realisasi Anggaran;100;2025;Sub Kegiatan;pergeseran;Keuangan
+1.02.01.2.09.0001;Penyediaan Jasa Pemeliharaan,Biaya Pemeliharaan,dan Pajak Kendaraan Perorangan Dinas atau Kendaraan Dinas Jabatan;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0002;Penyediaan Jasa Pemeliharaan,Biaya Pemeliharaan,Pajak dan Perizinan Kendaraan Dinas Operasional atau Lapangan;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0006;Pemeliharaan Peralatan dan Mesin Lainnya;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0009;Pemeliharaan/Rehabilitasi Gedung Kantor dan Bangunan Lainnya;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.01.2.09.0010;Pemeliharaan/Rehabilitasi Sarana dan Prasarana Gedung Kantor atau Bangunan Lainnya;100;2025;Sub Kegiatan;pergeseran;Umum Kepegawaian
+1.02.02.2.01.0002;Pembangunan Puskesmas;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0034;Operasional Pelayanan Fasilitas Kesehatan Lainnya;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0001;Penyusunan Dokumen Perencanaan Perangkat Daerah;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0002;Koordinasi dan Penyusunan Dokumen RKA;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0003;Koordinasi dan Penyusunan Dokumen Perubahan RKA;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0004;Koordinasi dan Penyusunan DPA;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0005;Koordinasi dan Penyusunan Perubahan DPA-SKPD;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.01.2.01.0007;Evaluasi Kinerja Perangkat Daerah;100;2025;Sub Kegiatan;pergeseran;Perencanaan dan Evaluasi
+1.02.02.2.02.0001;Pengelolaan Pelayanan Kesehatan Ibu Hamil;100;2025;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0002;Pengelolaan Pelayanan Kesehatan Ibu Bersalin;100;2025;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0003;Pengelolaan Pelayanan Kesehatan Bayi Baru Lahir;100;2025;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0004;Pengelolaan Pelayanan Kesehatan Balita;100;2025;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.02.2.02.0005;Pengelolaan Pelayanan Kesehatan pada Usia Pendidikan Dasar;100;2025;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0007;Pengelolaan Pelayanan Kesehatan pada Usia Lanjut;100;2025;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0015;Pengelolaan Pelayanan Kesehatan Gizi Masyarakat;100;2025;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0016;Pengelolaan Pelayanan Kesehatan Kerja dan Olahraga;100;2025;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.02.2.02.0017;Pengelolaan Pelayanan Kesehatan Lingkungan;100;2025;Sub Kegiatan;pergeseran;Kesehatan Lingkungan
+1.02.02.2.02.0018;Pengelolaan Pelayanan Promosi Kesehatan;100;2025;Sub Kegiatan;pergeseran;Promosi Kesehatan
+1.02.02.2.02.0029;Penyelenggaraan Kabupaten/Kota Sehat;100;2025;Sub Kegiatan;pergeseran;Kesehatan Lingkungan
+1.02.02.2.02.0046;Pengelolaan upaya kesehatan Ibu dan Anak;100;2025;Sub Kegiatan;pergeseran;Kesehatan Ibu dan Anak
+1.02.05.2.03.0001;Bimbingan Teknis dan Supervisi Pengembangan dan Pelaksanaan Upaya Kesehatan Bersumber Daya Masyarakat (UKBM);100;2025;Sub Kegiatan;pergeseran;Kesehatan Gizi Masyarakat
+1.02.02.2.02.0006;Pengelolaan Pelayanan Kesehatan pada Usia Produktif;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0008;Pengelolaan Pelayanan Kesehatan pada Penderita Hipertensi;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0009;Pengelolaan Pelayanan Kesehatan pada Penderita DM;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0010;Pengelolaan Pelayanan Kesehatan Orang pada Gangguan Jiwa;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0020;Pengelolaan Surveilans Kesehatan;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0022;Pengelolaan Pelayanan Kesehatan Jiwa dan NAPZA;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0036;Investigasi Awal Kejadian Tidak Diharapkan (Kejadian Ikutan Pasca Imunisasi dan Pemberian Obat Massal);100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0037;Pelaksanaan Kewaspadaan Dini dan Respon Wabah;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Tidak Menular
+1.02.02.2.02.0012;Pengelolaan Pelayanan Kesehatan Orang dengan Risiko Terinfeksi HIV;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0041 ;"Pengelolaan pelayanan kesehatan orang dengan HIV (ODHIV)	";100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0011 ;Pengelolaan Pelayanan Kesehatan Orang Terduga Tuberkulosis;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0040 ;Pengelolaan pelayanan kesehatan orang dengan Tuberkulosis;100;2025;Sub Kegiatan;pergeseran;Pengendalian Penyakit Menular Langsung
+1.02.02.2.02.0025;Pelayanan Kesehatan Penyakit Menular dan Tidak Menular;100;2025;Sub Kegiatan;pergeseran;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0042;Pengelolaan pelayanan kesehatan Malaria;100;2025;Sub Kegiatan;pergeseran;Pengendalian Tular Vektor & Zoonotik
+1.02.02.2.02.0019;Pengelolaan Pelayanan Kesehatan Tradisional, Akupuntur, Asuhan Mandiri, dan Tradisional Lainnya;100;2025;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0035;Pelaksanaan Akreditasi Fasilitas Kesehatan di Kabupaten/Kota;100;2025;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.04.0003;Peningkatan Mutu Pelayanan Fasilitas Kesehatan;100;2025;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Primer & Tradisional
+1.02.02.2.02.0038;Penyediaan dan Pengelolaan Sistem Penanganan Gawat Darurat Terpadu (SPGDT);100;2025;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Rujukan
+1.02.02.2.04.0004;Penyiapan Perumusan dan Pelaksanaan Pelayanan Kesehatan Rujukan;100;2025;Sub Kegiatan;pergeseran;Pelayanan Kesehatan Rujukan
+1.02.02.2.02.0026;Pengelolaan Jaminan Kesehatan Masyarakat;100;2025;Sub Kegiatan;pergeseran;Jaminan Kesehatan & Kemitraan
+1.02.02.2.01.0001;Peningkatan Upaya Promosi Kesehatan, Advokasi, Kemitraan dan Pemberdayaan Masyarakat;100;2025;Sub Kegiatan;pergeseran;Jaminan Kesehatan & Kemitraan
+1.02.03.2.02.0001;Perencanaan dan Distribusi serta Pemerataan Sumber Daya Manusia Kesehatan;100;2025;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0002;Pemenuhan Kebutuhan Sumber Daya Manusia Kesehatan Sesuai Standar;100;2025;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0001;Pembinaan dan Pengawasan Sumber Daya Manusia Kesehatan;100;2025;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.03.2.02.0001;Pengembangan Mutu dan Peningkatan Kompetensi Teknis Sumber Daya Manusia Kesehatan Tingkat Daerah Kabupaten / Kota;100;2025;Sub Kegiatan;pergeseran;Sumber Daya Manusia Kesehatan 
+1.02.02.2.03.0002;Pengelolaan Sistem Informasi Kesehatan;100;2025;Sub Kegiatan;pergeseran;Informasi & Pengendalian Sarkes
+1.02.02.2.04.0001;Pengendalian dan Pengawasan serta Tindak Lanjut Pengawasan Perizinan Rumah Sakit Kelas C, D dan Fasilitas;100;2025;Sub Kegiatan;pergeseran;Informasi & Pengendalian Sarkes
+1.02.04.2.06.0001 ;Pemeriksaan Post Market pada produk Makanan Minuman IRTP yang Beredar dan Pengawasan serta Tindak Lanjut Pengawasan;100;2025;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.04.2.01.0001;Pengendalian dan Pengawasan serta TL Pengawasan Perijinan Apotek, TO, Toko Alkes dan UMOT;100;2025;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.04.2.03.0001;Pengendalian dan Pengawasan serta TL Pengawasan sertifikat PIRT dan No. PIRT sebagi izin produksi, untuk produk makanan minuman tertentu yang dapat diproduksi oleh IRT;100;2025;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.02.2.01.0023;Pengadaan Obat, Bahan Habis Pakai, Bahan Medis Habis Pakai,, Vaksin, Makanan dan Minuman di Fasilitas Kesehatan;100;2025;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
+1.02.02.2.01.0014 ;"PENGADAAN ALKES/ALAT PENUNJANG MEDIK FASILITAS PELAYANAN KESEHATAN			";100;2025;Sub Kegiatan;pergeseran;Kefarmasian & Perbelkesh
