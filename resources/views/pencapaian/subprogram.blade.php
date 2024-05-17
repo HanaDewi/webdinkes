@@ -14,41 +14,39 @@
                 @endif
                 <form action="{{route('pencapaian.subprogram')}}" method="GET" class="d-flex">
                     <select id="tahun" name="tahun" class="form-control @error('tahun') is-invalid @enderror" style="width: 150px;">
-                    <option value="" disabled selected>-- Tahun --</option>
-                    @foreach($tahun as $tah)
-                    <option value="{{$tah->tahun}}">{{$tah->tahun}}</option>
-                    @endforeach
-                    </select>
-
-                    @error('tahun')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <select id="keg" name="keg" class="form-control ms-2" style="width: 150px;">
-                        <option value="" disabled selected>-- Capaian --</option>
-                        @foreach($keg as $kegi)
-                        <option value="{{$kegi->keg}}">{{$kegi->keg}}</option>
-                        @endforeach
-                    </select>
-
-                    @error('keg')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <select id="apbd" name="apbd" class="form-control ms-2" style="width: 200px;">
-                        <option value="" disabled selected>-- Tahapan APBD --</option>
-                        <option value="Murni">Murni</option>
-                        <option value="Pergeseran">Pergeseran</option>
-                    </select>
-                    @error('apbd')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <button type="submit" class="btn btn-primary ms-2" style="width: 120px;">OKE PILIH</button>
-                </div>
-                </form>
-                <a href="{{ route('pencapaian.export-data-pencapaian') }}" class="btn btn-primary ms-2 "style="width: 150px;">
-                    <i class="bi bi-download"></i> Unduh PDF
-                </a>
+                            <option value="" disabled {{ request('tahun') ? '' : 'selected' }}>-- Tahun --</option>
+                            @foreach($tahun as $tah)    
+                                <option value="{{$tah->tahun}}" {{ request('tahun') == $tah->tahun ? 'selected' : '' }}>{{$tah->tahun}}</option>
+                            @endforeach
+                        </select>
+                        
+                        @error('tahun')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        
+                        <select id="keg" name="keg" class="form-control ms-2" style="width: 150px;">
+                            <option value="" disabled {{ request('keg') ? '' : 'selected' }}>-- Capaian --</option>
+                            @foreach($keg as $kegi)
+                                <option value="{{$kegi->keg}}" {{ request('keg') == $kegi->keg ? 'selected' : '' }}>{{$kegi->keg}}</option>
+                            @endforeach
+                        </select>
+                        
+                        @error('keg')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        
+                        <select id="apbd" name="apbd" class="form-control ms-2" style="width: 200px;">
+                            <option value="" disabled {{ request('apbd') ? '' : 'selected' }}>-- Tahapan APBD --</option>
+                            <option value="Murni" {{ request('apbd') == 'Murni' ? 'selected' : '' }}>Murni</option>
+                            <option value="Pergeseran" {{ request('apbd') == 'Pergeseran' ? 'selected' : '' }}>Pergeseran</option>
+                        </select>
+                        @error('apbd')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <button type="submit" class="btn btn-primary ms-2" style="width: 120px;">OKE PILIH</button>
+                    </div>
+                    </form>
+               
                 @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
@@ -91,7 +89,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($pencapaians as $pencapaian)
-                                    @if(auth()->user()->role == 'user')
+                                    @if(auth()->user()->role == 'user'|| auth()->user()->role == 'sub bidang')
                                     <form action="{{route('pencapaian.submit.user',$pencapaian->id)}}" method="POST">
                                     @csrf
                                     @else
@@ -118,8 +116,17 @@
 
                                         <td>
                                             <select name="tipe">
-                                                <option value="(+)Semakin Baik-(UMUM)" {{ $pencapaian->tipe == "(+)Semakin Baik - (UMUM)" ? 'selected' : '' }}>(+)Semakin Baik-(UMUM)</option>
-                                                <option value="(-)Semakin Baik-(KHUSUS)" {{ $pencapaian->tipe == "(-)Semakin Baik - (KHUSUS)" ? 'selected' : '' }}>(-)Semakin Baik-(KHUSUS)</option>
+                                            @if ($pencapaian->tipe == '(+)Semakin Baik-(UMUM)')
+                                            <option value="(+)Semakin Baik-(UMUM)" selected>(+)Semakin Baik-(UMUM)</option>
+                                                <option value="(-)Semakin Baik-(KHUSUS)">(-)Semakin Baik-(KHUSUS)</option>
+                                                @elseif ($pencapaian->tipe == '(-)Semakin Baik-(KHUSUS)')
+                                                <option value="(+)Semakin Baik-(UMUM)">(+)Semakin Baik-(UMUM)</option>
+                                                <option value="(-)Semakin Baik-(KHUSUS)" selected>(-)Semakin Baik-(KHUSUS)</option>
+                                                @else
+                                                <option value="(+)Semakin Baik-(UMUM)">(+)Semakin Baik-(UMUM)</option>
+                                                <option value="(-)Semakin Baik-(KHUSUS)">(-)Semakin Baik-(KHUSUS)</option>
+                                                @endif
+                                                
                                             </select>
                                         </td>
                                         <td>{{ $pencapaian->target }}%</td>
@@ -150,6 +157,7 @@
                                         <td>
                                             @if($pencapaian->realisasi_april)
                                                 {{ $pencapaian->realisasi_april }}%
+                                                <input type="hidden" name="realisasi_april" value="{{ $pencapaian->realisasi_april }}">
                                             @else
                                                 <input type="text" name="realisasi_april" class="w-50" value="" placeholder="">
                                             @endif
@@ -157,71 +165,86 @@
                                         <td>
                                             @if($pencapaian->realisasi_mei)
                                                 {{ $pencapaian->realisasi_mei }}%
+                                                <input type="hidden" name="realisasi_mei" value="{{ $pencapaian->realisasi_mei }}">
                                             @else
                                                 <input type="text" name="realisasi_mei" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
+                                        
                                         <td>
                                             @if($pencapaian->realisasi_juni)
                                                 {{ $pencapaian->realisasi_juni }}%
+                                                <input type="hidden" name="realisasi_juni" value="{{ $pencapaian->realisasi_juni }}">
                                             @else
                                                 <input type="text" name="realisasi_juni" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
-
+                                        
+                                        <!-- Sisanya untuk bulan Juli sampai Desember, tambahkan sesuai kebutuhan -->
+                                        
                                         <td>
                                             @if($pencapaian->realisasi_juli)
                                                 {{ $pencapaian->realisasi_juli }}%
+                                                <input type="hidden" name="realisasi_juli" value="{{ $pencapaian->realisasi_juli }}">
                                             @else
                                                 <input type="text" name="realisasi_juli" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
-
+                                        
                                         <td>
                                             @if($pencapaian->realisasi_agustus)
                                                 {{ $pencapaian->realisasi_agustus }}%
+                                                <input type="hidden" name="realisasi_agustus" value="{{ $pencapaian->realisasi_agustus }}">
                                             @else
                                                 <input type="text" name="realisasi_agustus" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
+                                        
+                                        <!-- Lanjutkan untuk bulan September sampai Desember -->
+                                        
 
                                         <td>
                                             @if($pencapaian->realisasi_september)
                                                 {{ $pencapaian->realisasi_september }}%
+                                                <input type="hidden" name="realisasi_september" value="{{ $pencapaian->realisasi_september }}">
                                             @else
                                                 <input type="text" name="realisasi_september" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
-
+                                        
                                         <td>
                                             @if($pencapaian->realisasi_oktober)
                                                 {{ $pencapaian->realisasi_oktober }}%
+                                                <input type="hidden" name="realisasi_oktober" value="{{ $pencapaian->realisasi_oktober }}">
                                             @else
                                                 <input type="text" name="realisasi_oktober" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
-
+                                        
+                                        <!-- Sisanya untuk bulan November dan Desember -->
+                                        
                                         <td>
                                             @if($pencapaian->realisasi_november)
                                                 {{ $pencapaian->realisasi_november }}%
+                                                <input type="hidden" name="realisasi_november" value="{{ $pencapaian->realisasi_november }}">
                                             @else
                                                 <input type="text" name="realisasi_november" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
-
+                                        
                                         <td>
                                             @if($pencapaian->realisasi_desember)
                                                 {{ $pencapaian->realisasi_desember }}%
+                                                <input type="hidden" name="realisasi_desember" value="{{ $pencapaian->realisasi_desember }}">
                                             @else
                                                 <input type="text" name="realisasi_desember" class="w-50" value="" placeholder="">
                                             @endif
                                         </td>
-
-
-                                        @if(auth()->user()->role == 'user')
+                                 
+                                        @if(auth()->user()->role == 'user'|| auth()->user()->role == 'sub bidang'|| auth()->user()->role == 'admin')
                                         <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>%
                                         @else
-                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>%
+                                        <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}"readonly>%
                                         @endif
                                         @if($pencapaian->realisasi_akhir != 0)
                                             <div class="text-success"></div>
