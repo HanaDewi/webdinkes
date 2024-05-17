@@ -4,29 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pencapaian;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Response;
 
 
 
 class PencapaianController extends Controller
 {
-    public function pencapaian(Request $request): Response
+    public function pencapaian(Request $request)
 {
-    if (Auth::id()) {
-        $role = Auth()->user()->role;
-        if ($role == 'sub bidang') {
-            $bidangId = Auth::user()->name;
-            $query = Pencapaian::where('bidang', $bidangId);
-        } else if ($role == 'admin') {
-            $query = Pencapaian::query();
-        }
-    }
-    $pencapaians = $query->get();
-    $tahun = $query->selectRaw('tahun')->distinct()->get();
-    $keg = $query->select('keg')->distinct()->get();
-    $apbd = $query->select('apbd')->distinct()->get();
-    
+    $pencapaians = Pencapaian::all();
+    $tahun = Pencapaian::selectRaw('tahun')->distinct()->get();
+    $keg = Pencapaian::select('keg')->distinct()->get();
+    $apbd = Pencapaian::select('apbd')->distinct()->get();
     $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     $data_pencapaian = [];
@@ -43,7 +31,7 @@ class PencapaianController extends Controller
     }
 
     // dd($pencapaians);
-    return response()->view('pencapaian.pencapaian', compact('pencapaians','tahun','keg','apbd' ));
+    return view('pencapaian.pencapaian', compact('pencapaians','tahun','keg','apbd' ));
 }
 
     public function exportPencapaian(){
@@ -82,34 +70,24 @@ class PencapaianController extends Controller
     }
 
     public function edit($id)
-{
-    $pencapaian = Pencapaian::findOrFail($id); // Menggunakan findOrFail untuk mendapatkan data atau menampilkan 404 jika tidak ditemukan
-    $total_akhir = array_sum([
-        $pencapaian->realisasi_januari,
-        $pencapaian->realisasi_februari,
-        $pencapaian->realisasi_maret,
-        $pencapaian->realisasi_april,
-        $pencapaian->realisasi_mei,
-        $pencapaian->realisasi_juni,
-        $pencapaian->realisasi_juli,
-        $pencapaian->realisasi_agustus,
-        $pencapaian->realisasi_september,
-        $pencapaian->realisasi_oktober,
-        $pencapaian->realisasi_november,
-        $pencapaian->realisasi_desember,
-    ]);
-
-    // Mendapatkan tahun dari tabel Pencapaian atau dari sumber lain jika diperlukan
-    $tahun = Pencapaian::select('tahun')->distinct()->orderBy('tahun', 'asc')->get();
-
-    // Mendapatkan keg dari tabel Pencapaian atau dari sumber lain jika diperlukan
-    $keg = Pencapaian::select('keg')->distinct()->orderBy('keg', 'asc')->get();
-
-    // Mendapatkan apbd dari tabel Pencapaian atau dari sumber lain jika diperlukan
-    $apbd = Pencapaian::select('apbd')->distinct()->orderBy('apbd', 'asc')->get();
-
-    return view('pencapaian.edit', compact('pencapaian', 'id', 'total_akhir', 'tahun', 'keg', 'apbd'));
-}
+    {
+        $pencapaian = Pencapaian::where('id','=',$id)->get();
+        $total_akhir = array_sum([
+            $pencapaian[0]['realisasi_januari'],
+            $pencapaian[0]['realisasi_februari'],
+            $pencapaian[0]['realisasi_maret'],
+            $pencapaian[0]['realisasi_april'],
+            $pencapaian[0]['realisasi_mei'],
+            $pencapaian[0]['realisasi_juni'],
+            $pencapaian[0]['realisasi_juli'],
+            $pencapaian[0]['realisasi_agustus'],
+            $pencapaian[0]['realisasi_september'],
+            $pencapaian[0]['realisasi_oktober'],
+            $pencapaian[0]['realisasi_november'],
+            $pencapaian[0]['realisasi_desember'],
+        ]);
+        return view('pencapaian.edit', compact('pencapaian','id','total_akhir'));
+    }
 
 
     public function update(Request $request, Pencapaian $pencapaian)
@@ -141,6 +119,22 @@ class PencapaianController extends Controller
                 'realisasi_november' => 'nullable|numeric',
                 'realisasi_desember' => 'nullable|numeric',
             ]);
+
+            $realisasi_akhir = array_sum([
+                $validateData['realisasi_januari'],
+                $validateData['realisasi_februari'],
+                $validateData['realisasi_maret'],
+                $validateData['realisasi_april'],
+                $validateData['realisasi_mei'],
+                $validateData['realisasi_juni'],
+                $validateData['realisasi_juli'],
+                $validateData['realisasi_agustus'],
+                $validateData['realisasi_september'],
+                $validateData['realisasi_oktober'],
+                $validateData['realisasi_november'],
+                $validateData['realisasi_desember'],
+            ]) / 12;
+
         } else {
             $validateData = $request->validate([
                 'tipe' => 'required|string',
@@ -170,9 +164,11 @@ class PencapaianController extends Controller
                 $validateData['realisasi_oktober'],
                 $validateData['realisasi_november'],
                 $validateData['realisasi_desember'],
-            ]);
+            ]) / 12;
+
         }
 
+        $validateData['realisasi_akhir'] = $realisasi_akhir;
         // Melakukan validasi jika realisasi_akhir melebihi 100
         if ($realisasi_akhir > 100) {
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Target melebihi 100');
@@ -201,41 +197,17 @@ class PencapaianController extends Controller
     }
 
     public function subprogram(Request $request)
-{
-    
-    $query = Pencapaian::query();
+    {
+        $pencapaians = Pencapaian::where('tahun','=', $request->tahun)->where('keg','=',$request->keg)->where('apbd','=',$request->apbd)->get();
+        $keg = Pencapaian::select('keg')->distinct()->get();
+        $tahun = Pencapaian::select('tahun')->distinct()->get();
+        $apbd = Pencapaian::select('apbd')->distinct()->get();
+        $req_tahun = $request->tahun;
+        $req_keg = $request->keg;
+        $req_apbd = $request->apbd;
 
-    // Filter data berdasarkan peran pengguna yang sedang login
-    if (Auth::check()) {
-        $user = Auth::user();
-        if ($user->role == 'sub bidang') {
-            $query->where('bidang', $user->name);
-        }
+        return view('pencapaian.subprogram', compact('pencapaians','keg','tahun','req_keg','req_tahun' ,'req_apbd'));
     }
-
-    // Terapkan filter tambahan berdasarkan permintaan pengguna
-    if ($request->has('tahun')) {
-        $query->where('tahun', $request->tahun);
-    }
-    if ($request->has('keg')) {
-        $query->where('keg', $request->keg);
-    }
-    if ($request->has('apbd')) {
-        $query->where('apbd', $request->apbd);
-    }
-
-    $pencapaians = $query->get();
-    $keg = Pencapaian::select('keg')->distinct()->get();
-    $tahun = Pencapaian::select('tahun')->distinct()->get();
-    $apbd = Pencapaian::select('apbd')->distinct()->get();
-    
-    $req_tahun = $request->tahun;
-    $req_keg = $request->keg;
-    $req_apbd = $request->apbd;
-
-    return view('pencapaian.subprogram', compact('pencapaians', 'keg', 'tahun', 'req_keg', 'req_tahun', 'req_apbd'));
-}
-
     public function submit_user(Request $request, Pencapaian $pencapaian){
         $validateData = $request->validate([
             'tipe' => 'required|string',
@@ -298,3 +270,4 @@ class PencapaianController extends Controller
     }
 
 }
+
