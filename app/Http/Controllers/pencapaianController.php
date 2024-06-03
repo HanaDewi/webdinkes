@@ -12,38 +12,62 @@ use Illuminate\Http\Response;
 class PencapaianController extends Controller
 {
     public function pencapaian(Request $request): Response
-{
-    if (Auth::id()) {
-        $role = Auth()->user()->role;
-        if ($role == 'sub bidang') {
-            $bidangId = Auth::user()->name;
-            $query = Pencapaian::where('bidang', $bidangId);
-        } else if ($role == 'admin') {
-            $query = Pencapaian::query();
+    {
+        if (Auth::id()) {
+            $role = Auth()->user()->role;
+            if ($role == 'sub bidang') {
+                $bidangId = Auth::user()->name;
+                $query = Pencapaian::where('bidang', $bidangId);
+            } else if ($role == 'admin') {
+                $query = Pencapaian::query();
+            }
         }
-    }
-    $pencapaians = $query->get();
-    $tahun = $query->selectRaw('tahun')->distinct()->get();
-    $keg = $query->select('keg')->distinct()->get();
-    $apbd = $query->select('apbd')->distinct()->get();
     
-    $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    $data_pencapaian = [];
-    foreach ($pencapaians as $pencapaian) {
-        $realisasi_januari_desember = $pencapaian->toArray();
-        $realisasi_bulanan = [];
-        foreach (range(0, 11) as $bulan_index) {
-            $nama_bulan = $bulan_indonesia[$bulan_index];
-            $field = "realisasi_" . strtolower($nama_bulan);
-            $realisasi_bulanan[$nama_bulan] = $realisasi_bulanan[$nama_bulan] ?? 0 + $realisasi_januari_desember[$field];
+        // Apply additional filters
+        if ($request->has('tahun')) {
+            $query->where('tahun', $request->tahun);
         }
-        $total_realisasi = array_sum($realisasi_bulanan);
-        $pencapaian->realisasi_akhir_2 = $total_realisasi;
+        if ($request->has('keg')) {
+            $query->where('keg', $request->keg);
+        }
+        if ($request->has('apbd')) {
+            $query->where('apbd', $request->apbd);
+        }
+    
+        // Apply month filter
+        if ($request->has('bulan') && $request->bulan != 'all') {
+            $field = 'realisasi_' . strtolower($request->bulan);
+            $query->whereNotNull($field);
+        }
+    
+        // Pagination and additional query string
+        $pencapaians = $query->paginate(10)->appends($request->query());
+    
+        // Get unique filter data
+        $tahun = Pencapaian::select('tahun')->distinct()->get();
+        $keg = Pencapaian::select('keg')->distinct()->get();
+        $apbd = Pencapaian::select('apbd')->distinct()->get();
+        $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    
+        // Calculate monthly realization
+        foreach ($pencapaians as $pencapaian) {
+            $realisasi_januari_desember = $pencapaian->toArray();
+            $realisasi_bulanan = [];
+            foreach (range(0, 11) as $bulan_index) {
+                $nama_bulan = $bulan_indonesia[$bulan_index];
+                $field = "realisasi_" . strtolower($nama_bulan);
+                $realisasi_bulanan[$nama_bulan] = ($realisasi_bulanan[$nama_bulan] ?? 0) + ($realisasi_januari_desember[$field] ?? 0);
+            }
+            $total_realisasi = array_sum($realisasi_bulanan);
+            $pencapaian->realisasi_akhir_2 = $total_realisasi;
+        }
+    
+        return response()->view('pencapaian.pencapaian', compact('pencapaians', 'tahun', 'keg', 'apbd'));
     }
-    // dd($pencapaians);
-    return response()->view('pencapaian.pencapaian', compact('pencapaians','tahun','keg','apbd' ));
-}
+    
+
+
     public function exportPencapaian(){
         return view('pdf.export-pencapaian');
     }
@@ -99,76 +123,77 @@ class PencapaianController extends Controller
     return view('pencapaian.edit', compact('pencapaian', 'id', 'total_akhir', 'tahun', 'keg', 'apbd'));
 }
 
-    public function update(Request $request, Pencapaian $pencapaian)
-    {
-        $realisasi_akhir = 0; // Inisialisasi variabel realisasi_akhir
-        if (auth()->user()->role == 'admin') {
-            $validateData = $request->validate([
-                'kode' => 'required|string',
-                'tipe' => 'required|string',
-                'program' => 'required|string',
-                'indikator_kinerja' => 'nullable|string',
-                'target' => 'required|numeric|max:100',
-                'catatan' => 'nullable|string|max:1000',
-                'tahun' => 'required|numeric',
-                'keg' => 'required|string',
-                'apbd' => 'required|string',
-                'realisasi_akhir'=>'nullable',
-                'realisasi_januari' => 'nullable|numeric',
-                'realisasi_februari' => 'nullable|numeric',
-                'realisasi_maret' => 'nullable|numeric',
-                'realisasi_april' => 'nullable|numeric',
-                'realisasi_mei' => 'nullable|numeric',
-                'realisasi_juni' => 'nullable|numeric',
-                'realisasi_juli' => 'nullable|numeric',
-                'realisasi_agustus' => 'nullable|numeric',
-                'realisasi_september' => 'nullable|numeric',
-                'realisasi_oktober' => 'nullable|numeric',
-                'realisasi_november' => 'nullable|numeric',
-                'realisasi_desember' => 'nullable|numeric',
-            ]);
-        } else {
-            $validateData = $request->validate([
-                'tipe' => 'required|string',
-                'realisasi_januari' => 'nullable|numeric',
-                'realisasi_februari' => 'nullable|numeric',
-                'realisasi_maret' => 'nullable|numeric',
-                'realisasi_april' => 'nullable|numeric',
-                'realisasi_mei' => 'nullable|numeric',
-                'realisasi_juni' => 'nullable|numeric',
-                'realisasi_juli' => 'nullable|numeric',
-                'realisasi_agustus' => 'nullable|numeric',
-                'realisasi_september' => 'nullable|numeric',
-                'realisasi_oktober' => 'nullable|numeric',
-                'realisasi_november' => 'nullable|numeric',
-                'realisasi_desember' => 'nullable|numeric',
-            ]);
-            $realisasi_akhir = array_sum([
-                $validateData['realisasi_januari'],
-                $validateData['realisasi_februari'],
-                $validateData['realisasi_maret'],
-                $validateData['realisasi_april'],
-                $validateData['realisasi_mei'],
-                $validateData['realisasi_juni'],
-                $validateData['realisasi_juli'],
-                $validateData['realisasi_agustus'],
-                $validateData['realisasi_september'],
-                $validateData['realisasi_oktober'],
-                $validateData['realisasi_november'],
-                $validateData['realisasi_desember'],
-            ]);
-        }
-        // Melakukan validasi jika realisasi_akhir melebihi 100
-        if ($realisasi_akhir > 100) {
-            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Target melebihi 100');
-        }
-        $pencapaian->update($validateData); // Melakukan pembaruan pencapaian setelah semua validasi selesai dilakukan
-        if ($pencapaian) {
-            return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
-        } else {
-            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
-        }
+public function update(Request $request, Pencapaian $pencapaian)
+{
+    $realisasi_akhir = 0; // Inisialisasi variabel realisasi_akhir
+    if (auth()->user()->role == 'admin') {
+        $validateData = $request->validate([
+            'kode' => 'required|string',
+            'tipe' => 'required|string',
+            'program' => 'required|string',
+            'indikator_kinerja' => 'nullable|string',
+            'target' => 'required|numeric|max:100',
+            'catatan' => 'nullable|string|max:1000',
+            'tahun' => 'required|numeric',
+            'keg' => 'required|string',
+            'apbd' => 'required|string',
+            'realisasi_akhir'=>'nullable',
+            'realisasi_januari' => 'nullable|numeric',
+            'realisasi_februari' => 'nullable|numeric',
+            'realisasi_maret' => 'nullable|numeric',
+            'realisasi_april' => 'nullable|numeric',
+            'realisasi_mei' => 'nullable|numeric',
+            'realisasi_juni' => 'nullable|numeric',
+            'realisasi_juli' => 'nullable|numeric',
+            'realisasi_agustus' => 'nullable|numeric',
+            'realisasi_september' => 'nullable|numeric',
+            'realisasi_oktober' => 'nullable|numeric',
+            'realisasi_november' => 'nullable|numeric',
+            'realisasi_desember' => 'nullable|numeric',
+        ]);
+    } else {
+        $validateData = $request->validate([
+            'tipe' => 'required|string',
+            'realisasi_januari' => 'nullable|numeric',
+            'realisasi_februari' => 'nullable|numeric',
+            'realisasi_maret' => 'nullable|numeric',
+            'realisasi_april' => 'nullable|numeric',
+            'realisasi_mei' => 'nullable|numeric',
+            'realisasi_juni' => 'nullable|numeric',
+            'realisasi_juli' => 'nullable|numeric',
+            'realisasi_agustus' => 'nullable|numeric',
+            'realisasi_september' => 'nullable|numeric',
+            'realisasi_oktober' => 'nullable|numeric',
+            'realisasi_november' => 'nullable|numeric',
+            'realisasi_desember' => 'nullable|numeric',
+        ]);
+        $realisasi_akhir = array_sum([
+            $validateData['realisasi_januari'] ?? 0,
+            $validateData['realisasi_februari'] ?? 0,
+            $validateData['realisasi_maret'] ?? 0,
+            $validateData['realisasi_april'] ?? 0,
+            $validateData['realisasi_mei'] ?? 0,
+            $validateData['realisasi_juni'] ?? 0,
+            $validateData['realisasi_juli'] ?? 0,
+            $validateData['realisasi_agustus'] ?? 0,
+            $validateData['realisasi_september'] ?? 0,
+            $validateData['realisasi_oktober'] ?? 0,
+            $validateData['realisasi_november'] ?? 0,
+            $validateData['realisasi_desember'] ?? 0,
+        ]);
     }
+    // Melakukan validasi jika realisasi_akhir melebihi 100
+    if ($realisasi_akhir > 100) {
+        return redirect()->route('pencapaian.pencapaian')->with('failed', 'Target melebihi 100');
+    }
+    $pencapaian->update($validateData); // Melakukan pembaruan pencapaian setelah semua validasi selesai dilakukan
+    if ($pencapaian) {
+        return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
+    } else {
+        return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
+    }
+}
+
     public function delete($id)
     {
         $pencapaian = Pencapaian::find($id);
@@ -211,48 +236,50 @@ class PencapaianController extends Controller
     $req_apbd = $request->apbd;
     return view('pencapaian.subprogram', compact('pencapaians', 'keg', 'tahun', 'apbd', 'req_keg', 'req_tahun', 'req_apbd'));
 }
-    public function submit_user(Request $request, Pencapaian $pencapaian){
-        $validateData = $request->validate([
-            'tipe' => 'required|string',
-            'realisasi_januari' => 'nullable|numeric',
-            'realisasi_februari' => 'nullable|numeric',
-            'realisasi_maret' => 'nullable|numeric',
-            'realisasi_april' => 'nullable|numeric',
-            'realisasi_mei' => 'nullable|numeric',
-            'realisasi_juni' => 'nullable|numeric',
-            'realisasi_juli' => 'nullable|numeric',
-            'realisasi_agustus' => 'nullable|numeric',
-            'realisasi_september' => 'nullable|numeric',
-            'realisasi_oktober' => 'nullable|numeric',
-            'realisasi_november' => 'nullable|numeric',
-            'realisasi_desember' => 'nullable|numeric',
-        ]);
+public function submit_user(Request $request, Pencapaian $pencapaian){
+    $validateData = $request->validate([
+        'tipe' => 'required|string',
+        'realisasi_januari' => 'nullable|numeric',
+        'realisasi_februari' => 'nullable|numeric',
+        'realisasi_maret' => 'nullable|numeric',
+        'realisasi_april' => 'nullable|numeric',
+        'realisasi_mei' => 'nullable|numeric',
+        'realisasi_juni' => 'nullable|numeric',
+        'realisasi_juli' => 'nullable|numeric',
+        'realisasi_agustus' => 'nullable|numeric',
+        'realisasi_september' => 'nullable|numeric',
+        'realisasi_oktober' => 'nullable|numeric',
+        'realisasi_november' => 'nullable|numeric',
+        'realisasi_desember' => 'nullable|numeric',
+    ]);
 
-        $realisasi_akhir = array_sum([
-            $validateData['realisasi_januari'],
-            $validateData['realisasi_februari'],
-            $validateData['realisasi_maret'],
-            $validateData['realisasi_april'],
-            $validateData['realisasi_mei'],
-            $validateData['realisasi_juni'],
-            $validateData['realisasi_juli'],
-            $validateData['realisasi_agustus'],
-            $validateData['realisasi_september'],
-            $validateData['realisasi_oktober'],
-            $validateData['realisasi_november'],
-            $validateData['realisasi_desember'],
-        ]);
-        if($realisasi_akhir>100){
-            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
-        }else{
-            $pencapaian->update($validateData);
-        }
-        if ($pencapaian) {
-            return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
-        } else {
-            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
-        }
+    $realisasi_akhir = array_sum([
+        $validateData['realisasi_januari'] ?? 0,
+        $validateData['realisasi_februari'] ?? 0,
+        $validateData['realisasi_maret'] ?? 0,
+        $validateData['realisasi_april'] ?? 0,
+        $validateData['realisasi_mei'] ?? 0,
+        $validateData['realisasi_juni'] ?? 0,
+        $validateData['realisasi_juli'] ?? 0,
+        $validateData['realisasi_agustus'] ?? 0,
+        $validateData['realisasi_september'] ?? 0,
+        $validateData['realisasi_oktober'] ?? 0,
+        $validateData['realisasi_november'] ?? 0,
+        $validateData['realisasi_desember'] ?? 0,
+    ]);
+
+    if($realisasi_akhir > 100){
+        return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
+    }else{
+        $pencapaian->update($validateData);
     }
+    if ($pencapaian) {
+        return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
+    } else {
+        return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
+    }
+}
+
     public function submit_admin(Request $request, Pencapaian $pencapaian){
         $validateData = $request->validate([
             'realisasi_akhir' => 'required',
