@@ -100,7 +100,7 @@ class PencapaianController extends Controller
     public function edit($id)
 {
     $pencapaian = Pencapaian::findOrFail($id); // Menggunakan findOrFail untuk mendapatkan data atau menampilkan 404 jika tidak ditemukan
-    $total_akhir = array_sum([
+    $realisasi_akhir = array_sum([
         $pencapaian->realisasi_januari,
         $pencapaian->realisasi_februari,
         $pencapaian->realisasi_maret,
@@ -120,7 +120,7 @@ class PencapaianController extends Controller
     $keg = Pencapaian::select('keg')->distinct()->orderBy('keg', 'asc')->get();
     // Mendapatkan apbd dari tabel Pencapaian atau dari sumber lain jika diperlukan
     $apbd = Pencapaian::select('apbd')->distinct()->orderBy('apbd', 'asc')->get();
-    return view('pencapaian.edit', compact('pencapaian', 'id', 'total_akhir', 'tahun', 'keg', 'apbd'));
+    return view('pencapaian.edit', compact('pencapaian', 'id', 'realisasi_akhir', 'tahun', 'keg', 'apbd'));
 }
 
 public function update(Request $request, Pencapaian $pencapaian)
@@ -133,7 +133,7 @@ public function update(Request $request, Pencapaian $pencapaian)
             'program' => 'required|string',
             'indikator_kinerja' => 'nullable|string',
             'target' => 'required|numeric|max:100',
-            'catatan' => 'nullable|string|max:1000',
+            'komentar' => 'nullable|string|max:1000',
             'tahun' => 'required|numeric',
             'keg' => 'required|string',
             'apbd' => 'required|string',

@@ -112,10 +112,10 @@
                                         </table>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Total Akhir</label>
+                                        <label>Realisasi Akhir</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="total_akhir" name="total_akhir" class="form-control" value="{{ $total_akhir }}" placeholder="Total Akhir" readonly>
+                                        <input type="text" id="realisasi_akhir" name="realisasi_akhir" class="form-control" value="{{ $realisasi_akhir }}" placeholder="Realisasi Akhir" readonly>
                                     </div>
                                 </div>
                             </div>

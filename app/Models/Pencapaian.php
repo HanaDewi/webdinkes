@@ -10,7 +10,6 @@ class Pencapaian extends Model
     use HasFactory;
 
     protected $table = "pencapaians";
-
     protected $fillable = [
         'kode',
         'program',
@@ -30,11 +29,10 @@ class Pencapaian extends Model
         'realisasi_november',
         'realisasi_desember',
         'realisasi_akhir',
-        'catatan',
+        'komentar',
         'tahun',
         'keg',
         'apbd',
-        'komentar',
         'bidang',
     ];
 

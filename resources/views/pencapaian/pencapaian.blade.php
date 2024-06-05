@@ -276,7 +276,7 @@
                                             @endif
                                         </td>
                                     @endif 
-                                    @if(auth()->user()->role == 'user'|| auth()->user()->role == 'sub bidang'|| auth()->user()->role == 'admin')
+                                    @if(auth()->user()->role == 'admin')
                                     <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>%
                                     @else
                                     <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}"readonly>%
@@ -286,7 +286,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <div class="catatan">
+                                    <div class="komentar">
                                         <label></label>
                                         <label>{{ $pencapaian->komentar }}</label>
                                     </div>

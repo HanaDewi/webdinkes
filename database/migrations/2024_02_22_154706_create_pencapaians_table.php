@@ -29,11 +29,10 @@ return new class extends Migration {
             $table->float('realisasi_november')->nullable();
             $table->float('realisasi_desember')->nullable();
             $table->float('realisasi_akhir')->nullable();
-            $table->string('catatan')->nullable();
+            $table->string('komentar')->nullable();
             $table->string('tahun')->nullable();
             $table->string('keg')->nullable();
             $table->string('apbd')->nullable();
-            $table->string('komentar')->nullable();
             $table->string('bidang')->nullable();
 
             $table->timestamps();
