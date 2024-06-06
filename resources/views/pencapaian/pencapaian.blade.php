@@ -43,6 +43,7 @@
                         @enderror
 
                         <select id="bulan" name="bulan" class="form-control ms-2" style="width: 200px;">
+                            <option value="" disabled {{ request('bulan') ? '' : 'selected' }}>-- Bulan --</option>
                             <option value="all" {{ request('bulan') == 'all' ? 'selected' : '' }}>All</option>
                             <option value="januari" {{ request('bulan') == 'januari' ? 'selected' : '' }}>Januari</option>
                             <option value="februari" {{ request('bulan') == 'februari' ? 'selected' : '' }}>Februari</option>
@@ -128,7 +129,7 @@
 
                                         <!-- Add other month headers similarly -->
                                         <th>Realisasi Akhir</th>
-                                        <th>Catatan</th>
+                                        <th>Komentar</th>
                                         <th>Submit</th>
                                     </tr>
                                 </thead>
@@ -287,7 +288,6 @@
                                 </td>
                                 <td>
                                     <div class="komentar">
-                                        <label></label>
                                         <label>{{ $pencapaian->komentar }}</label>
                                     </div>
                                 </td>

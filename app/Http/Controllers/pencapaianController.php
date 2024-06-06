@@ -66,8 +66,6 @@ class PencapaianController extends Controller
         return response()->view('pencapaian.pencapaian', compact('pencapaians', 'tahun', 'keg', 'apbd'));
     }
     
-
-
     public function exportPencapaian(){
         return view('pdf.export-pencapaian');
     }
@@ -85,6 +83,7 @@ class PencapaianController extends Controller
             'program' => 'required|string',
             'indikator_kinerja' => 'nullable|string',
             'target' => 'required|numeric|max:100',
+            'komentar' => 'nullable|string|max:1000',
             'tahun' => 'required|numeric',
             'keg' => 'required|string',
             'apbd' => 'required|string',
@@ -285,6 +284,10 @@ public function submit_user(Request $request, Pencapaian $pencapaian){
             'realisasi_akhir' => 'required',
             'komentar' => 'required|string',
         ]);
+        $pencapaian = Pencapaian::findOrFail();
+        $pencapaian->komentar = $request->input('komentar');
+        // Update field lainnya jika ada
+        $pencapaian->save();
         if($request['realisasi_akhir']>100){
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
         }else{
