@@ -277,11 +277,9 @@
                                             @endif
                                         </td>
                                     @endif 
-                                    @if(auth()->user()->role == 'admin')
-                                    <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>%
-                                    @else
+                                    
                                     <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}"readonly>%
-                                    @endif
+                                    
                                     @if($pencapaian->realisasi_akhir != 0)
                                         <div class="text-success"></div>
                                     @endif

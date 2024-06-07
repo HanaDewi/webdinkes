@@ -43,7 +43,7 @@ class PencapaianExport implements FromCollection, WithHeadings, ShouldAutoSize
 				'realisasi_november',
 				'realisasi_desember',
 				'realisasi_akhir',
-				'catatan',
+				'Komentar',
         )->where("tahun", $this->request->tahun)
         ->where("keg", $this->request->keg)
         ->where("apbd", $this->request->apbd)
@@ -71,7 +71,7 @@ class PencapaianExport implements FromCollection, WithHeadings, ShouldAutoSize
             'Realisasi November',
             'Realisasi Desember',
             'Realisasi Akhir',
-            'Catatan',
+            'Komentar',
         ];
     }
 }
