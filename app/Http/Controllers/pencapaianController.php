@@ -12,59 +12,53 @@ use Illuminate\Http\Response;
 class PencapaianController extends Controller
 {
     public function pencapaian(Request $request): Response
-    {
-        if (Auth::id()) {
-            $role = Auth()->user()->role;
-            if ($role == 'sub bidang') {
-                $bidangId = Auth::user()->name;
-                $query = Pencapaian::where('bidang', $bidangId);
-            } else if ($role == 'admin') {
-                $query = Pencapaian::query();
-            }
+{
+    if (Auth::id()) {
+        $role = Auth()->user()->role;
+        if ($role == 'sub bidang') {
+            $bidangId = Auth::user()->name;
+            $query = Pencapaian::where('bidang', $bidangId);
+        } else if ($role == 'admin') {
+            $query = Pencapaian::query();
         }
-    
-        // Apply additional filters
-        if ($request->has('tahun')) {
-            $query->where('tahun', $request->tahun);
-        }
-        if ($request->has('keg')) {
-            $query->where('keg', $request->keg);
-        }
-        if ($request->has('apbd')) {
-            $query->where('apbd', $request->apbd);
-        }
-    
-        // Apply month filter
-        if ($request->has('bulan') && $request->bulan != 'all') {
-            $field = 'realisasi_' . strtolower($request->bulan);
-            $query->whereNotNull($field);
-        }
-    
-        // Pagination and additional query string
-        $pencapaians = $query->paginate(10)->appends($request->query());
-    
-        // Get unique filter data
-        $tahun = Pencapaian::select('tahun')->distinct()->get();
-        $keg = Pencapaian::select('keg')->distinct()->get();
-        $apbd = Pencapaian::select('apbd')->distinct()->get();
-        $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    
-        // Calculate monthly realization
-        foreach ($pencapaians as $pencapaian) {
-            $realisasi_januari_desember = $pencapaian->toArray();
-            $realisasi_bulanan = [];
-            foreach (range(0, 11) as $bulan_index) {
-                $nama_bulan = $bulan_indonesia[$bulan_index];
-                $field = "realisasi_" . strtolower($nama_bulan);
-                $realisasi_bulanan[$nama_bulan] = ($realisasi_bulanan[$nama_bulan] ?? 0) + ($realisasi_januari_desember[$field] ?? 0);
-            }
-            $total_realisasi = array_sum($realisasi_bulanan);
-            $pencapaian->realisasi_akhir_2 = $total_realisasi;
-        }
-    
-        return response()->view('pencapaian.pencapaian', compact('pencapaians', 'tahun', 'keg', 'apbd'));
     }
+
+    // Apply additional filters
+    if ($request->has('tahun')) {
+        $query->where('tahun', $request->tahun);
+    }
+    if ($request->has('keg')) {
+        $query->where('keg', $request->keg);
+    }
+    if ($request->has('apbd')) {
+        $query->where('apbd', $request->apbd);
+    }
+
+    // Pagination and additional query string
+    $pencapaians = $query->paginate(10)->appends($request->query());
+
+    // Get unique filter data
+    $tahun = Pencapaian::select('tahun')->distinct()->get();
+    $keg = Pencapaian::select('keg')->distinct()->get();
+    $apbd = Pencapaian::select('apbd')->distinct()->get();
+    $bulan_inggris = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    $bulan_indonesia = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+    // Calculate monthly realization
+    foreach ($pencapaians as $pencapaian) {
+        $realisasi_januari_desember = $pencapaian->toArray();
+        $realisasi_bulanan = [];
+        foreach (range(0, 11) as $bulan_index) {
+            $nama_bulan = $bulan_indonesia[$bulan_index];
+            $field = "realisasi_" . strtolower($nama_bulan);
+            $realisasi_bulanan[$nama_bulan] = ($realisasi_januari_desember[$field] ?? 0);
+        }
+        $total_realisasi = array_sum($realisasi_bulanan);
+        $pencapaian->realisasi_akhir = $total_realisasi;
+    }
+
+    return response()->view('pencapaian.pencapaian', compact('pencapaians', 'tahun', 'keg', 'apbd'));
+}
     
     public function exportPencapaian(){
         return view('pdf.export-pencapaian');
@@ -213,10 +207,12 @@ public function update(Request $request, Pencapaian $pencapaian)
             $validateData['realisasi_desember'] ?? 0,
         ]);
     }
+    
     // Melakukan validasi jika realisasi_akhir melebihi 100
     if ($realisasi_akhir > 100) {
         return redirect()->route('pencapaian.pencapaian')->with('failed', 'Target melebihi 100');
     }
+    
     $pencapaian->update($validateData); // Melakukan pembaruan pencapaian setelah semua validasi selesai dilakukan
     if ($pencapaian) {
         return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
@@ -238,7 +234,6 @@ public function update(Request $request, Pencapaian $pencapaian)
     }
     public function subprogram(Request $request)
 {
-    
     if (Auth::id()) {
         $role = Auth()->user()->role;
         if ($role == 'sub bidang') {
@@ -260,12 +255,6 @@ public function update(Request $request, Pencapaian $pencapaian)
         $query->where('apbd', $request->apbd);
     }
 
-    // Apply month filter
-    if ($request->has('bulan') && $request->bulan != 'all') {
-        $field = 'realisasi_' . strtolower($request->bulan);
-        $query->whereNotNull($field);
-    }
-
     // Pagination and additional query string
     $pencapaians = $query->paginate(10)->appends($request->query());
 
@@ -283,15 +272,18 @@ public function update(Request $request, Pencapaian $pencapaian)
         foreach (range(0, 11) as $bulan_index) {
             $nama_bulan = $bulan_indonesia[$bulan_index];
             $field = "realisasi_" . strtolower($nama_bulan);
-            $realisasi_bulanan[$nama_bulan] = ($realisasi_bulanan[$nama_bulan] ?? 0) + ($realisasi_januari_desember[$field] ?? 0);
+            $realisasi_bulanan[$nama_bulan] = ($realisasi_januari_desember[$field] ?? 0);
         }
         $total_realisasi = array_sum($realisasi_bulanan);
-        $pencapaian->realisasi_akhir_2 = $total_realisasi;
+        $pencapaian->realisasi_akhir = $total_realisasi;
     }
 
     return response()->view('pencapaian.pencapaian', compact('pencapaians', 'tahun', 'keg', 'apbd'));
 }
-public function submit_user(Request $request, Pencapaian $pencapaian){
+    
+    
+public function submit_user(Request $request, Pencapaian $pencapaian)
+{
     $validateData = $request->validate([
         'tipe' => 'required|string',
         'realisasi_januari' => 'nullable|numeric',
@@ -323,11 +315,14 @@ public function submit_user(Request $request, Pencapaian $pencapaian){
         $validateData['realisasi_desember'] ?? 0,
     ]);
 
-    if($realisasi_akhir > 100){
+    $validateData['realisasi_akhir'] = $realisasi_akhir;
+
+    if ($realisasi_akhir > 100) {
         return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
-    }else{
+    } else {
         $pencapaian->update($validateData);
     }
+
     if ($pencapaian) {
         return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
     } else {
@@ -335,24 +330,21 @@ public function submit_user(Request $request, Pencapaian $pencapaian){
     }
 }
 
-    public function submit_admin(Request $request, Pencapaian $pencapaian){
+
+    public function submit_admin(Request $request, Pencapaian $pencapaian)
+    {
         $validateData = $request->validate([
-            'realisasi_akhir' => 'required',
+            'realisasi_akhir' => 'required|numeric|max:100',
             'komentar' => 'required|string',
         ]);
-        $pencapaian = Pencapaian::findOrFail();
-        $pencapaian->komentar = $request->input('komentar');
-        // Update field lainnya jika ada
-        $pencapaian->save();
-        if($request['realisasi_akhir']>100){
-            return redirect()->route('pencapaian.pencapaian')->with('failed', 'Realisasi melebihi 100');
-        }else{
-            $pencapaian->update($validateData);
-        }
+
+        $pencapaian->update($validateData);
+
         if ($pencapaian) {
             return redirect()->route('pencapaian.pencapaian')->with('success', 'Berhasil Update Data');
         } else {
             return redirect()->route('pencapaian.pencapaian')->with('failed', 'Gagal Update Data');
         }
     }
+
 }

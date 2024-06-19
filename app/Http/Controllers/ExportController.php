@@ -32,14 +32,58 @@ class ExportController extends Controller
      */
     public function export(Request $request)
     {
-        $pencapaians = Pencapaian::where("tahun",$request->tahun)->where("keg",$request->keg)->where("apbd",$request->apbd)->get();
+        $query = Pencapaian::where("tahun", $request->tahun)
+                    ->where("keg", $request->keg)
+                    ->where("apbd", $request->apbd);
+    
+        $pencapaians = $query->get();
+    
+        if ($request->bulan != 'all') {
+            $bulan = $request->bulan;
+            $pencapaians = $pencapaians->map(function ($item) use ($bulan) {
+                return [
+                    'kode' => $item->kode,
+                    'program' => $item->program,
+                    'indikator_kinerja' => $item->indikator_kinerja,
+                    'tipe' => $item->tipe,
+                    'target' => $item->target,
+                    'realisasi_bulan' => $item->{'realisasi_' . strtolower($bulan)},
+                    'realisasi_akhir' => $item->realisasi_akhir,
+                    'komentar' => $item->komentar,
+                ];
+            });
+        } else {
+            $pencapaians = $pencapaians->map(function ($item) {
+                return [
+                    'kode' => $item->kode,
+                    'program' => $item->program,
+                    'indikator_kinerja' => $item->indikator_kinerja,
+                    'tipe' => $item->tipe,
+                    'target' => $item->target,
+                    'realisasi_januari' => $item->realisasi_januari,
+                    'realisasi_februari' => $item->realisasi_februari,
+                    'realisasi_maret' => $item->realisasi_maret,
+                    'realisasi_april' => $item->realisasi_april,
+                    'realisasi_mei' => $item->realisasi_mei,
+                    'realisasi_juni' => $item->realisasi_juni,
+                    'realisasi_juli' => $item->realisasi_juli,
+                    'realisasi_agustus' => $item->realisasi_agustus,
+                    'realisasi_september' => $item->realisasi_september,
+                    'realisasi_oktober' => $item->realisasi_oktober,
+                    'realisasi_november' => $item->realisasi_november,
+                    'realisasi_desember' => $item->realisasi_desember,
+                    'realisasi_akhir' => $item->realisasi_akhir,
+                    'komentar' => $item->komentar,
+                ];
+            });
+        }
+    
         if ($request->export == "pdf") {
-            $pdf = FacadePdf::loadView('export.pencapaian_pdf',["pencapaians" => $pencapaians]);
+            $pdf = FacadePdf::loadView('export.pencapaian_pdf', ["pencapaians" => $pencapaians, "bulan" => $request->bulan]);
             $pdf->setPaper('A4', 'landscape');
             return $pdf->stream();
         } else if($request->export == "excel"){
             return Excel::download(new PencapaianExport($request), 'pencapaian.xlsx');
         }
-
-    }
+    }    
 }

@@ -34,9 +34,27 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group row">
+                                <label for="bulan" class="col-sm-2 col-form-label">Pilih Bulan</label>
+                                <select name="bulan" id="" class="form-select">
+                                    <option value="all">All</option>
+                                    <option value="januari">Januari</option>
+                                    <option value="februari">Februari</option>
+                                    <option value="maret">Maret</option>
+                                    <option value="april">April</option>
+                                    <option value="mei">Mei</option>
+                                    <option value="juni">Juni</option>
+                                    <option value="juli">Juli</option>
+                                    <option value="agustus">Agustus</option>
+                                    <option value="september">September</option>
+                                    <option value="oktober">Oktober</option>
+                                    <option value="november">November</option>
+                                    <option value="desember">Desember</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="card-footer text-end">
-                            <button class="btn btn-primary" name="export" value="pdf" type="submit">Export pdf</button>
+                            <button class="btn btn-primary" name="export" value="pdf" type="submit">Export PDF</button>
                             <button class="btn btn-success" name="export" value="excel" type="submit">Export Excel</button>
                         </div>
                     </form>

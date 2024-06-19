@@ -126,8 +126,6 @@
                                         @if(request('bulan') == 'all' || request('bulan') == 'desember')
                                             <th>Realisasi Desember</th>
                                         @endif
-
-                                        <!-- Add other month headers similarly -->
                                         <th>Realisasi Akhir</th>
                                         <th>Komentar</th>
                                         <th>Submit</th>
@@ -150,135 +148,83 @@
                                             <td>{{ $pencapaian->target }}%</td>
                                             @if(request('bulan') == 'all' || request('bulan') == 'januari')
                                                 <td>
-                                                    @if($pencapaian->realisasi_januari)
-                                                        {{ $pencapaian->realisasi_januari }}%
-                                                        <input type="hidden" name="realisasi_januari" value="{{ $pencapaian->realisasi_januari }}">
-                                                    @else
-                                                        <input type="text" name="realisasi_januari" class="w-50" value="" placeholder="">
-                                                    @endif
+                                                    {{ $pencapaian->realisasi_januari !== null ? $pencapaian->realisasi_januari . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_januari" value="{{ $pencapaian->realisasi_januari }}">
                                                 </td>
                                             @endif
                                             @if(request('bulan') == 'all' || request('bulan') == 'februari')
                                                 <td>
-                                                    @if($pencapaian->realisasi_februari)
-                                                        {{ $pencapaian->realisasi_februari }}%
-                                                        <input type="hidden" name="realisasi_februari" value="{{ $pencapaian->realisasi_februari }}">
-                                                    @else
-                                                        <input type="text" name="realisasi_februari" class="w-50" value="" placeholder="">
-                                                    @endif
+                                                    {{ $pencapaian->realisasi_februari !== null ? $pencapaian->realisasi_februari . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_februari" value="{{ $pencapaian->realisasi_februari }}">
                                                 </td>
                                             @endif
                                             @if(request('bulan') == 'all' || request('bulan') == 'maret')
                                                 <td>
-                                                    @if($pencapaian->realisasi_maret)
-                                                        {{ $pencapaian->realisasi_maret }}%
-                                                        <input type="hidden" name="realisasi_maret" value="{{ $pencapaian->realisasi_maret }}">
-                                                    @else
-                                                        <input type="text" name="realisasi_maret" class="w-50" value="" placeholder="">
-                                                    @endif
+                                                    {{ $pencapaian->realisasi_maret !== null ? $pencapaian->realisasi_maret . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_maret" value="{{ $pencapaian->realisasi_maret }}">
                                                 </td>
                                             @endif
-
                                             @if(request('bulan') == 'all' || request('bulan') == 'april')
                                                 <td>
-                                                    @if($pencapaian->realisasi_april)
-                                                        {{ $pencapaian->realisasi_april }}%
-                                                        <input type="hidden" name="realisasi_april" value="{{ $pencapaian->realisasi_april }}">
-                                                    @else
-                                                        <input type="text" name="realisasi_april" class="w-50" value="" placeholder="">
-                                                    @endif
+                                                    {{ $pencapaian->realisasi_april !== null ? $pencapaian->realisasi_april . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_april" value="{{ $pencapaian->realisasi_april }}">
+                                                </td>
+                                            @endif
+                                            <!-- Continue this for the rest of the months -->
+
+                                            @if(request('bulan') == 'all' || request('bulan') == 'mei')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_mei !== null ? $pencapaian->realisasi_mei . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_mei" value="{{ $pencapaian->realisasi_mei }}">
+                                                </td>
+                                            @endif
+                                            @if(request('bulan') == 'all' || request('bulan') == 'juni')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_juni !== null ? $pencapaian->realisasi_juni . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_juni" value="{{ $pencapaian->realisasi_juni }}">
+                                                </td>
+                                            @endif
+                                            @if(request('bulan') == 'all' || request('bulan') == 'juli')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_juli !== null ? $pencapaian->realisasi_juli . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_juli" value="{{ $pencapaian->realisasi_juli }}">
+                                                </td>
+                                            @endif
+                                            @if(request('bulan') == 'all' || request('bulan') == 'agustus')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_agustus !== null ? $pencapaian->realisasi_agustus . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_agustus" value="{{ $pencapaian->realisasi_agustus }}">
+                                                </td>
+                                            @endif
+                                            @if(request('bulan') == 'all' || request('bulan') == 'september')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_september !== null ? $pencapaian->realisasi_september . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_september" value="{{ $pencapaian->realisasi_september }}">
+                                                </td>
+                                            @endif
+                                            @if(request('bulan') == 'all' || request('bulan') == 'oktober')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_oktober !== null ? $pencapaian->realisasi_oktober . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_oktober" value="{{ $pencapaian->realisasi_oktober }}">
+                                                </td>
+                                            @endif
+                                            @if(request('bulan') == 'all' || request('bulan') == 'november')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_november !== null ? $pencapaian->realisasi_november . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_november" value="{{ $pencapaian->realisasi_november }}">
+                                                </td>
+                                            @endif
+                                            @if(request('bulan') == 'all' || request('bulan') == 'desember')
+                                                <td>
+                                                    {{ $pencapaian->realisasi_desember !== null ? $pencapaian->realisasi_desember . '%' : '' }}
+                                                    <input type="hidden" name="realisasi_desember" value="{{ $pencapaian->realisasi_desember }}">
                                                 </td>
                                             @endif
 
-                                            @if(request('bulan') == 'all' || request('bulan') == 'mei')
-                                            <td>
-                                                @if($pencapaian->realisasi_mei)
-                                                    {{ $pencapaian->realisasi_mei }}%
-                                                    <input type="hidden" name="realisasi_mei" value="{{ $pencapaian->realisasi_mei }}">
-                                                @else
-                                                    <input type="text" name="realisasi_mei" class="w-50" value="" placeholder="">
-                                                @endif
-                                            </td>
-                                        @endif
-                                        
-                                        @if(request('bulan') == 'all' || request('bulan') == 'juni')
-                                            <td>
-                                                @if($pencapaian->realisasi_juni)
-                                                    {{ $pencapaian->realisasi_juni }}%
-                                                    <input type="hidden" name="realisasi_juni" value="{{ $pencapaian->realisasi_juni }}">
-                                                @else
-                                                    <input type="text" name="realisasi_juni" class="w-50" value="" placeholder="">
-                                                @endif
-                                            </td>
-                                        @endif
-                                        
-                                        @if(request('bulan') == 'all' || request('bulan') == 'juli')
-                                        <td>
-                                                @if($pencapaian->realisasi_juli)
-                                                    {{ $pencapaian->realisasi_juli }}%
-                                                    <input type="hidden" name="realisasi_juli" value="{{ $pencapaian->realisasi_juli }}">
-                                                @else
-                                                    <input type="text" name="realisasi_juli" class="w-50" value="" placeholder="">
-                                                @endif
-                                            </td>
-                                        @endif
 
-                                        @if(request('bulan') == 'all' || request('bulan') == 'agustus')
-                                            <td>
-                                                @if($pencapaian->realisasi_agustus)
-                                                    {{ $pencapaian->realisasi_agustus }}%
-                                                    <input type="hidden" name="realisasi_agustus" value="{{ $pencapaian->realisasi_agustus }}">
-                                                @else
-                                                    <input type="text" name="realisasi_agustus" class="w-50" value="" placeholder="">
-                                                @endif
-                                            </td>
-                                        @endif
-
-                                        @if(request('bulan') == 'all' || request('bulan') == 'september')
-                                        <td>
-                                            @if($pencapaian->realisasi_september)
-                                                {{ $pencapaian->realisasi_september }}%
-                                                <input type="hidden" name="realisasi_september" value="{{ $pencapaian->realisasi_september }}">
-                                            @else
-                                                <input type="text" name="realisasi_september" class="w-50" value="" placeholder="">
-                                            @endif
-                                        </td>
-                                    @endif
+ 
                                     
-                                    @if(request('bulan') == 'all' || request('bulan') == 'oktober')
-                                        <td>
-                                            @if($pencapaian->realisasi_oktober)
-                                                {{ $pencapaian->realisasi_oktober }}%
-                                                <input type="hidden" name="realisasi_oktober" value="{{ $pencapaian->realisasi_oktober }}">
-                                            @else
-                                                <input type="text" name="realisasi_oktober" class="w-50" value="" placeholder="">
-                                            @endif
-                                        </td>
-                                    @endif
-                                    
-                                    @if(request('bulan') == 'all' || request('bulan') == 'november')
-                                        <td>
-                                            @if($pencapaian->realisasi_november)
-                                                {{ $pencapaian->realisasi_november }}%
-                                                <input type="hidden" name="realisasi_november" value="{{ $pencapaian->realisasi_november }}">
-                                            @else
-                                                <input type="text" name="realisasi_november" class="w-50" value="" placeholder="">
-                                            @endif
-                                        </td>
-                                    @endif
-                                    
-                                    @if(request('bulan') == 'all' || request('bulan') == 'desember')
-                                        <td>
-                                            @if($pencapaian->realisasi_desember)
-                                                {{ $pencapaian->realisasi_desember }}%
-                                                <input type="hidden" name="realisasi_desember" value="{{ $pencapaian->realisasi_desember }}">
-                                            @else
-                                                <input type="text" name="realisasi_desember" class="w-50" value="" placeholder="">
-                                            @endif
-                                        </td>
-                                    @endif 
-                                    
-                                    <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir_2}}"readonly>%
+                                    <td><input type="type" name="realisasi_akhir" class="w-50" value="{{$pencapaian->realisasi_akhir}}"readonly>%
                                     
                                     @if($pencapaian->realisasi_akhir != 0)
                                         <div class="text-success"></div>
