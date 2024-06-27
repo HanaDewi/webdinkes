@@ -30,10 +30,10 @@ class SinikimasController extends Controller
     public function pkp()
     {
 
-// Tampilkan hasil
-// dd($structured_data);
+        // Tampilkan hasil
+        // dd($structured_data);
 
-// Tampilkan hasil gabungan
+        // Tampilkan hasil gabungan
         $auth = auth();
         $responseData = $this->auth_login_sinikimas($auth);
 
@@ -86,7 +86,7 @@ class SinikimasController extends Controller
                 }
 
                 $pkps = DB::table("tbl_sinikimas_pkp")->get();
-                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->selectRaw('akun_puskesmas')->distinct()->get();
+                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->whereNotNull('akun_puskesmas')->selectRaw('akun_puskesmas')->distinct()->get();
                 $tahun = DB::table("tbl_sinikimas_pkp")->selectRaw('tahun')->distinct()->get();
                 $bulan = DB::table("tbl_sinikimas_pkp")->selectRaw('bulan')->distinct()->get();
                 $jenis_cakupan = DB::table("tbl_sinikimas_pkp")->selectRaw('jenis_cakupan')->distinct()->get();
@@ -149,7 +149,6 @@ class SinikimasController extends Controller
                 $jenis_cakupan = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('jenis_cakupan')->distinct()->get();
                 $jenis_indikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_indikator')->distinct()->get();
                 $jenis_subindikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_subindikator')->distinct()->get();
-
             }
             // dd($pkps);
             return view("pkp.index", compact("pkps", "tahun", "bulan", "jenis_cakupan", "jenis_indikator", "jenis_subindikator", 'structured_data', "akun_puskesmas", "roles"));
@@ -172,7 +171,6 @@ class SinikimasController extends Controller
         } else {
 
             return redirect()->back()->with('failed', 'Unauthenticated');
-
         }
     }
     public function sinikimas()
@@ -286,7 +284,6 @@ class SinikimasController extends Controller
         } else {
             return redirect()->back()->with('failed', 'Unauthenticated');
         }
-
     }
 
     public function edit($id)
@@ -345,7 +342,6 @@ class SinikimasController extends Controller
             }
 
             return view('pkp.edit', compact('sinikimaspkp', 'id', 'jenis_cangkupans', 'jenis_indikators', 'jenis_subindikators', 'satuans', 'disable'));
-
         } else {
             return redirect()->back()->with('failed', 'Unauthenticated');
         }
@@ -489,33 +485,31 @@ class SinikimasController extends Controller
                 } else {
                     return redirect()->route('pkp.pkp')->with('success', 'Berhasil Update Data');
                 }
-
             }
         } else {
             return redirect()->back()->with('failed', 'Unauthenticated');
         }
     }
-public function komentar(Request $request)
-{
-    $update = DB::table('tbl_sinikimas_pkp')->where('id', $request->id)->update([
-        'komentar' => $request->komentar
-    ]);
+    public function komentar(Request $request)
+    {
+        $update = DB::table('tbl_sinikimas_pkp')->where('id', $request->id)->update([
+            'komentar' => $request->komentar
+        ]);
 
-    if (!$update) {
-    return response()->json([
-        'status' => 'failed',
-        'message' => 'Data tidak ditemukan',
-        'redirect_url' => route('pkp.pkp'),
-    ], 404);
-} else {
-    return response()->json([
-        'status' => 'success',
-        'message' => 'Berhasil Update Data',
-        'redirect_url' => route('pkp.pkp'),
-    ], 200);
-}
-
-}
+        if (!$update) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Data tidak ditemukan',
+                'redirect_url' => route('pkp.pkp'),
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Berhasil Update Data',
+                'redirect_url' => route('pkp.pkp'),
+            ], 200);
+        }
+    }
 
     public function delete($id)
     {
@@ -546,81 +540,210 @@ public function komentar(Request $request)
     }
     public function tahun(Request $request)
     {
-        $akun_puskesmas = $request->input('akun_puskesmas');
-        $tahun = DB::table('tbl_sinikimas_pkp')
-            ->where('akun_puskesmas', $akun_puskesmas)
-            ->select('tahun')
-            ->distinct()
-            ->get();
+
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
+
+        if ($responseData && $responseData['role'] == "admin puskesmas") {
+
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->select('tahun')
+                ->distinct()
+                ->get();
+        } else {
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = DB::table('tbl_sinikimas_pkp')
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                // ->orWhereNull('akun_puskesmas')
+                ->select('tahun')
+                ->distinct()
+                ->get();
+        }
 
         return response()->json($tahun);
     }
     public function bulan(Request $request)
     {
-        $akun_puskesmas = $request->input('akun_puskesmas');
-        $tahun = $request->input('tahun');
-        $bulan = DB::table('tbl_sinikimas_pkp')
-            ->where('akun_puskesmas', $akun_puskesmas)
-            ->where('tahun', $tahun)
-            ->select('bulan')
-            ->distinct()
-            ->get();
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
+
+        if ($responseData && $responseData['role'] == "admin puskesmas") {
+
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->where('tahun', $tahun)
+                ->select('bulan')
+                ->distinct()
+                ->get();
+        } else {
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                // ->orWhereNull('akun_puskesmas')
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->where('tahun', $tahun)
+                ->select('bulan')
+                ->distinct()
+                ->get();
+        }
 
         return response()->json($bulan);
     }
     public function jenis_cakupan(Request $request)
     {
-    
-        $akun_puskesmas = $request->input('akun_puskesmas');
-        $tahun = $request->input('tahun');
-        $bulan = $request->input('bulan');
 
-        $jenis_cakupan = DB::table('tbl_sinikimas_pkp')
-            ->where('akun_puskesmas', $akun_puskesmas)
-            ->where('tahun', $tahun)
-            ->where('bulan', $bulan)
-            ->select('jenis_cakupan')
-            ->distinct()
-            ->get();
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
 
+        if ($responseData && $responseData['role'] == "admin puskesmas") {
+
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+
+            $jenis_cakupan = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->select('jenis_cakupan')
+                ->distinct()
+                ->get();
+        } else {
+
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+
+            $jenis_cakupan = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->select('jenis_cakupan')
+                ->distinct()
+                ->get();
+        }
         return response()->json($jenis_cakupan);
     }
     public function jenis_indikator(Request $request)
     {
-        $akun_puskesmas = $request->input('akun_puskesmas');
-        $tahun = $request->input('tahun');
-        $bulan = $request->input('bulan');
-        $jenis_cakupan = $request->input('jenis_cakupan');
 
-        $jenis_indikator = DB::table('tbl_sinikimas_pkp')
-            ->where('akun_puskesmas', $akun_puskesmas)
-            ->where('tahun', $tahun)
-            ->where('bulan', $bulan)
-            ->where('jenis_cakupan', $jenis_cakupan)
-            ->select('jenis_indikator')
-            ->distinct()
-            ->get();
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
 
+        if ($responseData && $responseData['role'] == "admin puskesmas") {
+
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+            $jenis_cakupan = $request->input('jenis_cakupan');
+
+            $jenis_indikator = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->where('jenis_cakupan', $jenis_cakupan)
+                ->select('jenis_indikator')
+                ->distinct()
+                ->get();
+        } else {
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+            $jenis_cakupan = $request->input('jenis_cakupan');
+
+            $jenis_indikator = DB::table('tbl_sinikimas_pkp')
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->where('jenis_cakupan', $jenis_cakupan)
+                ->select('jenis_indikator')
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->distinct()
+                ->get();
+        }
         return response()->json($jenis_indikator);
     }
     public function jenis_subindikator(Request $request)
     {
-    
-        $akun_puskesmas = $request->input('akun_puskesmas');
-        $tahun = $request->input('tahun');
-        $bulan = $request->input('bulan');
-        $jenis_cakupan = $request->input('jenis_cakupan');
-        $jenis_indikator = $request->input('jenis_indikator');
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
 
-        $jenis_subindikator = DB::table('tbl_sinikimas_pkp')
-            ->where('akun_puskesmas', $akun_puskesmas)
-            ->where('tahun', $tahun)
-            ->where('bulan', $bulan)
-            ->where('jenis_cakupan', $jenis_cakupan)
-            ->where('jenis_indikator', $jenis_indikator)
-            ->select('jenis_subindikator')
-            ->distinct()
-            ->get();
+        if ($responseData && $responseData['role'] == "admin puskesmas") {
+
+            $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+            $jenis_cakupan = $request->input('jenis_cakupan');
+            $jenis_indikator = $request->input('jenis_indikator');
+
+            $jenis_subindikator = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->where('jenis_cakupan', $jenis_cakupan)
+                ->where('jenis_indikator', $jenis_indikator)
+                ->select('jenis_subindikator')
+                ->distinct()
+                ->get();
+        } else {
+            // $akun_puskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+            $jenis_cakupan = $request->input('jenis_cakupan');
+            $jenis_indikator = $request->input('jenis_indikator');
+
+            $jenis_subindikator = DB::table('tbl_sinikimas_pkp')
+                // ->where('akun_puskesmas', $akun_puskesmas)
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->where('jenis_cakupan', $jenis_cakupan)
+                ->where('jenis_indikator', $jenis_indikator)
+                ->where(function ($query) use ($responseData) {
+                    $query->where('akun_puskesmas', $responseData['name'])
+                        ->orWhereNull('akun_puskesmas');
+                })
+                // ->orWhereNull('akun_puskesmas')
+                ->select('jenis_subindikator')
+                ->distinct()
+                ->get();
+        }
 
         return response()->json($jenis_subindikator);
     }
@@ -691,7 +814,7 @@ public function komentar(Request $request)
                 ->get();
                 }
 
-                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->selectRaw('akun_puskesmas')->distinct()->get();
+                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->whereNotNull('akun_puskesmas')->selectRaw('akun_puskesmas')->distinct()->get();
 
                 $tahun = DB::table("tbl_sinikimas_pkp")->select('tahun')->distinct()->get();
                 $bulan = DB::table("tbl_sinikimas_pkp")->select('bulan')->distinct()->get();
@@ -745,23 +868,33 @@ public function komentar(Request $request)
                         ];
                     }
                 }
+                $filterParams = $request->except('akun_puskesmas');
+                $isEmptyRequest = empty(array_filter($filterParams));
 
-                if($request->all() == null){
-              $pkps = DB::table('tbl_sinikimas_pkp')
-                    ->where('akun_puskesmas', $responseData['name'])
-                    ->orWhereNull('akun_puskesmas')
-                    ->get();
-                }else{
-                    $pkps = DB::table("tbl_sinikimas_pkp")
-                    ->where('tahun', '=', $request->tahun)
-                    ->where('bulan', '=', $request->bulan)
-                    ->where('jenis_cakupan', '=', $request->jenis_cakupan)
-                    ->where('jenis_indikator', '=', $request->jenis_indikator)
-                    ->where('jenis_subindikator', '=', $request->jenis_subindikator)
-                    ->where('akun_puskesmas', $responseData['name'])
-                    ->orWhereNull('akun_puskesmas')
-                    ->get();
+                if ($isEmptyRequest) {
+                    $pkps = DB::table('tbl_sinikimas_pkp')
+                        // ->where('akun_puskesmas', $responseData['name'])
+                        // ->orWhereNull('akun_puskesmas')
+                        ->where(function ($query) use ($responseData) {
+                            $query->where('akun_puskesmas', $responseData['name'])
+                                ->orWhereNull('akun_puskesmas');
+                        })
+                        ->get();
+                } else {
+                    // dd($request->all());
+                    $pkps = DB::table('tbl_sinikimas_pkp')
+                        ->where('tahun', $request->tahun)
+                        ->where('bulan', $request->bulan)
+                        ->where('jenis_cakupan', $request->jenis_cakupan)
+                        ->where('jenis_indikator', $request->jenis_indikator)
+                        ->where('jenis_subindikator', $request->jenis_subindikator)
+                        ->where(function ($query) use ($responseData) {
+                            $query->where('akun_puskesmas', $responseData['name'])
+                                ->orWhereNull('akun_puskesmas');
+                        })
+                        ->get();
                 }
+                // dd($request->all());
                 $akun_puskesmas = $responseData['name'];
 
                 $tahun = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('tahun')->distinct()->get();
@@ -769,12 +902,10 @@ public function komentar(Request $request)
                 $jenis_cakupan = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('jenis_cakupan')->distinct()->get();
                 $jenis_indikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_indikator')->distinct()->get();
                 $jenis_subindikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_subindikator')->distinct()->get();
-
             }
-// dd($request->all(),$pkps);
+            // dd($request->all(),$pkps);
 
             return view("pkp.index", compact("pkps", "tahun", "bulan", "jenis_cakupan", "jenis_indikator", "jenis_subindikator", 'structured_data', "akun_puskesmas", "roles"));
-
         } else {
             return redirect()->route('login')->with('error', 'Unauthenticated');
         }
@@ -828,5 +959,4 @@ public function komentar(Request $request)
             return redirect()->route('sinikimas.sinikimas')->with('failed', 'Gagal Update Data');
         }
     }
-
 }

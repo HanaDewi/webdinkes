@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('tbl_cangkupans', function (Blueprint $table) {
+            $table->id();
+            $table->string('name_cangkupan')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tbl_cangkupans');
     }
 };

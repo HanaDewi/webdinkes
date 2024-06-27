@@ -14,9 +14,10 @@
                     @endif
                     <form action="{{ route('pencapaian.subprogram') }}" method="GET" class="d-flex">
                         <select id="tahun" name="tahun" class="form-control @error('tahun') is-invalid @enderror" style="width: 150px;">
-                            <option value="" disabled {{ request('tahun') ? '' : 'selected' }}>-- Tahun --</option>
-                            @foreach($tahun as $tah)    
-                                <option value="{{ $tah->tahun }}" {{ request('tahun') == $tah->tahun ? 'selected' : '' }}>{{ $tah->tahun }}</option>
+                            <option value="" disabled {{ $tahun_filter ? '' : 'selected' }}>-- Tahun --</option>
+                            @foreach($tahun as $tah)  
+                                {{-- <option value="{{ $tah }}" {{ $selectedYear == $tah ? 'selected' : '' }}>{{ $tah }}</option>   --}}
+                                <option value="{{ $tah->tahun }}" {{ $tahun_filter == $tah->tahun ? 'selected' : '' }}>{{ $tah->tahun }}</option>
                             @endforeach
                         </select>
                         @error('tahun')
@@ -135,6 +136,11 @@
                                     @foreach ($pencapaians as $pencapaian)
                                     <form action="{{ route('pencapaian.submit.user', $pencapaian->id) }}" method="POST">
                                         @csrf
+                                        <input type="hidden" name="tahun" value="{{ $tahun_filter }}">
+                                        <input type="hidden" name="keg" value="{{ $keg_filter }}">
+                                        <input type="hidden" name="apbd" value="{{ $apbd_filter }}">
+                                        <input type="hidden" name="bulan" value="{{ $bulan_filter }}">
+
                                         <tr>
                                             <td>{{ $pencapaian->kode }}</td>
                                             <td>{{ $pencapaian->program }}</td>
