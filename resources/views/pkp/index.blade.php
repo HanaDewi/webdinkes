@@ -128,6 +128,7 @@
                                                 <th rowspan="2" style="vertical-align: middle; text-align: center;">Pencapaian</th>
                                                 <th colspan="2" style="text-align: center;">Cakupan</th>
                                                 <th rowspan="2" style="vertical-align: middle; text-align: center;">Nilai</th>
+                                                <th rowspan="2" style="vertical-align: middle; text-align: center;">Komentar</th>
                                                 <th rowspan="2" style="vertical-align: middle; text-align: center;">Actions</th>
                                             </tr>
                                             <tr>
@@ -135,7 +136,13 @@
                                                 <th style="text-align: center;">Sub Variabel</th>
                                             </tr>';
                                                 $firstPage = false;
-                                            @endphp          
+                                            @endphp
+
+
+
+
+
+
 
 
                                             <tr>
@@ -143,6 +150,7 @@
                                                     style="background-color: #248501; text-align: left; font-weight: bold;">
                                                     {{ $data->jenis_cakupan ?? '-' }}
                                                 </td>
+                                                <td style="background-color: #248501;"></td>
                                                 <td style="background-color: #248501;"></td>
                                                 <td style="background-color: #248501;"></td>
                                                 <td style="background-color: #248501;"></td>
@@ -164,6 +172,7 @@
                                                 <td style="background-color: #f6b26b;"></td>
                                                 <td style="background-color: #f6b26b;"></td>
                                                 <td style="background-color: #f6b26b;"></td>
+                                                <td style="background-color: #f6b26b;"></td>
                                             </tr>
                                         @endif
 
@@ -177,6 +186,7 @@
                                                     {{ $data->jenis_subindikator ?? '-' }}
                                                 </td>
                                                 <td style="background-color: #f6b26b;">{{$averageValuesubindikator.'%'}}</td>
+                                                <td style="background-color: #f6b26b;"></td>
                                                 <td style="background-color: #f6b26b;"></td>
                                                 <td style="background-color: #f6b26b;"></td>
                                                 <td style="background-color: #f6b26b;"></td>
@@ -197,6 +207,7 @@
                                             <td>{{ $data->cakupan_variabel ?? '-' }}</td>
                                             <td>{{ $data->sub_variabel.'%' ?? '-' }}</td>
                                             <td>{{ $data->nilai.'%' ?? '-' }}</td>
+                                            <td>{{ $data->komentar ?? '-' }}</td>
                                             <td>
                                                 @if (auth()->user()->role == 'admin puskesmas')
                                                     <div class="con d-flex">
@@ -314,11 +325,11 @@
                     $('#buttonpilikpkp').prop('disabled', false);
                 }
                 });
-                
+
             }
             $('#tahunpkp').change(function() {
                 var tahunpkp = $(this).val();
-                
+
 
                 if (tahunpkp) {
                     toggleElementsyear(true);
@@ -351,9 +362,9 @@
                 }
             }
 
-            
 
-            
+
+
             $('#bulanpkp').change(function() {
                 var bulan = $(this).val();
                 var tahun = $('#tahunpkp').val();
@@ -413,7 +424,7 @@
             }
             $('#jenis_indikatorpkp').change(function() {
                 var jenisIndikator = $(this).val();
-                
+
                 var tahun = $('#tahunpkp').val();
                 var bulan = $('#bulanpkp').val();
                 var jenisCakupan = $('#jenis_cakupanpkp').val();

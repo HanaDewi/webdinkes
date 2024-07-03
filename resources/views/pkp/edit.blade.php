@@ -92,7 +92,7 @@
                                              </td>
                                              <td><input type="text" id="target_2" name="target_2"
                                                      class="form-control @error('target_2') is-invalid @enderror"
-                                                     value="{{ old('target_2',$sinikimaspkp->target_2) }}" placeholder="target 2" style="width:100%;">
+                                                     value="{{ old('target_2',$sinikimaspkp->target_2) }}" placeholder="target 2" style="width:100%;" @if($disable) disabled @endif>
                                              </td>
                                              <td><input type="text" id="target_persen" name="target_persen"
                                                      class="form-control @error('target_persen') is-invalid @enderror"
