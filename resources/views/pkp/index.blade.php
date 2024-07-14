@@ -138,13 +138,6 @@
                                                 $firstPage = false;
                                             @endphp
 
-
-
-
-
-
-
-
                                             <tr>
                                                 <td colspan="10"
                                                     style="background-color: #248501; text-align: left; font-weight: bold;">

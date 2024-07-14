@@ -51,46 +51,49 @@
             <ul class="menu">
                 <li class="sidebar-title">E-MONEV</li>
                 @if (auth()->user()->role == 'admin' || auth()->user()->role == 'sub bidang')
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-collection-fill"></i>
-                        <span>MONEV</span>
-                    </a>
-                     @endif
-                    <ul class="submenu ">
-                        @if (auth()->user()->role == 'admin' || auth()->user()->role == 'sub bidang')
-                            <li class="submenu-item ">
-                                <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="{{ route('export.index') }}">Export</a>
-                            </li>
-                        @endif
-                    </ul>
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-collection-fill"></i>
+                            <span>MONEV</span>
+                        </a>
+                @endif
+                <ul class="submenu ">
+                    @if (auth()->user()->role == 'admin' || auth()->user()->role == 'sub bidang')
+                        <li class="submenu-item ">
+                            <a href="{{ route('pencapaian.pencapaian') }}">Pencapaian</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('export.index') }}">Export</a>
+                        </li>
+                    @endif
+                </ul>
                 </li>
 
                 @if (auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas')
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-collection-fill"></i>
-                        <span>SI NIKIMAS</span>
-                    </a>
-                    <ul class="submenu ">
-                        @if (auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas')
-                            <li class="submenu-item ">
-                                <a href="{{route('pkp.pkp')}}">PKP</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="{{ route('export.pkpindex') }}">Export</a>
-                            </li>
-                        @endif
-                        {{-- @if (auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas')
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-collection-fill"></i>
+                            <span>SI NIKIMAS</span>
+                        </a>
+                        <ul class="submenu ">
+                            @if (auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas')
+                                <li class="submenu-item ">
+                                    <a href="{{ route('pkp.pkp') }}">PKP</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="{{ route('export.pkpindex') }}">Export</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="{{ route('manajemen.index') }}">Manajemen</a>
+                                </li>
+                            @endif
+                            {{-- @if (auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas')
                             <li class="submenu-item ">
                                 <a href="{{ route('sinikimas.sinikimas') }}">Sinikimas</a>
                             </li>
                         @endif --}}
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
                 @endif
                 <li class="sidebar-item  ">
                     @auth

@@ -91,9 +91,9 @@
                                                      value="{{ old('target_1',$sinikimaspkp->target_1) }}" placeholder="target 1" style="width:100%;" @if($disable) disabled @endif>
                                              </td>
                                              <td><input type="text" id="target_2" name="target_2"
-                                                     class="form-control @error('target_2') is-invalid @enderror"
-                                                     value="{{ old('target_2',$sinikimaspkp->target_2) }}" placeholder="target 2" style="width:100%;" @if($disable) disabled @endif>
-                                             </td>
+                                                class="form-control @error('target_2') is-invalid @enderror"
+                                                value="{{ old('target_2',$sinikimaspkp->target_2) }}" placeholder="target 2(100%)" style="width:100%;">
+                                            </td>
                                              <td><input type="text" id="target_persen" name="target_persen"
                                                      class="form-control @error('target_persen') is-invalid @enderror"
                                                      value="{{ old('target_persen',$sinikimaspkp->target_persen) }}" placeholder="target persen(100%)" style="width:100%;">

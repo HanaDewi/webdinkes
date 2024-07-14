@@ -8,6 +8,7 @@ use App\Http\Controllers\registerController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\SinikimasController;
 use App\Http\Controllers\pencapaianController;
+use App\Http\Controllers\ManajemenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +90,12 @@ Route::get('/export-sinikimas', [ExportController::class, 'indexSinikimasPkp'])-
 Route::get('/export-sinikimas-pkp', [ExportController::class, 'indexexportSinikimasPkp'])->name('export.pkpindex');
 Route::get('/export-sinikimas/data-export', [ExportController::class, 'exportSinikimasPkp'])->name('export.sinikimas');
 Route::get('/export-sinikimas/data-export2', [ExportController::class, 'exportSinikimasPkp2'])->name('export.sinikimas2');
+
+Route::get('/manajemen', [ManajemenController::class, 'index'])->name('manajemen.index');
+Route::get('/filter-manajemen', [ManajemenController::class, 'filter'])->name('manajemen.filter');
+Route::get('/create-manajemen', [ManajemenController::class, 'create'])->name('manajemen.create');
+Route::post('/manajemen', [ManajemenController::class, 'store'])->name('manajemen.store');
+Route::get('/edit-manajemen/{id}', [ManajemenController::class, 'edit'])->name('manajemen.edit');
+Route::put('/update-manajemen/{id}', [ManajemenController::class, 'update'])->name('manajemen.update');
+Route::get('/hapus-manajemen/{id}/xyx', [ManajemenController::class, 'delete'])->name('manajemen.delete');
+
