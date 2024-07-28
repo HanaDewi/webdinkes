@@ -81,10 +81,13 @@
                                     <a href="{{ route('pkp.pkp') }}">PKP</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="{{ route('export.pkpindex') }}">Export</a>
+                                    <a href="{{ route('export.pkpindex') }}">Export PKP</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="{{ route('manajemen.index') }}">Manajemen</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="{{ route('export.manajemenindex') }}">Export Manajemen</a>
                                 </li>
                             @endif
                             {{-- @if (auth()->user()->role == 'puskesmas' || auth()->user()->role == 'admin puskesmas')

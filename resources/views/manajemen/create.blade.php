@@ -143,17 +143,18 @@
                                 </div>
                                 <div class="col-md-8 form-group">
                                     <select id="bulan" name="bulan" class="form-control">
-                                        <option value="" disabled {{ old('bulan') === null ? 'selected' : '' }}>Pilih
-                                            Bulan</option>
-                                        @for ($i = 1; $i <= 12; $i++)
-                                            <option value="{{ $i }}"
-                                                {{ old('bulan') == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                        @endfor
+                                        <option value="" disabled {{ old('bulan') === null ? 'selected' : '' }}>Pilih Bulan</option>
+                                        @foreach (['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'] as $index => $month)
+                                            <option value="{{ $index + 1 }}" {{ old('bulan') == $index + 1 ? 'selected' : '' }}>
+                                                {{ $month }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                     @error('bulan')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-
+                                </div>
+                                
                                 </div>
                             </div>
                         </div>

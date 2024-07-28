@@ -71,6 +71,36 @@ class ExportController extends Controller
             return redirect()->route('login')->with('failed', 'Unauthenticated');
         }
     }
+    public function indexexportmanajemen()
+    {
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
+
+        if ($responseData) {
+            if ($responseData['role'] == "admin puskesmas") {
+                $roles = $responseData['role'];
+                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->selectRaw('akun_puskesmas')->distinct()->get();
+                $tahun = DB::table("tbl_sinikimas_pkp")->selectRaw('tahun')->distinct()->get();
+                $bulan = DB::table("tbl_sinikimas_pkp")->selectRaw('bulan')->distinct()->get();
+                $jenis_cakupan = DB::table("tbl_sinikimas_pkp")->selectRaw('jenis_cakupan')->distinct()->get();
+                $jenis_indikator = DB::table("tbl_sinikimas_pkp")->select('jenis_indikator')->distinct()->get();
+                $jenis_subindikator = DB::table("tbl_sinikimas_pkp")->select('jenis_subindikator')->distinct()->get();
+            } else {
+                $roles = $responseData['role'];
+                $akun_puskesmas = $responseData['name'];
+                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->selectRaw('akun_puskesmas')->distinct()->get();
+                $tahun = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('tahun')->distinct()->get();
+                $bulan = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('bulan')->distinct()->get();
+                $jenis_cakupan = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('jenis_cakupan')->distinct()->get();
+                $jenis_indikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_indikator')->distinct()->get();
+                $jenis_subindikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_subindikator')->distinct()->get();
+            }
+            return view("export.indexexportmanajemen", compact("akun_puskesmas", "tahun", "bulan", "jenis_cakupan", "jenis_indikator", "jenis_subindikator", "akun_puskesmas", "roles"));
+        } else {
+            return redirect()->route('login')->with('failed', 'Unauthenticated');
+        }
+    }
+
     public function indexSinikimasPkp()
     {
         $akun_puskesmas = DB::table('users')->where('role', 'puskesmas')->get();
@@ -124,12 +154,14 @@ class ExportController extends Controller
     {
         // dd($request->all());
         $validated = $request->validate([
+            'akun_puskesmas' => 'required|string',
             'tahun' => 'required|string',
             'bulan' => 'required|string',
             'jenis_cakupan' => 'required|string',
             'jenis_indikator' => 'required|string',
             'jenis_subindikator' => 'required|string',
         ], [
+            'akun_puskesmas.required' => 'Akun Puskesmas is required.',
             'tahun.required' => 'Tahun is required.',
             'bulan.required' => 'Bulan is required.',
             'jenis_cakupan.required' => 'Jenis Cakupan is required.',

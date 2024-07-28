@@ -1,4 +1,4 @@
-@extends('kerangka.master')
+{{-- @extends('kerangka.master')
 @section('content')
     <!-- Basic Tables start -->
     <section class="section">
@@ -112,4 +112,4 @@
             </div>
         </div>
     </section>
-@endsection
+@endsection --}}

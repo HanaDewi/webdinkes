@@ -16,7 +16,7 @@ class tblManajemenSeeder extends Seeder
     {
         //
         $data = [
-            
+ //----------------------------------------------------------------------------------------------------------------------------------------------------//
             ["indikator" => "Manajemen Umum Perpustakaan", "sub_indikator" => "Manajemen Umum Perpustakaan", "jenis_variabel" => "Mempunyai Rencana Lima Tahunan (RSB)", "nilai_0" => "tidak punya", "nilai_4" => "-", "nilai_7" => "-", "nilai_10" => "punya", "nilai_hasil" => "", "akun_puskesmas" => ""],
             ["indikator" => "Manajemen Umum Perpustakaan", "sub_indikator" => "Manajemen Umum Perpustakaan", "jenis_variabel" => "Ada RUK, disusun berdasarkan Rencana Lima Tahunan dan melalui analisis situasi dan perumusan masalah", "nilai_0" => "tidak menyusun", "nilai_4" => "ya , beberapa ada analisa dan perumusan", "nilai_7" => "ya, sebagian ada analisa dan perumusan", "nilai_10" => "ya, seluruhnya ada analisa dan perumusan", "nilai_hasil" => "", "akun_puskesmas" => ""],
             ["indikator" => "Manajemen Umum Perpustakaan", "sub_indikator" => "Manajemen Umum Perpustakaan", "jenis_variabel" => "menyusun RPK secara terinci dan lengkap", "nilai_0" => "tidak menyusun", "nilai_4" => "ya terinci sebagian kecil", "nilai_7" => "ya, terinci sebagian besar", "nilai_10" => "ya, terinci semuanya", "nilai_hasil" => "", "akun_puskesmas" => ""],

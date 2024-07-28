@@ -184,16 +184,15 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <select id="bulan" name="bulan" class="form-control">
-                                            <option value="" disabled
-                                                {{ old('bulan', $manajemen->bulan) === null ? 'selected' : '' }}>Pilih
-                                                Bulan
-                                            </option>
-                                            @for ($i = 1; $i <= 12; $i++)
-                                                <option value="{{ $i }}"
-                                                    {{ old('bulan', $manajemen->bulan) == $i ? 'selected' : '' }}>
-                                                    {{ $i }}</option>
-                                            @endfor
+                                            <option value="" disabled {{ old('bulan', $manajemen->bulan) === null ? 'selected' : '' }}>Pilih Bulan</option>
+                                            @foreach (['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'] as $index => $month)
+                                                <option value="{{ $index + 1 }}" {{ old('bulan', $manajemen->bulan) == $index + 1 ? 'selected' : '' }}>
+                                                    {{ $month }}
+                                                </option>
+                                            @endforeach
                                         </select>
+                                    </div>
+                                    
                                         @error('bulan')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -214,7 +213,7 @@
                                         <label>Bulan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="number" id="bulan" name="bulan"
+                                        <input type="text" id="bulan" name="bulan"
                                             class="form-control bg-light @error('bulan') is-invalid @enderror readonly"
                                             value="{{ old('bulan', $manajemen->bulan) }}" readonly>
                                         @error('bulan')
