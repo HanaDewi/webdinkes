@@ -89,6 +89,7 @@ Route::post('/jenis_subindikator', [SinikimasController::class, 'jenis_subindika
 Route::get('/export-sinikimas', [ExportController::class, 'indexSinikimasPkp'])->name('index.sinikimas');
 Route::get('/export-sinikimas-pkp', [ExportController::class, 'indexexportSinikimasPkp'])->name('export.pkpindex');
 Route::get('/export-sinikimas-manajemen', [ExportController::class, 'indexexportmanajemen'])->name('export.manajemenindex');
+Route::get('/export-sinikimas-manajemen/data-export', [ExportController::class, 'exportManagement'])->name('export.management');
 Route::get('/export-sinikimas/data-export', [ExportController::class, 'exportSinikimasPkp'])->name('export.sinikimas');
 Route::get('/export-sinikimas/data-export2', [ExportController::class, 'exportSinikimasPkp2'])->name('export.sinikimas2');
 

@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Exports\PencapaianExport;
 use App\Exports\SinikimasExport;
+use App\Exports\ManagementExport;
 use App\Http\Controllers\Controller;
 use App\Models\Bulan;
 use App\Models\Pencapaian;
 use App\Models\tblSinikimasPkp;
 use App\Models\User;
+use App\Models\Manajemen;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
@@ -71,6 +74,7 @@ class ExportController extends Controller
             return redirect()->route('login')->with('failed', 'Unauthenticated');
         }
     }
+
     public function indexexportmanajemen()
     {
         $auth = auth();
@@ -78,24 +82,22 @@ class ExportController extends Controller
 
         if ($responseData) {
             if ($responseData['role'] == "admin puskesmas") {
-                $roles = $responseData['role'];
-                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->selectRaw('akun_puskesmas')->distinct()->get();
-                $tahun = DB::table("tbl_sinikimas_pkp")->selectRaw('tahun')->distinct()->get();
-                $bulan = DB::table("tbl_sinikimas_pkp")->selectRaw('bulan')->distinct()->get();
-                $jenis_cakupan = DB::table("tbl_sinikimas_pkp")->selectRaw('jenis_cakupan')->distinct()->get();
-                $jenis_indikator = DB::table("tbl_sinikimas_pkp")->select('jenis_indikator')->distinct()->get();
-                $jenis_subindikator = DB::table("tbl_sinikimas_pkp")->select('jenis_subindikator')->distinct()->get();
-            } else {
-                $roles = $responseData['role'];
+                $data = Manajemen::all();
+                $data = collect($data)->groupBy('akun_puskesmas');
+            }else{
+                $data = Manajemen::where('akun_puskesmas', Auth::user()->name)
+                ->orWhereNull('akun_puskesmas')
+                ->orderBy('indikator')
+                ->get();
                 $akun_puskesmas = $responseData['name'];
-                $akun_puskesmas = DB::table("tbl_sinikimas_pkp")->selectRaw('akun_puskesmas')->distinct()->get();
-                $tahun = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('tahun')->distinct()->get();
-                $bulan = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('bulan')->distinct()->get();
-                $jenis_cakupan = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->selectRaw('jenis_cakupan')->distinct()->get();
-                $jenis_indikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_indikator')->distinct()->get();
-                $jenis_subindikator = DB::table("tbl_sinikimas_pkp")->where('akun_puskesmas', $responseData['name'])->orWhereNull('akun_puskesmas')->select('jenis_subindikator')->distinct()->get();
             }
-            return view("export.indexexportmanajemen", compact("akun_puskesmas", "tahun", "bulan", "jenis_cakupan", "jenis_indikator", "jenis_subindikator", "akun_puskesmas", "roles"));
+            $roles = $responseData['role'];
+
+            $indikators = Manajemen::distinct()->pluck('indikator');
+            $akun_puskesmas = User::whereNotIn('id', [1, 2])->pluck('name');
+            $tahun = Manajemen::distinct()->pluck('tahun');
+            $bulan = Manajemen::distinct()->pluck('bulan');
+            return view("export.indexexportmanajemen", compact('data', 'indikators', 'akun_puskesmas', 'tahun', 'bulan', 'roles'));
         } else {
             return redirect()->route('login')->with('failed', 'Unauthenticated');
         }
@@ -348,7 +350,7 @@ class ExportController extends Controller
                         ->get();
                     // dd("b");
                 }
-                
+
                 // Ambil data dari database untuk jenis_subindikator
                 $data_jenis_subindikator = DB::table('tbl_sinikimas_pkp')
                     ->select('jenis_subindikator', 'jenis_indikator', 'jenis_cakupan', DB::raw('COUNT(*) as total_subindikator'), DB::raw('AVG(nilai) as nilai_rata_subindikator'))
@@ -474,7 +476,243 @@ class ExportController extends Controller
                     return Excel::download(new SinikimasExport($akun_puskesmas, $tahun, $bulan, $jenisCakupan, $jenisIndikator, $jenisSubindikator), 'Data_Laporan_Sinikimas_PKP.xlsx');
                 }
             }
-            
+
+        } else {
+            return redirect()->route('login')->with('error', 'Unauthenticated');
+        }
+    }
+
+    public function exportManagementOld(Request $request)
+    {
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
+        if ($responseData) {
+
+            $akunPuskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+            $indikator = $request->input('jenis_indikator');
+
+            if(Auth::user()->role == 'admin puskesmas'){
+                $data = Manajemen::where(function ($query) {
+                    $query->where('akun_puskesmas', Auth::user()->name)
+                        ->orWhereNull('akun_puskesmas');
+                })->where('tahun', $tahun)->where('bulan', $bulan)->where('indikator',$indikator)->get();
+                $data = collect($data)->groupBy('akun_puskesmas');
+            }else{
+                $data = Manajemen::where(function ($query) {
+                    $query->where('akun_puskesmas', Auth::user()->name)
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->where('indikator', $indikator)
+                ->orderBy('indikator')
+                ->get();
+            }
+
+            $indikators = Manajemen::distinct()->pluck('indikator');
+            $akun_puskesmas = User::whereNotIn('id', [1, 2])->pluck('name');
+            $tahun = Manajemen::distinct()->pluck('tahun');
+            $bulan = Manajemen::distinct()->pluck('bulan');
+            // return view('manajemen.index', compact('data', 'indikators', 'akun_puskesmas', 'tahun', 'bulan'));
+
+            if ($responseData['role'] == "admin puskesmas") {
+                $akun_puskesmas = $request->akun_puskesmas;
+                $filterParams = $request->except('export');
+                $isEmptyRequest = empty(array_filter($filterParams));
+
+                if ($isEmptyRequest) {
+                    $data = Manajemen::all();
+                    $data = collect($data)->groupBy('akun_puskesmas');
+                    $managementQuery = DB::table('tbl_sinikimas_pkp')->get();
+                    // dd("a");
+                } else {
+                    $managementQuery = DB::table('tbl_sinikimas_pkp')
+                        ->where('akun_puskesmas', $request->akun_puskesmas)
+                        ->where('tahun', $request->tahun)
+                        ->where('bulan', $request->bulan)
+                        ->where('jenis_cakupan', $request->jenis_cakupan)
+                        ->where('jenis_indikator', $request->jenis_indikator)
+                        ->where('jenis_subindikator', $request->jenis_subindikator)
+                        ->get();
+                    // dd("b");
+                }
+
+                // Ambil data dari database untuk jenis_subindikator
+                $data_jenis_subindikator = DB::table('tbl_sinikimas_pkp')
+                    ->select('jenis_subindikator', 'jenis_indikator', 'jenis_cakupan', DB::raw('COUNT(*) as total_subindikator'), DB::raw('AVG(nilai) as nilai_rata_subindikator'))
+                    ->groupBy('jenis_subindikator', 'jenis_indikator', 'jenis_cakupan')
+                    ->get();
+
+                // Ambil data dari database untuk jenis_indikator
+                $data_jenis_indikator = DB::table('tbl_sinikimas_pkp')
+                    ->select('jenis_indikator', 'jenis_cakupan', DB::raw('COUNT(*) as total_indikator'), DB::raw('AVG(nilai) as nilai_rata_indikator'))
+                    ->groupBy('jenis_indikator', 'jenis_cakupan')
+                    ->get();
+
+                $structured_data = [];
+
+                        foreach ($data_jenis_indikator as $indikator) {
+                            $jenis_cakupan = $indikator->jenis_cakupan;
+                            $jenis_indikator = $indikator->jenis_indikator;
+
+                            if (!isset($structured_data[$jenis_cakupan])) {
+                                $structured_data[$jenis_cakupan] = [];
+                            }
+
+                            $structured_data[$jenis_cakupan][$jenis_indikator] = [
+                                'total_indikator' => $indikator->total_indikator,
+                                'nilai_rata_indikator' => $indikator->nilai_rata_indikator,
+                                'sub_indikators' => [],
+                            ];
+                        }
+
+                        foreach ($data_jenis_subindikator as $subindikator) {
+                            $jenis_cakupan = $subindikator->jenis_cakupan;
+                            $jenis_indikator = $subindikator->jenis_indikator;
+
+                            if (isset($structured_data[$jenis_cakupan][$jenis_indikator])) {
+                                $structured_data[$jenis_cakupan][$jenis_indikator]['sub_indikators'][] = [
+                                    'jenis_subindikator' => $subindikator->jenis_subindikator,
+                                    'total_subindikator' => $subindikator->total_subindikator,
+                                    'nilai_rata_subindikator' => $subindikator->nilai_rata_subindikator,
+                                ];
+                            }
+                        }
+
+                if ($request->export == "pdf") {
+                    $pdf = FacadePdf::loadView('pdf.sinikimasPdfPkp', ["sinikimas" => $managementQuery, 'structured_data' => $structured_data, 'tahun' => $tahun, 'akun_puskesmas' => $akun_puskesmas]);
+                    $pdf->setPaper('A4', 'landscape');
+                    return $pdf->stream();
+                } else if ($request->export == "excel") {
+                    return Excel::download(new SinikimasExport($request->akun_puskesmas, $request->tahun, $request->bulan, $request->jenis_cakupan, $request->jenis_indikator, $request->jenis_subindikator), 'Data_Laporan_Sinikimas_PKP.xlsx');
+                }
+
+            } else {
+
+                $akun_puskesmas = $responseData['name'];
+                ;
+                $akun_puskesmas = $request->akun_puskesmas;
+                $filterParams = $request->except('export');
+                $isEmptyRequest = empty(array_filter($filterParams));
+
+                if ($isEmptyRequest) {
+                    $managementQuery = tblSinikimasPkp::query()
+                        ->where('akun_puskesmas', $responseData['name'])->get();
+                } else {
+                    $managementQuery = tblSinikimasPkp::query()
+                        ->where('akun_puskesmas', $responseData['name'])
+                        ->where('tahun', $request->tahun)
+                        ->where('bulan', $request->bulan)
+                        ->where('jenis_cakupan', $request->jenis_cakupan)
+                        ->where('jenis_indikator', $request->jenis_indikator)
+                        ->where('jenis_subindikator', $request->jenis_subindikator)
+                        ->get();
+                }
+                // dd($managementQuery);
+                                // Ambil data dari database untuk jenis_subindikator
+                $data_jenis_subindikator = DB::table('tbl_sinikimas_pkp')
+                    ->where('akun_puskesmas', $responseData['name'])
+                    ->select('jenis_subindikator', 'jenis_indikator', 'jenis_cakupan', DB::raw('COUNT(*) as total_subindikator'), DB::raw('AVG(nilai) as nilai_rata_subindikator'))
+                    ->groupBy('jenis_subindikator', 'jenis_indikator', 'jenis_cakupan')
+                    ->get();
+
+                // Ambil data dari database untuk jenis_indikator
+                $data_jenis_indikator = DB::table('tbl_sinikimas_pkp')
+                    ->where('akun_puskesmas', $responseData['name'])
+                    ->select('jenis_indikator', 'jenis_cakupan', DB::raw('COUNT(*) as total_indikator'), DB::raw('AVG(nilai) as nilai_rata_indikator'))
+                    ->groupBy('jenis_indikator', 'jenis_cakupan')
+                    ->get();
+
+
+                $structured_data = [];
+
+                foreach ($data_jenis_indikator as $indikator) {
+                    $jenis_cakupan = $indikator->jenis_cakupan;
+                    $jenis_indikator = $indikator->jenis_indikator;
+
+                    if (!isset($structured_data[$jenis_cakupan])) {
+                        $structured_data[$jenis_cakupan] = [];
+                    }
+
+                    $structured_data[$jenis_cakupan][$jenis_indikator] = [
+                        'total_indikator' => $indikator->total_indikator,
+                        'nilai_rata_indikator' => $indikator->nilai_rata_indikator,
+                        'sub_indikators' => [],
+                    ];
+                }
+
+                foreach ($data_jenis_subindikator as $subindikator) {
+                    $jenis_cakupan = $subindikator->jenis_cakupan;
+                    $jenis_indikator = $subindikator->jenis_indikator;
+
+                    if (isset($structured_data[$jenis_cakupan][$jenis_indikator])) {
+                        $structured_data[$jenis_cakupan][$jenis_indikator]['sub_indikators'][] = [
+                            'jenis_subindikator' => $subindikator->jenis_subindikator,
+                            'total_subindikator' => $subindikator->total_subindikator,
+                            'nilai_rata_subindikator' => $subindikator->nilai_rata_subindikator,
+                        ];
+                    }
+                }
+                if ($request->export == "pdf") {
+                    // dd($managementQuery);
+                    $pdf = FacadePdf::loadView('pdf.sinikimasPdfPkp', ["sinikimas" => $managementQuery,'structured_data' => $structured_data,'tahun' => $tahun, 'akun_puskesmas' => $akun_puskesmas]);
+                    $pdf->setPaper('A4', 'landscape');
+                    return $pdf->stream();
+                } else if ($request->export == "excel") {
+                    return Excel::download(new SinikimasExport($akun_puskesmas, $tahun, $bulan, $jenisCakupan, $jenisIndikator, $jenisSubindikator), 'Data_Laporan_Sinikimas_PKP.xlsx');
+                }
+            }
+
+        } else {
+            return redirect()->route('login')->with('error', 'Unauthenticated');
+        }
+    }
+
+    public function exportManagement(Request $request)
+    {
+        $auth = auth();
+        $responseData = $this->auth_login_sinikimas($auth);
+        if ($responseData) {
+
+            $akunPuskesmas = $request->input('akun_puskesmas');
+            $tahun = $request->input('tahun');
+            $bulan = $request->input('bulan');
+            $indikator = $request->input('jenis_indikator');
+
+            if(Auth::user()->role == 'admin puskesmas'){
+                $data = Manajemen::where(function ($query) {
+                    $query->where('akun_puskesmas', Auth::user()->name)
+                        ->orWhereNull('akun_puskesmas');
+                })->where('tahun', $tahun)->where('bulan', $bulan)->where('indikator',$indikator)->get();
+                $data = collect($data)->groupBy('akun_puskesmas');
+            }else{
+                $data = Manajemen::where(function ($query) {
+                    $query->where('akun_puskesmas', Auth::user()->name)
+                        ->orWhereNull('akun_puskesmas');
+                })
+                ->where('tahun', $tahun)
+                ->where('bulan', $bulan)
+                ->where('indikator', $indikator)
+                ->orderBy('indikator')
+                ->get();
+            }
+
+            $indikators = Manajemen::distinct()->pluck('indikator');
+            $akun_puskesmas = User::whereNotIn('id', [1, 2])->pluck('name');
+            $tahun = Manajemen::distinct()->pluck('tahun');
+            $bulan = Manajemen::distinct()->pluck('bulan');
+
+
+            if ($request->export == "pdf") {
+                $pdf = FacadePdf::loadView('pdf.managementpdf', ["data" => $data, 'indikators' => $indikators, 'akun_puskesmas' => $akun_puskesmas, 'tahun' => $tahun, 'bulan' => $bulan]);
+                $pdf->setPaper('A4', 'landscape');
+                return $pdf->stream();
+            } else if ($request->export == "excel") {
+                return Excel::download(new ManagementExport($data, $indikators, $akun_puskesmas, $tahun, $bulan), 'Data_Laporan_Manajemen.xlsx');
+            }
+
         } else {
             return redirect()->route('login')->with('error', 'Unauthenticated');
         }
